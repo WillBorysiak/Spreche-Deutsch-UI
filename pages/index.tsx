@@ -1,24 +1,24 @@
 import type { NextPage } from 'next';
-import { useStore } from '../store/store';
 
-import Content from '../components/content/Content';
-import Header from '../components/layout/Header';
-import Layout from '../components/layout/Layout';
-import Sidebar from '../components/layout/Sidebar';
+import Content from '../components/containers/Content';
+import Header from '../components/containers/Header';
+import MainLayout from '../components/layout/MainLayout';
+import Sidebar from '../components/containers/Sidebar';
 import SEO from '../components/SEO';
+import PageLayout from '../components/layout/PageLayout';
+import MobileSidebar from '../components/containers/MobileSidebar';
 
 const Home: NextPage = () => {
-	const { showSidebar, toggleSidebar } = useStore();
-
 	return (
-		<>
+		<PageLayout>
 			<SEO />
-			<Header toggleSidebar={toggleSidebar} />
-			<Layout>
-				<Sidebar showSidebar={showSidebar} />
+			<Sidebar />
+			<MainLayout>
+				<Header />
+				<MobileSidebar />
 				<Content />
-			</Layout>
-		</>
+			</MainLayout>
+		</PageLayout>
 	);
 };
 
