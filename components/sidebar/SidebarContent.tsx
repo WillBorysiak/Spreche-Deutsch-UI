@@ -2,17 +2,38 @@ import Heading from '../typography/Heading';
 
 const SidebarContent = () => {
 	return (
-		<section id="sidebar">
-			<div id="sidebar-container" className="flex flex-col items-center justify-center p-10">
-				<Heading content="Sidebar" />
+		<div id="sidebar">
+			<div id="sidebar-container" className="flex flex-col p-10">
+				<Heading content="Spreche Deutsch" />
 
-				<p className="mt-10 mb-10">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-					magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-				</p>
+				<div id="navigation-container" className="mt-10">
+					<div className="mb-5">
+						<h4>Introduction</h4>
+						<p className="mt-1 pl-5">About</p>
+					</div>
+
+					<div className="mb-5">
+						<h4>Words</h4>
+						<p className="mt-1 pl-5">Numbers</p>
+						<p className="mt-1 pl-5">Colours</p>
+						<p className="mt-1 pl-5">Family</p>
+						<p className="mt-1 pl-5">Food</p>
+						<p className="mt-1 pl-5">Places</p>
+					</div>
+
+					<div className="mb-5">
+						<h4>Sentences</h4>
+						<p className="mt-1 pl-5">Greetings</p>
+						<p className="mt-1 pl-5">Small Talk</p>
+						<p className="mt-1 pl-5">Transactions</p>
+						<p className="mt-1 pl-5">Activites</p>
+						<p className="mt-1 pl-5">Locations</p>
+						<p className="mt-1 pl-5">Weather</p>
+						<p className="mt-1 pl-5">Dining</p>
+					</div>
+				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
 

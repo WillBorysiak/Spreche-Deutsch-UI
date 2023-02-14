@@ -1,21 +1,20 @@
-import { faBars, faX } from '@fortawesome/pro-thin-svg-icons';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { useSidebarStore } from '../../store/sidebarStore';
+import SidebarToggle from '../header/SidebarToggle';
+import ThemeToggle from '../header/ThemeToggle';
 import Heading from '../typography/Heading';
 
 const Header = () => {
 	const { mobileSidebar, toggleMobileSidebar } = useSidebarStore();
 
 	return (
-		<section id="header" className="flex h-[10%] w-full items-center justify-center bg-blue-900 lg:relative">
-			<div id="header-container" className="flex flex-col">
+		<section
+			id="header"
+			className="flex h-[10%] w-full items-center justify-center bg-blue-900 transition duration-500 ease-in-out"
+		>
+			<div id="header-container" className="flex w-full flex-row items-center justify-between p-5">
+				<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />
 				<Heading content="Header" />
-				<button className="mt-1 lg:hidden" onClick={toggleMobileSidebar}>
-					{!mobileSidebar && <FontAwesomeIcon icon={faBars} size="2x" />}
-					{mobileSidebar && <FontAwesomeIcon icon={faX} size="2x" />}
-				</button>
+				<ThemeToggle />
 			</div>
 		</section>
 	);
