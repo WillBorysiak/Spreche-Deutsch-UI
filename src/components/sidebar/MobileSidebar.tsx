@@ -1,7 +1,7 @@
 import { Transition } from '@headlessui/react';
 
 import { useSidebarStore } from '../../store/sidebarStore';
-import SidebarContent from '../sidebar/SidebarContent';
+import SidebarContent from '../containers/Navigation';
 
 const MobileSidebar = () => {
 	const { mobileSidebar } = useSidebarStore();
@@ -9,7 +9,7 @@ const MobileSidebar = () => {
 	return (
 		<Transition
 			id="mobile-sidebar"
-			className="absolute z-10 h-[90%] w-screen bg-green-900 transition duration-500 ease-in-out sm:w-96 lg:relative lg:hidden"
+			className="no-scrollbar absolute z-10 h-[95%] w-screen overflow-auto bg-green-900 transition duration-500 ease-in-out sm:w-96 lg:relative lg:hidden"
 			show={mobileSidebar}
 			enter="transition ease-in-out duration-500 transform"
 			enterFrom="-translate-x-full"

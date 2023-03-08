@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+import { faMoon, faSun } from '@fortawesome/pro-thin-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/pro-thin-svg-icons';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
 	const [mounted, setMounted] = useState(false);
 	const { theme, setTheme } = useTheme();
 
-	// hydrates theme state on the client
+	// hydration fix
 	useEffect(() => {
 		setMounted(true);
 	}, []);

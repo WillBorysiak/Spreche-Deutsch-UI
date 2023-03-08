@@ -1,11 +1,11 @@
-import { Montserrat } from '@next/font/google';
+import { Rosario } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/globals.css';
 
-const montserrat = Montserrat({
+const montserrat = Rosario({
 	subsets: ['latin'],
 	weight: ['300', '400', '700'],
 });
