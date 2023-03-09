@@ -9,7 +9,7 @@ const Header = () => {
 	return (
 		<section
 			id="header"
-			className="flex h-[5%] w-full items-center justify-center bg-blue-900 transition duration-500 ease-in-out"
+			className="light-background dark:dark-background flex h-[5%] w-full items-center justify-center"
 		>
 			<div id="header-container" className="flex w-full flex-row items-center justify-between p-5">
 				<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />

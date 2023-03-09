@@ -9,12 +9,12 @@ const MobileSidebar = () => {
 	return (
 		<Transition
 			id="mobile-sidebar"
-			className="no-scrollbar absolute z-10 h-[95%] w-screen overflow-auto bg-green-900 transition duration-500 ease-in-out sm:w-96 lg:relative lg:hidden"
+			className="no-scrollbar light-background dark:dark-background absolute z-10 h-[95%] w-screen overflow-y-auto sm:w-96 lg:relative lg:hidden"
 			show={mobileSidebar}
-			enter="transition ease-in-out duration-500 transform"
+			enter="default-transition transform"
 			enterFrom="-translate-x-full"
 			enterTo="translate-x-0"
-			leave="transition ease-in-out duration-500 transform"
+			leave="default-transition transform"
 			leaveFrom="translate-x-0"
 			leaveTo="-translate-x-full"
 		>

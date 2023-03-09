@@ -16,3 +16,15 @@
 		scrollbar-width: none; /* Firefox */
 	}
 }
+
+@layer components {
+	.dark-background {
+		@apply bg-gradient-to-br from-zinc-900 to-black;
+	}
+	.light-background {
+		@apply bg-gradient-to-br from-gray-200 to-gray-100;
+	}
+	.default-transition {
+		@apply transition duration-500 ease-in-out;
+	}
+}

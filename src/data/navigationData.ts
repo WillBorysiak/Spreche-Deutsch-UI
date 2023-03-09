@@ -1,24 +1,46 @@
-export interface NavigationData {
-	title: string;
-	items: string[];
-}
+import { WordsCategoryEnum } from '../enums/WordsCategoryEnum';
+import { SentencesCategoryEnum } from '../enums/SentenceCategoryEnum';
+import { NavigationData } from '../interfaces/NavigationData';
+import { IntroductionCategoryEnum } from '../enums/IntroductionCategoryEnum';
+import { GrammarCategoryEnum } from '../enums/GrammarCategoryEnum';
 
 export const introduction: NavigationData = {
 	title: 'Introduction',
-	items: ['Welcome', 'About', 'Resources'],
+	items: [
+		{ id: IntroductionCategoryEnum.Welcome, text: 'Welcome' },
+		{ id: IntroductionCategoryEnum.About, text: 'About' },
+		{ id: IntroductionCategoryEnum.Resources, text: 'Resources' },
+	],
 };
 
 export const words: NavigationData = {
 	title: 'Words',
-	items: ['General', 'Numbers', 'Colours', 'Family', 'Food', 'Places'],
+	items: [
+		{ id: WordsCategoryEnum.General, text: 'General' },
+		{ id: WordsCategoryEnum.Numbers, text: 'Numbers' },
+		{ id: WordsCategoryEnum.Colours, text: 'Colours' },
+		{ id: WordsCategoryEnum.Family, text: 'Family' },
+		{ id: WordsCategoryEnum.Food, text: 'Food' },
+		{ id: WordsCategoryEnum.Places, text: 'Places' },
+	],
 };
 
 export const sentences: NavigationData = {
 	title: 'Sentences',
-	items: ['General', 'Activities', 'Work', 'Weather'],
+	items: [
+		{ id: WordsCategoryEnum.General, text: 'General' },
+		{ id: SentencesCategoryEnum.Activities, text: 'Activites' },
+		{ id: SentencesCategoryEnum.Work, text: 'Work' },
+		{ id: SentencesCategoryEnum.Weather, text: 'Weather' },
+	],
 };
 
 export const grammar: NavigationData = {
 	title: 'Grammar',
-	items: ['Top Tips', 'Structure', 'Tenses', 'Cases'],
+	items: [
+		{ id: GrammarCategoryEnum.TopTips, text: 'Top Tips' },
+		{ id: GrammarCategoryEnum.Structure, text: 'Structure' },
+		{ id: GrammarCategoryEnum.Tenses, text: 'Tenses' },
+		{ id: GrammarCategoryEnum.Cases, text: 'Cases' },
+	],
 };
