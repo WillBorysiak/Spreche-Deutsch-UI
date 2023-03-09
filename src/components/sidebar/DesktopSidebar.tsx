@@ -1,4 +1,4 @@
-import SidebarContent from '../containers/Navigation';
+import Navigation from '../containers/Navigation';
 
 const DesktopSidebar = () => {
 	return (
@@ -6,7 +6,7 @@ const DesktopSidebar = () => {
 			id="desktop-sidebar"
 			className="no-scrollbar light-background dark:dark-background hidden h-screen w-screen overflow-y-auto sm:w-96 lg:relative lg:block lg:w-[400px]"
 		>
-			<SidebarContent />
+			<Navigation />
 		</section>
 	);
 };

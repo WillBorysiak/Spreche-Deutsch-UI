@@ -7,9 +7,9 @@ import { GrammarCategoryEnum } from '../enums/GrammarCategoryEnum';
 export const introduction: NavigationData = {
 	title: 'Introduction',
 	items: [
-		{ id: IntroductionCategoryEnum.Welcome, text: 'Welcome' },
-		{ id: IntroductionCategoryEnum.About, text: 'About' },
-		{ id: IntroductionCategoryEnum.Resources, text: 'Resources' },
+		{ id: IntroductionCategoryEnum.What, text: 'What is Spreche Deutsch' },
+		{ id: IntroductionCategoryEnum.About, text: 'About the Creator' },
+		{ id: IntroductionCategoryEnum.Resources, text: 'More Resources' },
 	],
 };
 

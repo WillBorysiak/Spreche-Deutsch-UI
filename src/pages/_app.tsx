@@ -1,20 +1,37 @@
-import { Rosario } from 'next/font/google';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
+import { Rosario } from 'next/font/google';
 
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import Content from '../components/containers/Content';
+import Header from '../components/containers/Header';
+import MainLayout from '../components/layout/MainLayout';
+import PageLayout from '../components/layout/PageLayout';
+import SEO from '../components/SEO';
+import DesktopSidebar from '../components/sidebar/DesktopSidebar';
+import MobileSidebar from '../components/sidebar/MobileSidebar';
 import '../styles/globals.css';
 
-const montserrat = Rosario({
+const rosario = Rosario({
 	subsets: ['latin'],
 	weight: ['300', '400', '700'],
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<main className={montserrat.className}>
+		<main className={rosario.className}>
 			<ThemeProvider enableSystem={true} attribute="class">
-				<Component {...pageProps} />
+				<PageLayout>
+					<SEO />
+					<DesktopSidebar />
+					<MainLayout>
+						<Header />
+						<MobileSidebar />
+						<Content>
+							<Component {...pageProps} />
+						</Content>
+					</MainLayout>
+				</PageLayout>
 			</ThemeProvider>
 		</main>
 	);

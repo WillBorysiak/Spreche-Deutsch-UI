@@ -1,5 +1,5 @@
 export enum IntroductionCategoryEnum {
-	Welcome = 1,
+	What = 1,
 	About = 2,
 	Resources = 3,
 }

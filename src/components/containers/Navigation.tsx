@@ -5,9 +5,11 @@ import NavigationItem from '../navigation/NavigationItem';
 const Navigation = () => {
 	return (
 		<div id="navigation" className="flex flex-col p-10">
-			<Heading text="Spreche Deutsch" />
+			<span className="hidden lg:block">
+				<Heading text="Spreche Deutsch" />
+			</span>
 
-			<div id="navigation-container" className="mt-10">
+			<div id="navigation-container" className="lg:mt-10">
 				<NavigationItem data={navData.introduction} />
 				<NavigationItem data={navData.words} />
 				<NavigationItem data={navData.sentences} />

@@ -1,7 +1,7 @@
 import { Transition } from '@headlessui/react';
 
 import { useSidebarStore } from '../../store/sidebarStore';
-import SidebarContent from '../containers/Navigation';
+import Navigation from '../containers/Navigation';
 
 const MobileSidebar = () => {
 	const { mobileSidebar } = useSidebarStore();
@@ -18,7 +18,7 @@ const MobileSidebar = () => {
 			leaveFrom="translate-x-0"
 			leaveTo="-translate-x-full"
 		>
-			<SidebarContent />
+			<Navigation />
 		</Transition>
 	);
 };

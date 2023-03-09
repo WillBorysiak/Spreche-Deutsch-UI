@@ -10,7 +10,7 @@ const SidebarToggle = (props: { sidebarProps: SidebarProps }) => {
 	const { mobileSidebar, toggleMobileSidebar } = props.sidebarProps;
 
 	return (
-		<button className="lg:hidden" onClick={toggleMobileSidebar}>
+		<button className="mr-5 sm:mr-10" onClick={toggleMobileSidebar}>
 			{!mobileSidebar && <FontAwesomeIcon icon={faBars} size="2x" />}
 			{mobileSidebar && <FontAwesomeIcon icon={faX} size="2x" />}
 		</button>

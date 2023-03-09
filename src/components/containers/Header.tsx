@@ -1,19 +1,14 @@
-import { useSidebarStore } from '../../store/sidebarStore';
-import SidebarToggle from '../header/SidebarToggle';
+import Image from 'next/image';
+
+import MobileHeader from '../header/MobileHeader';
 import ThemeToggle from '../header/ThemeToggle';
-import Heading from '../typography/Heading';
 
 const Header = () => {
-	const { mobileSidebar, toggleMobileSidebar } = useSidebarStore();
-
 	return (
-		<section
-			id="header"
-			className="light-background dark:dark-background flex h-[5%] w-full items-center justify-center"
-		>
-			<div id="header-container" className="flex w-full flex-row items-center justify-between p-5">
-				<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />
-				<Heading text="Header" />
+		<section id="header" className="light-background dark:dark-background flex h-[5%] w-full items-center px-3">
+			<div className="flex w-full flex-row items-center justify-between">
+				<Image className="hidden lg:block" src="/images/german-flag.svg" alt="The German flag" height={65} width={65} />
+				<MobileHeader />
 				<ThemeToggle />
 			</div>
 		</section>

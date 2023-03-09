@@ -1,4 +1,4 @@
-import { faMoon, faSun } from '@fortawesome/pro-thin-svg-icons';
+import { faMoon, faSunBright } from '@fortawesome/pro-thin-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -16,9 +16,9 @@ const ThemeToggle = () => {
 	}
 
 	return (
-		<div id="theme-toggle">
-			{theme === 'dark' && <FontAwesomeIcon icon={faSun} size="2x" onClick={() => setTheme('light')} />}
-			{theme === 'light' && <FontAwesomeIcon icon={faMoon} size="2x" onClick={() => setTheme('dark')} />}
+		<div id="theme-toggle" className="cursor-pointer hover:scale-105">
+			{theme === 'dark' && <FontAwesomeIcon icon={faSunBright} size="1x" onClick={() => setTheme('light')} />}
+			{theme === 'light' && <FontAwesomeIcon icon={faMoon} size="1x" onClick={() => setTheme('dark')} />}
 		</div>
 	);
 };

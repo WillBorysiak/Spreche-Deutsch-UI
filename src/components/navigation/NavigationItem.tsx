@@ -10,7 +10,7 @@ const NavigationItem = (props: { data: NavigationData }) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	return (
-		<div id="intro-nav" className="mt-10">
+		<div id="intro-nav" className="mb-10">
 			<div className="default-transition w-fit cursor-pointer hover:scale-105" onClick={() => setIsVisible(!isVisible)}>
 				<SubHeading text={title} />
 			</div>
