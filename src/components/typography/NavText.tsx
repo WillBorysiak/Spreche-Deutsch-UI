@@ -1,5 +1,5 @@
 const NavText = (props: { text: string }) => {
-	return <h2 className="text-1xl font-bold">{props.text}</h2>;
+	return <li className="text-1xl">{props.text}</li>;
 };
 
 export default NavText;

@@ -1,5 +1,5 @@
 const Heading = (props: { text: string }) => {
-	return <h1 className="text-2xl sm:text-4xl">{props.text}</h1>;
+	return <h3 className="text-3xl sm:text-5xl">{props.text}</h3>;
 };
 
 export default Heading;
