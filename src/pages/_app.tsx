@@ -8,8 +8,8 @@ import Header from '../components/containers/Header';
 import MainLayout from '../components/layout/MainLayout';
 import PageLayout from '../components/layout/PageLayout';
 import SEO from '../components/SEO';
-import DesktopSidebar from '../components/sidebar/DesktopSidebar';
-import MobileSidebar from '../components/sidebar/MobileSidebar';
+import DesktopSidebar from '../components/navigation/DesktopSidebar';
+import MobileSidebar from '../components/navigation/MobileSidebar';
 import '../styles/globals.css';
 
 const rosario = Rosario({

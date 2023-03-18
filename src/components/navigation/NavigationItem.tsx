@@ -2,8 +2,8 @@ import { Transition } from '@headlessui/react';
 import { useState } from 'react';
 
 import { NavigationData } from '../../interfaces/NavigationData';
-import NavText from '../typography/NavText';
-import SubHeading from '../typography/SubHeading';
+import NavText from '../generic/typography/NavText';
+import SubHeading from '../generic/typography/SubHeading';
 
 const NavigationItem = (props: { data: NavigationData }) => {
 	const { title, items } = props.data;

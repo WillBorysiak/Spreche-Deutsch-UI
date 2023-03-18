@@ -1,5 +1,5 @@
 import * as navData from '../../data/navigationData';
-import Heading from '../typography/Heading';
+import Heading from '../generic/typography/Heading';
 import NavigationItem from '../navigation/NavigationItem';
 
 const Navigation = () => {

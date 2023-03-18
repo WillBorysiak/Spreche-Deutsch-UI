@@ -1,5 +1,5 @@
 import SidebarToggle from '../header/SidebarToggle';
-import Heading from '../typography/Heading';
+import Heading from '../generic/typography/Heading';
 import { useSidebarStore } from '../../store/sidebarStore';
 
 const MobileHeader = () => {

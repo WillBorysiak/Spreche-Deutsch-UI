@@ -1,7 +1,7 @@
 import { Transition } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 
-import Greeting from '../../typography/Greeting';
+import Greeting from '../../generic/typography/Greeting';
 
 const greetings = ['Morgen', 'Tag', 'Abend'];
 
