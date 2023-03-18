@@ -5,7 +5,10 @@ import ThemeToggle from '../header/ThemeToggle';
 
 const Header = () => {
 	return (
-		<section id="header" className="light-background dark:dark-background flex h-[5%] w-full items-center px-3">
+		<section
+			id="header"
+			className="light-background dark:dark-background flex h-[7.5%] w-full items-center px-3 sm:h-[5%]"
+		>
 			<div className="flex w-full flex-row items-center justify-between">
 				<Image className="hidden lg:block" src="/images/german-flag.svg" alt="The German flag" height={65} width={65} />
 				<MobileHeader />

@@ -6,7 +6,7 @@ const PrimaryButton = (props: { text: string }) => {
 	return (
 		<button
 			type="button"
-			className="rounded-sm bg-white/10 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-white/20"
+			className="rounded-sm bg-yellow-600 py-2 px-3 text-lg font-semibold shadow-sm hover:bg-yellow-500"
 		>
 			{text}
 		</button>

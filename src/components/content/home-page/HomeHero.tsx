@@ -1,4 +1,5 @@
 import PrimaryButton from '../../generic/buttons/PrimaryButton';
+import SecondaryButton from '../../generic/buttons/SecondaryButton';
 import Paragraph from '../../generic/typography/Paragraph';
 import SubHeading from '../../generic/typography/SubHeading';
 
@@ -11,8 +12,9 @@ const HomeHero = () => {
 					<Paragraph text="Spreche Deutsch is designed to help you learn more about the German language." />
 					<Paragraph text="Ranging from words, sentences, grammar and more..." />
 				</div>
-				<div className="mt-5">
+				<div className="mt-5 flex justify-evenly">
 					<PrimaryButton text="Start learning" />
+					<SecondaryButton text="More info" />
 				</div>
 			</div>
 		</div>
