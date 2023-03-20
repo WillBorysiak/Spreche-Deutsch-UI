@@ -1,9 +1,16 @@
+import { useRouter } from 'next/router';
+
 import PrimaryButton from '../../generic/buttons/PrimaryButton';
 import SecondaryButton from '../../generic/buttons/SecondaryButton';
 import Paragraph from '../../generic/typography/Paragraph';
 import SubHeading from '../../generic/typography/SubHeading';
 
 const HomeHero = () => {
+	const router = useRouter();
+
+	const learnClick = () => router.push('/words');
+	const infoClick = () => router.push('/introduction');
+
 	return (
 		<div className="py-5 px-6 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-3xl text-center">
@@ -13,8 +20,8 @@ const HomeHero = () => {
 					<Paragraph text="Ranging from words, sentences, grammar and more..." />
 				</div>
 				<div className="mt-5 flex justify-evenly">
-					<PrimaryButton text="Start learning" />
-					<SecondaryButton text="More info" />
+					<PrimaryButton text="Start learning" onClick={learnClick} />
+					<SecondaryButton text="More info" onClick={infoClick} />
 				</div>
 			</div>
 		</div>
