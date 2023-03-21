@@ -1,5 +1,6 @@
 import { faBars, faX } from '@fortawesome/pro-thin-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Transition } from '@headlessui/react';
 
 interface SidebarProps {
 	mobileSidebar: boolean;
@@ -10,9 +11,32 @@ const SidebarToggle = (props: { sidebarProps: SidebarProps }) => {
 	const { mobileSidebar, toggleMobileSidebar } = props.sidebarProps;
 
 	return (
-		<button className="mr-5 sm:mr-10" onClick={toggleMobileSidebar}>
-			{!mobileSidebar && <FontAwesomeIcon icon={faBars} size="2x" />}
-			{mobileSidebar && <FontAwesomeIcon icon={faX} size="2x" />}
+		<button className="mr-7 flex items-center justify-start lg:hidden" onClick={toggleMobileSidebar}>
+			<Transition
+				className="absolute"
+				show={!mobileSidebar}
+				enter="default-transition"
+				enterFrom="opacity-0"
+				enterTo="opacity-100"
+				leave="default-transition"
+				leaveFrom="opacity-100"
+				leaveTo="opacity-0"
+			>
+				<FontAwesomeIcon icon={faBars} size="2x" />
+			</Transition>
+
+			<Transition
+				className="absolute duration-1000 "
+				show={mobileSidebar}
+				enter="default-transition"
+				enterFrom="opacity-0"
+				enterTo="opacity-100"
+				leave="default-transition"
+				leaveFrom="opacity-100"
+				leaveTo="opacity-0"
+			>
+				<FontAwesomeIcon icon={faX} size="2x" />
+			</Transition>
 		</button>
 	);
 };

@@ -6,6 +6,7 @@ import { GrammarCategoryEnum } from '../enums/GrammarCategoryEnum';
 
 export const introduction: NavigationData = {
 	title: 'Introduction',
+	route: '/introduction',
 	items: [
 		{ id: IntroductionCategoryEnum.What, text: 'What Is Spreche Deutsch' },
 		{ id: IntroductionCategoryEnum.About, text: 'Why This Site Was Made' },
@@ -15,6 +16,7 @@ export const introduction: NavigationData = {
 
 export const words: NavigationData = {
 	title: 'Words',
+	route: '/words',
 	items: [
 		{ id: WordsCategoryEnum.General, text: 'General' },
 		{ id: WordsCategoryEnum.Numbers, text: 'Numbers' },
@@ -27,6 +29,7 @@ export const words: NavigationData = {
 
 export const sentences: NavigationData = {
 	title: 'Sentences',
+	route: '/sentences',
 	items: [
 		{ id: WordsCategoryEnum.General, text: 'General' },
 		{ id: SentencesCategoryEnum.Activities, text: 'Activites' },
@@ -37,6 +40,7 @@ export const sentences: NavigationData = {
 
 export const grammar: NavigationData = {
 	title: 'Grammar',
+	route: '/grammar',
 	items: [
 		{ id: GrammarCategoryEnum.TopTips, text: 'Top Tips' },
 		{ id: GrammarCategoryEnum.Structure, text: 'Structure' },
