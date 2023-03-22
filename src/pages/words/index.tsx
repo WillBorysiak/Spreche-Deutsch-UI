@@ -4,7 +4,7 @@ import Heading from '../../components/generic/typography/Heading';
 
 const Words: NextPage = () => {
 	return (
-		<section id="words-page" className="h-fit">
+		<section id="words-page">
 			<Heading text="Words" />
 		</section>
 	);

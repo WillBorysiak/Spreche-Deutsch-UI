@@ -2,12 +2,12 @@ import { Transition } from '@headlessui/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { NavigationData } from '../../interfaces/NavigationData';
+import { PageData } from '../../interfaces/PageData';
 import { useSidebarStore } from '../../store/sidebarStore';
 import NavText from '../generic/typography/NavText';
 import SubHeading from '../generic/typography/SubHeading';
 
-const NavigationItem = (props: { data: NavigationData }) => {
+const NavigationItem = (props: { data: PageData }) => {
 	const { title, route, items } = props.data;
 
 	const [isVisible, setIsVisible] = useState(false);
@@ -22,7 +22,7 @@ const NavigationItem = (props: { data: NavigationData }) => {
 				className="default-transition w-fit cursor-pointer hover:scale-105"
 				onClick={() => {
 					if (router.route !== route || !isVisible) setIsVisible(true);
-					router.push(route);
+					router.push(`/${route}`);
 				}}
 			>
 				<SubHeading text={title} />
@@ -41,6 +41,7 @@ const NavigationItem = (props: { data: NavigationData }) => {
 						className="mt-3 ml-3 w-fit cursor-pointer transition ease-linear hover:underline"
 						onClick={() => {
 							closeMobileSidebar();
+							router.push(`/${route}/${item.route}`);
 						}}
 					>
 						<NavText text={item.text} />

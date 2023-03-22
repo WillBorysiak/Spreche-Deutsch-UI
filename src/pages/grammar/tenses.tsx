@@ -2,12 +2,12 @@ import type { NextPage } from 'next';
 
 import Heading from '../../components/generic/typography/Heading';
 
-const Grammar: NextPage = () => {
+const Tenses: NextPage = () => {
 	return (
-		<section id="grammar-page">
-			<Heading text="Grammar" />
+		<section id="tenses-page">
+			<Heading text="Tenses" />
 		</section>
 	);
 };
 
-export default Grammar;
+export default Tenses;
