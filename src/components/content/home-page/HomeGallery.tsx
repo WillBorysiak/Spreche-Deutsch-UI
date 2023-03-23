@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const HomeGallery = () => {
 	return (
-		<section className="overflow-hidden">
+		<section id="home-gallery" className="overflow-hidden">
 			<div className="container mx-auto px-5 py-2 pt-5 lg:px-12">
 				<div className="-m-1 flex flex-wrap md:-m-2">
 					<div className="flex w-1/2 flex-wrap">

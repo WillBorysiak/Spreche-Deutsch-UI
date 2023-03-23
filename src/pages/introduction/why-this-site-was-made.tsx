@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import Heading from '../../components/generic/typography/Heading';
+import PageHeading from '../../components/generic/typography/PageHeading';
 
 const WhyThisSiteWasMade: NextPage = () => {
 	return (
 		<section id="why-page">
-			<Heading text="Why This Site Was Made" />
+			<PageHeading text="Why This Site Was Made" />
 		</section>
 	);
 };

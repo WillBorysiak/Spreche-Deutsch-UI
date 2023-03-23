@@ -1,10 +1,10 @@
 import { WordsCategoryEnum } from '../enums/WordsCategoryEnum';
 import { SentencesCategoryEnum } from '../enums/SentenceCategoryEnum';
-import { PageData } from '../interfaces/PageData';
+import { Categories } from '../interfaces/Categories';
 import { IntroductionCategoryEnum } from '../enums/IntroductionCategoryEnum';
 import { GrammarCategoryEnum } from '../enums/GrammarCategoryEnum';
 
-export const introduction: PageData = {
+export const introduction: Categories = {
 	title: 'Introduction',
 	route: 'introduction',
 	items: [
@@ -14,31 +14,31 @@ export const introduction: PageData = {
 	],
 };
 
-export const words: PageData = {
+export const words: Categories = {
 	title: 'Words',
 	route: 'words',
 	items: [
-		{ id: WordsCategoryEnum.General, text: 'General', route: 'general' },
-		{ id: WordsCategoryEnum.Numbers, text: 'Numbers', route: 'numbers' },
-		{ id: WordsCategoryEnum.Colours, text: 'Colours', route: 'colours' },
-		{ id: WordsCategoryEnum.Family, text: 'Family', route: 'family' },
-		{ id: WordsCategoryEnum.Food, text: 'Food', route: 'food' },
-		{ id: WordsCategoryEnum.Places, text: 'Places', route: 'places' },
+		{ id: WordsCategoryEnum.General, text: 'General', route: 'general', url: '/words/general' },
+		{ id: WordsCategoryEnum.Numbers, text: 'Numbers', route: 'numbers', url: '/words/numbers' },
+		{ id: WordsCategoryEnum.Colours, text: 'Colours', route: 'colours', url: '/words/colours' },
+		{ id: WordsCategoryEnum.Family, text: 'Family', route: 'family', url: '/words/family' },
+		{ id: WordsCategoryEnum.Food, text: 'Food', route: 'food', url: '/words/food' },
+		{ id: WordsCategoryEnum.Places, text: 'Places', route: 'places', url: '/words/places' },
 	],
 };
 
-export const sentences: PageData = {
+export const sentences: Categories = {
 	title: 'Sentences',
 	route: 'sentences',
 	items: [
-		{ id: WordsCategoryEnum.General, text: 'General', route: 'general' },
-		{ id: SentencesCategoryEnum.Activities, text: 'Activites', route: 'activities' },
-		{ id: SentencesCategoryEnum.Work, text: 'Work', route: 'work' },
-		{ id: SentencesCategoryEnum.Weather, text: 'Weather', route: 'weather' },
+		{ id: WordsCategoryEnum.General, text: 'General', route: 'general', url: '/sentences/general' },
+		{ id: SentencesCategoryEnum.Activities, text: 'Activites', route: 'activities', url: '/sentences/activities' },
+		{ id: SentencesCategoryEnum.Work, text: 'Work', route: 'work', url: '/sentences/work' },
+		{ id: SentencesCategoryEnum.Weather, text: 'Weather', route: 'weather', url: '/sentences/weather' },
 	],
 };
 
-export const grammar: PageData = {
+export const grammar: Categories = {
 	title: 'Grammar',
 	route: 'grammar',
 	items: [

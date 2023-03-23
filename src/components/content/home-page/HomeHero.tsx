@@ -12,7 +12,7 @@ const HomeHero = () => {
 	const infoClick = () => router.push('/introduction');
 
 	return (
-		<div className="py-5 px-6 sm:px-6 lg:px-8">
+		<section id="home-hero" className="py-5 px-6 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-3xl text-center">
 				<SubHeading text="Welcome to your German learning resource!" />
 				<div className="mt-5">
@@ -24,7 +24,7 @@ const HomeHero = () => {
 					<SecondaryButton text="More info" onClick={infoClick} />
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

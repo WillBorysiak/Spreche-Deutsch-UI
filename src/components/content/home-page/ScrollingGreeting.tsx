@@ -21,7 +21,7 @@ const ScrollingGreeting = () => {
 	}, [count]);
 
 	return (
-		<div className="relative ml-3">
+		<div id="scrolling-greeting" className="relative ml-3">
 			<Transition
 				show={greeting === 'Morgen'}
 				className="absolute text-green-400 duration-1000 ease-in-out"

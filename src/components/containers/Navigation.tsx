@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import * as nav from '../../data/pageData';
-import Heading from '../generic/typography/Heading';
+import Title from '../generic/typography/Title';
 import NavigationItem from '../navigation/NavigationItem';
 
 const Navigation = () => {
@@ -10,7 +10,7 @@ const Navigation = () => {
 	return (
 		<div id="navigation" className="flex flex-col p-10">
 			<span className="hidden cursor-pointer lg:block" onClick={() => router.push('/')}>
-				<Heading text="Spreche Deutsch" />
+				<Title text="Spreche Deutsch" />
 			</span>
 
 			<div id="navigation-container" className="lg:mt-10">

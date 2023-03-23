@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import Heading from '../../components/generic/typography/Heading';
+import PageHeading from '../../components/generic/typography/PageHeading';
 
 const Tenses: NextPage = () => {
 	return (
 		<section id="tenses-page">
-			<Heading text="Tenses" />
+			<PageHeading text="Tenses" />
 		</section>
 	);
 };

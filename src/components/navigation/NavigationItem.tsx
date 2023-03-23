@@ -2,12 +2,12 @@ import { Transition } from '@headlessui/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import { PageData } from '../../interfaces/PageData';
+import { Categories } from '../../interfaces/Categories';
 import { useSidebarStore } from '../../store/sidebarStore';
 import NavText from '../generic/typography/NavText';
 import SubHeading from '../generic/typography/SubHeading';
 
-const NavigationItem = (props: { data: PageData }) => {
+const NavigationItem = (props: { data: Categories }) => {
 	const { title, route, items } = props.data;
 
 	const [isVisible, setIsVisible] = useState(false);

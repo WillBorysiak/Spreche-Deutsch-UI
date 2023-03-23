@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import Heading from '../../components/generic/typography/Heading';
+import PageHeading from '../../components/generic/typography/PageHeading';
 
 const TopTips: NextPage = () => {
 	return (
 		<section id="top-tips-page">
-			<Heading text="Top Tips" />
+			<PageHeading text="Top Tips" />
 		</section>
 	);
 };

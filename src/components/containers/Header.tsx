@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { useSidebarStore } from '../../store/sidebarStore';
-import Heading from '../generic/typography/Heading';
+import Title from '../generic/typography/Title';
 import SidebarToggle from '../header/SidebarToggle';
 import ThemeToggle from '../header/ThemeToggle';
 
@@ -23,7 +23,7 @@ const Header = () => {
 				<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />
 				<div className="flex lg:hidden">
 					<span onClick={() => router.push('/')}>
-						<Heading text="Spreche Deutsch" />
+						<Title text="Spreche Deutsch" />
 					</span>
 					<Image className="ml-3" src="/images/german-flag.svg" alt="The German flag" height={50} width={50} />
 				</div>
