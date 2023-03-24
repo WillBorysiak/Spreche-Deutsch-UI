@@ -1,13 +1,20 @@
-import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
 import { CategoryItem } from '../../../interfaces/Categories';
 import SubHeading from '../../generic/typography/SubHeading';
 
-const Category = (props: { key: number; data: CategoryItem }) => {
-	const { text } = props.data;
+const Category = (props: { key: number; data: CategoryItem; parentRoute: string }) => {
+	const { text, route } = props.data;
+	const parentRoute = props.parentRoute;
+
+	const router = useRouter();
 
 	return (
-		<article className="relative mx-auto my-5 flex h-fit w-[350px] max-w-7xl flex-row items-center rounded-sm bg-transparentBg xl:w-[400px]">
+		<article
+			className="relative mx-auto my-5 flex h-fit w-[350px] max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg xl:w-[400px]"
+			onClick={() => router.push(`/${parentRoute}/${route}`)}
+		>
 			<Image
 				width={200}
 				height={200}

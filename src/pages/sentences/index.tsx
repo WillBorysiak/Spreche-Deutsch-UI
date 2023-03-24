@@ -12,7 +12,7 @@ const Sentences: NextPage = () => {
 			<div className="mt-5 text-center">
 				<PageHeading text="Sentences" />
 				<div id="category-container" className="mt-5">
-					<CategoryLayout data={sentencesData} />
+					<CategoryLayout data={sentencesData} parentRoute={sentences.route} />
 				</div>
 			</div>
 		</section>
