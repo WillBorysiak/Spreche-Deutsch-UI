@@ -1,4 +1,8 @@
-export default async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
-	const res = await fetch(input, init);
-	return res.json();
+import axios from 'axios';
+
+import { Word } from '../interfaces/Word';
+
+export async function fetcher(url: string): Promise<Word[]> {
+	const response = await axios.get<Word[]>(url);
+	return response.data;
 }

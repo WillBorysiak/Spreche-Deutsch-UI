@@ -32,7 +32,7 @@ export const sentences: Categories = {
 	route: 'sentences',
 	items: [
 		{ id: WordsCategoryEnum.General, text: 'General', route: 'general', url: '/sentences/general' },
-		{ id: SentencesCategoryEnum.Activities, text: 'Activites', route: 'activities', url: '/sentences/activities' },
+		{ id: SentencesCategoryEnum.Activities, text: 'Activities', route: 'activities', url: '/sentences/activities' },
 		{ id: SentencesCategoryEnum.Work, text: 'Work', route: 'work', url: '/sentences/work' },
 		{ id: SentencesCategoryEnum.Weather, text: 'Weather', route: 'weather', url: '/sentences/weather' },
 	],

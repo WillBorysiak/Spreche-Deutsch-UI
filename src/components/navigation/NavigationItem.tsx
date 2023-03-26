@@ -1,6 +1,6 @@
 import { Transition } from '@headlessui/react';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Categories } from '../../interfaces/Categories';
 import { useSidebarStore } from '../../store/sidebarStore';
@@ -15,6 +15,11 @@ const NavigationItem = (props: { data: Categories }) => {
 	const { closeMobileSidebar } = useSidebarStore();
 
 	const router = useRouter();
+
+	useEffect(() => {
+		const baseUrl = router.asPath.split('/')[1];
+		if (baseUrl === route) setIsVisible(true);
+	}, [router.asPath, route]);
 
 	return (
 		<div id="navigation-item" className="mb-10">
