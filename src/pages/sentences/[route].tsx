@@ -4,17 +4,18 @@ import { useEffect, useState } from 'react';
 
 import PageHeading from '../../components/generic/typography/PageHeading';
 import { sentences } from '../../data/pageData';
-import { CategoryItem } from '../../interfaces/Categories';
+import { Category } from '../../interfaces/Categories';
 
 const SentencesCategory: NextPage = () => {
-	const [currentCategory, setCurrentCategory] = useState<CategoryItem>();
+	const [currentCategory, setCurrentCategory] = useState<Category>();
 
 	const router = useRouter();
 
 	useEffect(() => {
-		const category = sentences.items.filter(item => item.url === router.asPath);
-		setCurrentCategory(category[0]);
-	}, [router.asPath]);
+		const currentPath = router.asPath;
+		const category = sentences.items.find(category => category.url === currentPath);
+		setCurrentCategory(category);
+	}, [router]);
 
 	return (
 		<section id="sentences-category-page">
