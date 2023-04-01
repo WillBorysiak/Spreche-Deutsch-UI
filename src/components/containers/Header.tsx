@@ -7,14 +7,14 @@ import SidebarToggle from '../header/SidebarToggle';
 import ThemeToggle from '../header/ThemeToggle';
 
 const Header = () => {
-	const { mobileSidebar, toggleMobileSidebar } = useSidebarStore();
+	const { mobileSidebar, closeMobileSidebar, toggleMobileSidebar } = useSidebarStore();
 
 	const router = useRouter();
 
 	return (
 		<section
 			id="header"
-			className="light-background dark:dark-background flex h-[7.5%] w-full items-center px-3 sm:h-[5%]"
+			className="light-background dark:dark-background flex w-full items-center px-3 py-5 lg:h-[5%] lg:py-0"
 		>
 			<div id="header-container" className="flex w-full flex-row items-center justify-between">
 				<Image className="hidden lg:block" src="/images/german-flag.svg" alt="The German flag" height={65} width={65} />
@@ -22,7 +22,12 @@ const Header = () => {
 				{/* mobile */}
 				<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />
 				<div className="flex lg:hidden">
-					<span onClick={() => router.push('/')}>
+					<span
+						onClick={() => {
+							closeMobileSidebar();
+							router.push('/');
+						}}
+					>
 						<Title text="Spreche Deutsch" />
 					</span>
 					<Image className="ml-3" src="/images/german-flag.svg" alt="The German flag" height={50} width={50} />

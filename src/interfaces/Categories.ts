@@ -1,10 +1,10 @@
 export interface Categories {
 	title: string;
 	route: string;
-	items: CategoryItem[];
+	items: Category[];
 }
 
-export interface CategoryItem {
+export interface Category {
 	id: number;
 	text: string;
 	route: string;

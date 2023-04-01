@@ -12,7 +12,7 @@ const NavigationItem = (props: { data: Categories }) => {
 
 	const [isVisible, setIsVisible] = useState(false);
 
-	const { closeMobileSidebar } = useSidebarStore();
+	const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
 	const router = useRouter();
 
@@ -21,12 +21,16 @@ const NavigationItem = (props: { data: Categories }) => {
 		if (baseUrl === route) setIsVisible(true);
 	}, [router.asPath, route]);
 
+	useEffect(() => {
+		if (mobileSidebar) setIsVisible(true);
+	}, [mobileSidebar]);
+
 	return (
 		<div id="navigation-item" className="mb-10">
 			<div
 				className="default-transition w-fit cursor-pointer hover:scale-105"
 				onClick={() => {
-					if (router.route !== route || !isVisible) setIsVisible(true);
+					closeMobileSidebar();
 					router.push(`/${route}`);
 				}}
 			>

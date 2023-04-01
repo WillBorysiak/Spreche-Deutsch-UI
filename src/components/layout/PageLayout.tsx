@@ -3,7 +3,11 @@ interface LayoutPropTypes {
 }
 
 const PageLayout = (props: LayoutPropTypes) => {
-	return <div className="flex h-screen w-screen flex-col lg:flex-row">{props.children}</div>;
+	return (
+		<div id="page-layout" className="flex flex-col lg:h-screen lg:w-screen lg:flex-row">
+			{props.children}
+		</div>
+	);
 };
 
 export default PageLayout;

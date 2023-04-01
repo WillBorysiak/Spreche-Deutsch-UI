@@ -17,6 +17,7 @@ const HomeHero = () => {
 				<SubHeading text="Welcome to your German learning resource!" />
 				<div className="mt-5">
 					<Paragraph text="Spreche Deutsch is designed to help you learn more about the German language." />
+					<div className="mt-5" />
 					<Paragraph text="Ranging from words, sentences, grammar and more..." />
 				</div>
 				<div className="mt-5 flex justify-evenly">

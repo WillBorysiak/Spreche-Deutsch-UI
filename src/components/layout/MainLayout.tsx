@@ -3,7 +3,11 @@ interface LayoutPropTypes {
 }
 
 const MainLayout = (props: LayoutPropTypes) => {
-	return <div className="h-full w-full">{props.children}</div>;
+	return (
+		<div id="main-layout" className="lg:h-full lg:w-full">
+			{props.children}
+		</div>
+	);
 };
 
 export default MainLayout;

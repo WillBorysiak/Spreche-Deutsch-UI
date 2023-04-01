@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { CategoryItem } from '../../../interfaces/Categories';
+import { Category } from '../../../interfaces/Categories';
 import SubHeading from '../../generic/typography/SubHeading';
 
-const Category = (props: { key: number; data: CategoryItem; parentRoute: string }) => {
+const Category = (props: { key: number; data: Category; parentRoute: string }) => {
 	const { text, route } = props.data;
 	const parentRoute = props.parentRoute;
 

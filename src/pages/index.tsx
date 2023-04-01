@@ -15,6 +15,8 @@ const Home: NextPage = () => {
 				</div>
 				<HomeHero />
 				<HomeGallery />
+				<HomeGallery />
+				<HomeGallery />
 			</div>
 		</section>
 	);

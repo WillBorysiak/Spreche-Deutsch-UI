@@ -1,8 +1,10 @@
-import { WordsCategoryEnum } from '../enums/WordsCategoryEnum';
-import { SentencesCategoryEnum } from '../enums/SentenceCategoryEnum';
 import { Categories } from '../interfaces/Categories';
-import { IntroductionCategoryEnum } from '../enums/IntroductionCategoryEnum';
-import { GrammarCategoryEnum } from '../enums/GrammarCategoryEnum';
+import {
+	GrammarCategoryEnum,
+	IntroductionCategoryEnum,
+	SentencesCategoryEnum,
+	WordsCategoryEnum,
+} from '../enums/CategoryEnum';
 
 export const introduction: Categories = {
 	title: 'Introduction',
@@ -31,7 +33,7 @@ export const sentences: Categories = {
 	title: 'Sentences',
 	route: 'sentences',
 	items: [
-		{ id: WordsCategoryEnum.General, text: 'General', route: 'general', url: '/sentences/general' },
+		{ id: SentencesCategoryEnum.General, text: 'General', route: 'general', url: '/sentences/general' },
 		{ id: SentencesCategoryEnum.Activities, text: 'Activities', route: 'activities', url: '/sentences/activities' },
 		{ id: SentencesCategoryEnum.Work, text: 'Work', route: 'work', url: '/sentences/work' },
 		{ id: SentencesCategoryEnum.Weather, text: 'Weather', route: 'weather', url: '/sentences/weather' },
