@@ -1,21 +1,24 @@
 import { Word } from '../../../interfaces/Word';
 
-const TranslationTable = (props: { data: Word[]; error: string }) => {
-	const data = props.data;
-	const error = props.error;
+const TranslationTable = (props: { data: Word[] | undefined; loading: boolean; error: string }) => {
+	let data = props.data;
+	const { loading, error } = props;
+
+	if (!props.data) data = [];
 
 	if (error) console.log(error);
 
 	return (
-		<div className="mt-10">
-			{data.map((word, index) => {
-				return (
-					<div key={index} className="flex">
-						<p className="mr-5">{word.german}</p>
-						<p key={index}>{word.english}</p>
-					</div>
-				);
-			})}
+		<div className="mt-10 grid grid-cols-2">
+			{data &&
+				data.map((word, index) => {
+					return (
+						<div key={index} id="translation-card" className="flex">
+							<p className="mr-5">{word.german}</p>
+							<p key={index}>{word.english}</p>
+						</div>
+					);
+				})}
 		</div>
 	);
 };

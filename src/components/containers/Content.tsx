@@ -17,8 +17,8 @@ const Content = (props: ContentProps) => {
 			<section
 				id="content"
 				className={classNames(
-					mobileSidebar ? 'default-transition blur-sm lg:blur-0' : '',
-					'no-scrollbar light-background dark:dark-background flex h-[92.5%] justify-center overflow-y-auto transition-all duration-500 ease-in-out sm:h-[95%] lg:relative',
+					mobileSidebar ? 'default-transition h-0 blur-sm sm:h-fit lg:blur-0' : '',
+					'no-scrollbar light-background dark:dark-background flex justify-center overflow-y-auto transition-all duration-500 ease-in-out lg:relative lg:h-[95%]',
 				)}
 				onClick={() => {
 					if (mobileSidebar) closeMobileSidebar();

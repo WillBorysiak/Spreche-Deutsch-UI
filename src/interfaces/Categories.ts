@@ -5,7 +5,7 @@ export interface Categories {
 }
 
 export interface Category {
-	id: number;
+	index: number;
 	text: string;
 	route: string;
 	url?: string;

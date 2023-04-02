@@ -8,6 +8,7 @@ module.exports = {
 			screens: {
 				'3xl': '1600px',
 			},
+			maxWidth: { '8xl': '1600px' },
 			fontFamily: {
 				montserrat: ['Montserrat', 'san-serif'],
 			},
