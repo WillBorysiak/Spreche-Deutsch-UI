@@ -1,15 +1,12 @@
 import { Word } from '../../../interfaces/Word';
 
-const TranslationTable = (props: { data: Word[] | undefined; loading: boolean; error: string }) => {
+const TranslationTable = (props: { data: Word[] | undefined }) => {
 	let data = props.data;
-	const { loading, error } = props;
 
 	if (!props.data) data = [];
 
-	if (error) console.log(error);
-
 	return (
-		<div className="mt-10 grid grid-cols-2">
+		<div className="mt-10">
 			{data &&
 				data.map((word, index) => {
 					return (

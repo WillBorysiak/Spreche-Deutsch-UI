@@ -1,7 +1,7 @@
-import * as I from '../../../interfaces/Categories';
+import * as i from '../../../interfaces/Category';
 import Category from './Category';
 
-const CategoryLayout = (props: { data: I.Category[]; parentRoute: string }) => {
+const CategoryLayout = (props: { data: i.Category[]; parentRoute: string }) => {
 	const data = props.data;
 	const parentRoute = props.parentRoute;
 

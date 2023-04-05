@@ -6,39 +6,44 @@ import useSWR from 'swr';
 
 import TranslationTable from '../../components/content/language-page/TranslationTable';
 import PageHeading from '../../components/generic/typography/PageHeading';
-import { words } from '../../data/pageData';
 import { fetcher } from '../../helpers/fetcher';
-import { Category } from '../../interfaces/Categories';
+import { motionVariants } from '../../helpers/framerMotion';
+import { Category } from '../../interfaces/Category';
+import { useCategoriesStore } from '../../store/categoriesStore';
 import { useWordsStore } from '../../store/wordsStore';
 
 const WordsCategory: NextPage = () => {
 	const [currentCategory, setCurrentCategory] = useState<Category>();
-	const { wordsData, setWordsData } = useWordsStore();
+	const { categories } = useCategoriesStore();
+	const { words, setWords } = useWordsStore();
 
 	const router = useRouter();
 
+	// set current category to local state
 	useEffect(() => {
 		const currentPath = router.asPath;
-		const category = words.items.find(category => category.url === currentPath);
+		let category;
+		if (categories['words'])
+			category = categories['words'].find(category => `/words/${category.route}` === currentPath);
 		setCurrentCategory(category);
 	}, [router]);
 
 	const shouldFetch = () => {
 		if (!currentCategory?.index) return false;
-		return !wordsData[currentCategory.index];
+		return !words[currentCategory.index];
 	};
 
 	const { data, isLoading, error } = useSWR(
-		shouldFetch() ? `http://localhost:8000/words/category/${currentCategory?.index}` : null,
+		shouldFetch() ? `http://localhost:8000/words/category/${currentCategory?.route}` : null,
 		fetcher,
 	);
 
 	useEffect(() => {
-		if (data) setWordsData(data);
+		if (data) setWords(data);
 	}, [data]);
 
-	const currentWordsData = () => {
-		if (currentCategory?.index) return wordsData[currentCategory?.index] || [];
+	const currentWords = () => {
+		if (currentCategory?.index) return words[currentCategory?.route] || [];
 	};
 
 	return (
@@ -51,10 +56,10 @@ const WordsCategory: NextPage = () => {
 				animate="animateState"
 				exit="exitState"
 				transition={{ duration: 0.5 }}
-				variants={{ initialState: { opacity: 0 }, animateState: { opacity: 1 }, exitState: { opacity: 0 } }}
+				variants={motionVariants}
 			>
-				<PageHeading text={currentCategory?.text} />
-				<TranslationTable data={currentWordsData()} loading={isLoading} error={error} />
+				<PageHeading text={currentCategory?.name} />
+				<TranslationTable data={currentWords()} />
 			</motion.section>
 		</AnimatePresence>
 	);

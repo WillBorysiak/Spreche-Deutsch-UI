@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { Category } from '../../../interfaces/Categories';
+import { Category } from '../../../interfaces/Category';
 import SubHeading from '../../generic/typography/SubHeading';
 
 const Category = (props: { key: number; data: Category; parentRoute: string }) => {
-	const { text, route } = props.data;
+	const { name, route } = props.data;
 	const parentRoute = props.parentRoute;
 
 	const router = useRouter();
 
 	return (
-		<article
+		<div
 			className="relative mx-auto my-5 flex h-fit w-[350px] max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg xl:w-[400px]"
 			onClick={() => router.push(`/${parentRoute}/${route}`)}
 		>
@@ -24,9 +24,9 @@ const Category = (props: { key: number; data: Category; parentRoute: string }) =
 				src="/images/gallery/meduana-PdnseHuDFZU-unsplash.jpg"
 			/>
 			<div className="flex w-full justify-center">
-				<SubHeading text={text} />
+				<SubHeading text={name} />
 			</div>
-		</article>
+		</div>
 	);
 };
 

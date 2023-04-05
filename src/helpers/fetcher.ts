@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-import { Word } from '../interfaces/Word';
-
-export async function fetcher(url: string): Promise<Word[]> {
-	const response = await axios.get<Word[]>(url);
+export async function fetcher(url: string): Promise<[]> {
+	const response = await axios.get(url);
 	return response.data;
 }

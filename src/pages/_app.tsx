@@ -7,9 +7,9 @@ import Content from '../components/containers/Content';
 import Header from '../components/containers/Header';
 import MainLayout from '../components/layout/MainLayout';
 import PageLayout from '../components/layout/PageLayout';
-import SEO from '../components/SEO';
 import DesktopSidebar from '../components/navigation/DesktopSidebar';
 import MobileSidebar from '../components/navigation/MobileSidebar';
+import SEO from '../components/SEO';
 import '../styles/globals.css';
 
 const rosario = Rosario({

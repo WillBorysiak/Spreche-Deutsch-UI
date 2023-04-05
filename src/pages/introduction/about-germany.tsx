@@ -2,12 +2,12 @@ import type { NextPage } from 'next';
 
 import PageHeading from '../../components/generic/typography/PageHeading';
 
-const MoreResources: NextPage = () => {
+const AboutGermany: NextPage = () => {
 	return (
-		<section id="resources-page">
-			<PageHeading text="More Resources" />
+		<section id="about-germany-page">
+			<PageHeading text="About Germany" />
 		</section>
 	);
 };
 
-export default MoreResources;
+export default AboutGermany;

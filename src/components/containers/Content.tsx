@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+
 import { classNames } from '../../helpers/classNames';
+import { motionVariants } from '../../helpers/framerMotion';
 import { useSidebarStore } from '../../store/sidebarStore';
 
 interface ContentProps {
@@ -30,7 +32,7 @@ const Content = (props: ContentProps) => {
 					animate="animateState"
 					exit="exitState"
 					transition={{ duration: 2 }}
-					variants={{ initialState: { opacity: 0 }, animateState: { opacity: 1 }, exitState: { opacity: 0 } }}
+					variants={motionVariants}
 				>
 					{props.children}
 				</motion.div>

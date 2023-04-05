@@ -1,25 +1,49 @@
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-import * as nav from '../../data/pageData';
+import { motionVariants } from '../../helpers/framerMotion';
+import { useCategoriesStore } from '../../store/categoriesStore';
 import Title from '../generic/typography/Title';
 import NavigationItem from '../navigation/NavigationItem';
 
 const Navigation = () => {
+	const { categories } = useCategoriesStore();
+	const [loaded, setLoaded] = useState(false);
+
 	const router = useRouter();
 
+	// checks if categories are loaded
+	useEffect(() => {
+		if (Object.keys(categories).length === 0) return;
+		else setLoaded(true);
+	}, [categories]);
+
 	return (
-		<div id="navigation" className="flex flex-col p-10">
+		<motion.nav
+			id="navigation"
+			className="flex flex-col p-10"
+			initial="initialState"
+			animate="animateState"
+			exit="exitState"
+			transition={{ duration: 2 }}
+			variants={motionVariants}
+		>
 			<span className="hidden cursor-pointer lg:block" onClick={() => router.push('/')}>
 				<Title text="Spreche Deutsch" />
 			</span>
 
-			<div id="navigation-container" className="lg:mt-10">
-				<NavigationItem data={nav.introduction} />
-				<NavigationItem data={nav.words} />
-				<NavigationItem data={nav.sentences} />
-				<NavigationItem data={nav.grammar} />
-			</div>
-		</div>
+			{loaded && (
+				<div id="navigation-container" className="lg:mt-10">
+					<motion.div key={router.route}></motion.div>
+					<NavigationItem data={categories['introduction']} />
+					<NavigationItem data={categories['words']} />
+					<NavigationItem data={categories['sentences']} />
+					<NavigationItem data={categories['concepts']} />
+					<NavigationItem data={categories['help']} />
+				</div>
+			)}
+		</motion.nav>
 	);
 };
 

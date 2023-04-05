@@ -1,4 +1,4 @@
-export interface Word {
+export interface Sentence {
 	index: number;
 	german: string;
 	english: string;

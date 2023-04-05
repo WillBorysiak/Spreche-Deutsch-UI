@@ -11,7 +11,7 @@ const ScrollingGreeting = () => {
 
 	// infinite counter
 	useEffect(() => {
-		const interval = setInterval(() => setCount(count => (count + 1) % 3), 2500);
+		const interval = setInterval(() => setCount(count => (count + 1) % 3), 2000);
 		return () => clearInterval(interval);
 	}, []);
 

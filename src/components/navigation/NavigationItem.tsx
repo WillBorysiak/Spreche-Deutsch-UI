@@ -2,25 +2,29 @@ import { Transition } from '@headlessui/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { Categories } from '../../interfaces/Categories';
+import { Category } from '../../interfaces/Category';
 import { useSidebarStore } from '../../store/sidebarStore';
 import NavText from '../generic/typography/NavText';
 import SubHeading from '../generic/typography/SubHeading';
 
-const NavigationItem = (props: { data: Categories }) => {
-	const { title, route, items } = props.data;
+const NavigationItem = (props: { data: Category[] }) => {
+	const parentCategory = props.data[0].type;
+	const items = props.data;
 
 	const [isVisible, setIsVisible] = useState(false);
-
 	const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
 	const router = useRouter();
 
+	// parent route opens navigation
 	useEffect(() => {
-		const baseUrl = router.asPath.split('/')[1];
-		if (baseUrl === route) setIsVisible(true);
-	}, [router.asPath, route]);
+		if (parentCategory) {
+			const baseUrl = router.asPath.split('/')[1];
+			if (baseUrl === parentCategory) setIsVisible(true);
+		}
+	}, [router.asPath, parentCategory]);
 
+	// opens always on mobile
 	useEffect(() => {
 		if (mobileSidebar) setIsVisible(true);
 	}, [mobileSidebar]);
@@ -28,13 +32,13 @@ const NavigationItem = (props: { data: Categories }) => {
 	return (
 		<div id="navigation-item" className="mb-10">
 			<div
-				className="default-transition w-fit cursor-pointer hover:scale-105"
+				className="w-fit cursor-pointer hover:scale-105"
 				onClick={() => {
 					closeMobileSidebar();
-					router.push(`/${route}`);
+					router.push(`/${parentCategory}`);
 				}}
 			>
-				<SubHeading text={title} />
+				<SubHeading text={parentCategory} />
 			</div>
 			{items.map((item, index) => (
 				<Transition
@@ -50,10 +54,10 @@ const NavigationItem = (props: { data: Categories }) => {
 						className="mt-3 ml-3 w-fit cursor-pointer transition ease-linear hover:underline"
 						onClick={() => {
 							closeMobileSidebar();
-							router.push(`/${route}/${item.route}`);
+							router.push(`/${parentCategory}/${item.route}`);
 						}}
 					>
-						<NavText text={item.text} />
+						<NavText text={item.name} />
 					</div>
 				</Transition>
 			))}
