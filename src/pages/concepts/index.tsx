@@ -2,12 +2,12 @@ import type { NextPage } from 'next';
 
 import PageHeading from '../../components/generic/typography/PageHeading';
 
-const Structure: NextPage = () => {
+const Concepts: NextPage = () => {
 	return (
-		<section id="structure-page">
-			<PageHeading text="Structure" />
+		<section id="concepts-page">
+			<PageHeading text="Concepts" />
 		</section>
 	);
 };
 
-export default Structure;
+export default Concepts;

@@ -8,7 +8,7 @@ const Words: NextPage = () => {
 	const { getCategoriesByType } = useCategoriesStore();
 
 	const wordCategories = getCategoriesByType('words');
-	const parentRoute = wordCategories[0].type;
+	const parentRoute = wordCategories[0]?.type;
 
 	return (
 		<section id="words-page" className="max-w-7xl">

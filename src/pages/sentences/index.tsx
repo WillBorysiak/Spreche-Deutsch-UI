@@ -8,7 +8,7 @@ const Sentences: NextPage = () => {
 	const { getCategoriesByType } = useCategoriesStore();
 
 	const sentenceCategories = getCategoriesByType('sentences');
-	const parentRoute = sentenceCategories[0].type;
+	const parentRoute = sentenceCategories[0]?.type;
 
 	return (
 		<section id="sentences-page" className="max-w-7xl">
