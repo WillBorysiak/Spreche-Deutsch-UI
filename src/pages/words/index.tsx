@@ -11,12 +11,10 @@ const Words: NextPage = () => {
 	const parentRoute = wordCategories[0]?.type;
 
 	return (
-		<section id="words-page" className="max-w-7xl">
-			<div className="mt-5 text-center">
-				<PageHeading text="Words" />
-				<div id="category-container" className="mt-5">
-					<CategoryLayout data={wordCategories} parentRoute={parentRoute} />
-				</div>
+		<section id="words-page" className="py-5">
+			<PageHeading text="Words" />
+			<div id="category-container" className="mt-5">
+				<CategoryLayout data={wordCategories} parentRoute={parentRoute} />
 			</div>
 		</section>
 	);

@@ -4,7 +4,7 @@ interface LayoutPropTypes {
 
 const MainLayout = (props: LayoutPropTypes) => {
 	return (
-		<div id="main-layout" className="lg:h-full lg:w-full">
+		<div id="main-layout" className="light-background dark:dark-background w-full lg:h-full">
 			{props.children}
 		</div>
 	);

@@ -17,7 +17,13 @@ const Header = () => {
 			className="light-background dark:dark-background flex w-full items-center px-3 py-5 lg:h-[5%] lg:py-0"
 		>
 			<div id="header-container" className="flex w-full flex-row items-center justify-between">
-				<Image className="hidden lg:block" src="/images/german-flag.svg" alt="The German flag" height={65} width={65} />
+				<Image
+					className="hidden lg:block"
+					src="/images/svg/german-flag.svg"
+					alt="The German flag"
+					height={65}
+					width={65}
+				/>
 
 				{/* mobile */}
 				<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />

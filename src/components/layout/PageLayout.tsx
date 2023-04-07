@@ -28,7 +28,7 @@ const PageLayout = (props: LayoutPropTypes) => {
 	}, [data]);
 
 	return (
-		<div id="page-layout" className="flex flex-col lg:h-screen lg:w-screen lg:flex-row">
+		<div id="page-layout" className="flex w-screen flex-col lg:h-screen lg:flex-row">
 			{props.children}
 		</div>
 	);

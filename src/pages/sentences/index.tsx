@@ -11,12 +11,10 @@ const Sentences: NextPage = () => {
 	const parentRoute = sentenceCategories[0]?.type;
 
 	return (
-		<section id="sentences-page" className="max-w-7xl">
-			<div className="mt-5 text-center">
-				<PageHeading text="Sentences" />
-				<div id="category-container" className="mt-5">
-					<CategoryLayout data={sentenceCategories} parentRoute={parentRoute} />
-				</div>
+		<section id="sentences-page" className="py-5">
+			<PageHeading text="Sentences" />
+			<div id="category-container" className="mt-5">
+				<CategoryLayout data={sentenceCategories} parentRoute={parentRoute} />
 			</div>
 		</section>
 	);

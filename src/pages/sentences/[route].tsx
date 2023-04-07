@@ -6,6 +6,7 @@ import useSWR from 'swr';
 
 import TranslationTable from '../../components/content/language-page/TranslationTable';
 import PageHeading from '../../components/generic/typography/PageHeading';
+import SubHeading from '../../components/generic/typography/SubHeading';
 import { fetcher } from '../../helpers/fetcher';
 import { motionVariants } from '../../helpers/framerMotion';
 import { Category } from '../../interfaces/Category';
@@ -50,7 +51,7 @@ const SentencesCategory: NextPage = () => {
 		<AnimatePresence mode="wait">
 			<motion.section
 				id="sentences-category-page"
-				className="max-w-8xl text-center"
+				className="py-5"
 				key={router.asPath}
 				initial="initialState"
 				animate="animateState"
@@ -58,8 +59,10 @@ const SentencesCategory: NextPage = () => {
 				transition={{ duration: 0.5 }}
 				variants={motionVariants}
 			>
-				<PageHeading text={currentCategory?.name} />
-				<TranslationTable data={currentSentences()} />
+				<PageHeading text={currentCategory?.type} />
+				<div className="mt-5" />
+				<SubHeading text={currentCategory?.name} />
+				<TranslationTable data={currentSentences()} type={currentCategory?.type} />
 			</motion.section>
 		</AnimatePresence>
 	);
