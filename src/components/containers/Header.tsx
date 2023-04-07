@@ -36,7 +36,7 @@ const Header = () => {
 					>
 						<Title text="Spreche Deutsch" />
 					</span>
-					<Image className="ml-3" src="/images/german-flag.svg" alt="The German flag" height={50} width={50} />
+					<Image className="ml-3" src="/images/svg/german-flag.svg" alt="The German flag" height={50} width={50} />
 				</div>
 
 				<ThemeToggle />

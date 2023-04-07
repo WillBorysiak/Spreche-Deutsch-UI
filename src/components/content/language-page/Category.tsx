@@ -12,7 +12,7 @@ const Category = (props: { key: number; data: Category; parentRoute: string }) =
 
 	return (
 		<div
-			className="mx-auto my-5 flex w-[300px] max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg hover:scale-105 sm:w-[350px] xl:w-[400px]"
+			className="default-transition mx-auto my-5 flex w-[300px] max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg hover:scale-110 sm:w-[350px] xl:w-[400px]"
 			onClick={() => router.push(`/${parentRoute}/${route}`)}
 		>
 			<Image

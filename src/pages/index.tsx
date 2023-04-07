@@ -7,7 +7,7 @@ import Greeting from '../components/generic/typography/Greeting';
 
 const Home: NextPage = () => {
 	return (
-		<section id="home-page" className="max-w-8xl h-fit">
+		<section id="home-page" className="h-fit max-w-8xl">
 			<div id="home-page-container" className="mx-5 my-10 flex flex-col items-center sm:mx-10">
 				<div id="greeting-animation" className="mb-10 mr-28 flex flex-row">
 					<Greeting text="Guten" />
