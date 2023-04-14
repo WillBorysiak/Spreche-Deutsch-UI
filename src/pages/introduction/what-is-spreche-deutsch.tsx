@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import PageHeading from '../../components/generic/typography/PageHeading';
+import PageHeading from '../../components/generic/typography/heading/PageHeading';
 
 const WhatIsSprecheDeutsch: NextPage = () => {
 	return (
 		<section id="what-page">
-			<PageHeading text="What Is Spreche Deutsch" />
+			<PageHeading text="What Is Spreche Deutsch" mobile={true} />
 		</section>
 	);
 };

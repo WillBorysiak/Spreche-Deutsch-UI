@@ -11,11 +11,7 @@ const SidebarToggle = (props: { sidebarProps: SidebarProps }) => {
 	const { mobileSidebar, toggleMobileSidebar } = props.sidebarProps;
 
 	return (
-		<button
-			id="sidebar-toggle"
-			className="mr-7 flex items-center justify-start lg:hidden"
-			onClick={toggleMobileSidebar}
-		>
+		<button id="sidebar-toggle" className="mr-7 flex items-center justify-start" onClick={toggleMobileSidebar}>
 			<Transition
 				className="absolute"
 				show={!mobileSidebar}

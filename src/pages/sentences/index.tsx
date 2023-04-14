@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
 import CategoryLayout from '../../components/content/language-page/CategoryLayout';
-import PageHeading from '../../components/generic/typography/PageHeading';
+import PageHeading from '../../components/generic/typography/heading/PageHeading';
 import { useCategoriesStore } from '../../store/categoriesStore';
 
 const Sentences: NextPage = () => {
@@ -12,7 +12,7 @@ const Sentences: NextPage = () => {
 
 	return (
 		<section id="sentences-page" className="py-5">
-			<PageHeading text="Sentences" />
+			<PageHeading text="Sentences" mobile={true} />
 			<div id="category-container" className="mt-5">
 				<CategoryLayout data={sentenceCategories} parentRoute={parentRoute} />
 			</div>

@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import PageHeading from '../../components/generic/typography/PageHeading';
+import PageHeading from '../../components/generic/typography/heading/PageHeading';
 
 const Grammar: NextPage = () => {
 	return (
 		<section id="grammar-page">
-			<PageHeading text="Grammar" />
+			<PageHeading text="Grammar" mobile={true} />
 		</section>
 	);
 };

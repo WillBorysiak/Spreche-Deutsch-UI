@@ -5,8 +5,7 @@ import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 
 import TranslationTable from '../../components/content/language-page/TranslationTable';
-import PageHeading from '../../components/generic/typography/PageHeading';
-import SubHeading from '../../components/generic/typography/SubHeading';
+import PageHeading from '../../components/generic/typography/heading/PageHeading';
 import { fetcher } from '../../helpers/fetcher';
 import { motionVariants } from '../../helpers/framerMotion';
 import { Category } from '../../interfaces/Category';
@@ -59,9 +58,8 @@ const SentencesCategory: NextPage = () => {
 				transition={{ duration: 0.5 }}
 				variants={motionVariants}
 			>
-				<PageHeading text={currentCategory?.type} />
+				<PageHeading text={currentCategory?.name} mobile={true} />
 				<div className="mt-5" />
-				<SubHeading text={currentCategory?.name} />
 				<TranslationTable data={currentSentences()} type={currentCategory?.type} />
 			</motion.section>
 		</AnimatePresence>

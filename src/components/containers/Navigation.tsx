@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { motionVariants } from '../../helpers/framerMotion';
 import { useCategoriesStore } from '../../store/categoriesStore';
-import Title from '../generic/typography/Title';
+import SiteHeading from '../generic/typography/heading/SiteHeading';
 import NavigationItem from '../navigation/NavigationItem';
 
 const Navigation = () => {
@@ -30,7 +30,7 @@ const Navigation = () => {
 			variants={motionVariants}
 		>
 			<span className="hidden cursor-pointer lg:block" onClick={() => router.push('/')}>
-				<Title text="Spreche Deutsch" />
+				<SiteHeading text="Spreche Deutsch" />
 			</span>
 
 			{loaded && (

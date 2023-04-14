@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 
 import { Category } from '../../interfaces/Category';
 import { useSidebarStore } from '../../store/sidebarStore';
-import NavText from '../generic/typography/NavText';
-import SubHeading from '../generic/typography/SubHeading';
+import NavHeading from '../generic/typography/nav/NavHeading';
+import NavText from '../generic/typography/nav/NavText';
 
 const NavigationItem = (props: { data: Category[] }) => {
 	const parentCategory = props.data[0].type;
@@ -38,27 +38,27 @@ const NavigationItem = (props: { data: Category[] }) => {
 					router.push(`/${parentCategory}`);
 				}}
 			>
-				<SubHeading text={parentCategory} />
+				<NavHeading text={parentCategory} />
 			</div>
 			{items.map((item, index) => (
 				<Transition
 					key={index}
 					show={isVisible}
 					className="overflow-hidden duration-500 ease-in-out"
-					enterFrom="transform scale-95 opacity-0 max-h-0"
+					enterFrom="transform scale-95 opacity-0 max-h-32"
 					enterTo="transform scale-100 opacity-100 max-h-32"
 					leaveFrom="transform scale-100 opacity-100 max-h-32"
 					leaveTo="transform scale-95 opacity-0 max-h-0"
 				>
-					<div
-						className="mt-3 ml-3 w-fit cursor-pointer transition ease-linear hover:underline"
+					<span
+						className="ml-3 w-fit cursor-pointer transition ease-linear hover:underline"
 						onClick={() => {
 							closeMobileSidebar();
 							router.push(`/${parentCategory}/${item.route}`);
 						}}
 					>
 						<NavText text={item.name} />
-					</div>
+					</span>
 				</Transition>
 			))}
 		</div>

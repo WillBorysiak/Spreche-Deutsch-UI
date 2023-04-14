@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 
-import PageHeading from '../../components/generic/typography/PageHeading';
+import PageHeading from '../../components/generic/typography/heading/PageHeading';
 
 const Help: NextPage = () => {
 	return (
 		<section id="help-page">
-			<PageHeading text="Help" />
+			<PageHeading text="Help" mobile={true} />
 		</section>
 	);
 };
