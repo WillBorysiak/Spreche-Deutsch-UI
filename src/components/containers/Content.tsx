@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { classNames } from '../../helpers/classNames';
 import { motionVariants } from '../../helpers/framerMotion';
 import { useSidebarStore } from '../../store/sidebarStore';
+import BreadcrumbNav from '../layout/BreadcrumbNav';
 
 interface ContentProps {
 	children: React.ReactNode;
@@ -20,7 +21,7 @@ const Content = (props: ContentProps) => {
 				id="content"
 				className={classNames(
 					mobileSidebar ? 'default-transition h-0 blur-sm sm:h-fit lg:blur-0' : '',
-					'no-scrollbar default-transition mx-auto flex w-full max-w-8xl justify-center overflow-y-auto sm:px-6 lg:relative lg:h-[95%] lg:px-8',
+					'no-scrollbar default-transition mx-auto flex w-full max-w-8xl flex-col items-center overflow-y-auto sm:px-6 lg:relative lg:h-[95%] lg:px-8',
 				)}
 				onClick={() => {
 					if (mobileSidebar) closeMobileSidebar();
@@ -35,6 +36,7 @@ const Content = (props: ContentProps) => {
 					transition={{ duration: 2 }}
 					variants={motionVariants}
 				>
+					{router.asPath !== '/' && <BreadcrumbNav />}
 					{props.children}
 				</motion.div>
 			</section>

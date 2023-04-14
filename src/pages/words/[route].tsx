@@ -51,7 +51,7 @@ const WordsCategory: NextPage = () => {
 			<motion.section
 				key={router.asPath}
 				id="words-category-page"
-				className="py-5"
+				className="py-3"
 				initial="initialState"
 				animate="animateState"
 				exit="exitState"

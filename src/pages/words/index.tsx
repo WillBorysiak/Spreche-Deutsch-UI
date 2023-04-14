@@ -11,7 +11,7 @@ const Words: NextPage = () => {
 	const parentRoute = wordCategories[0]?.type;
 
 	return (
-		<section id="words-page" className="py-5">
+		<section id="words-page" className="py-3">
 			<PageHeading text="Words" mobile={true} />
 			<div id="category-container" className="mt-5">
 				<CategoryLayout data={wordCategories} parentRoute={parentRoute} />

@@ -50,7 +50,7 @@ const SentencesCategory: NextPage = () => {
 		<AnimatePresence mode="wait">
 			<motion.section
 				id="sentences-category-page"
-				className="py-5"
+				className="py-3"
 				key={router.asPath}
 				initial="initialState"
 				animate="animateState"
