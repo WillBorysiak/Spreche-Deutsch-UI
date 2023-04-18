@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { useSidebarStore } from '../../store/sidebarStore';
+import SearchButton from '../generic/buttons/SearchButton';
 import PageHeading from '../generic/typography/heading/PageHeading';
 import SiteHeading from '../generic/typography/heading/SiteHeading';
 import SidebarToggle from '../header/SidebarToggle';
@@ -18,28 +18,28 @@ const Header = () => {
 	const headingText = routeStrSpaces.charAt(0).toUpperCase() + routeStrSpaces.slice(1);
 
 	return (
-		<section
-			id="header"
-			className="light-background dark:dark-background flex w-full items-center px-3 py-1 lg:h-[5%] lg:py-0"
-		>
-			<div id="header-container" className="flex w-full items-center justify-between">
-				{/* desktop */}
-				<Image
-					className="hidden w-[65px] lg:block"
-					src="/images/svg/german-flag.svg"
-					alt="The German flag"
-					height={65}
-					width={65}
-					priority={true}
-				/>
+		<section id="header" className="light-bg dark:dark-bg flex w-full items-center px-3 py-1 lg:h-[5%] lg:py-0">
+			{/* desktop header */}
+			<div id="desktop-header" className="hidden w-full flex-row items-center justify-between lg:flex">
+				<div className="flex w-[125px] justify-start">
+					<SearchButton />
+				</div>
+
 				<PageHeading text={headingText} mobile={false} />
 
-				{/* mobile */}
-				<div className="w-[65px] lg:hidden">
+				<div className="flex w-[125px] justify-end">
+					<ThemeToggle />
+				</div>
+			</div>
+
+			{/* mobile header */}
+			<div id="mobile-header" className="flex w-full items-center justify-between lg:hidden">
+				<div className="flex w-[50px] justify-start">
 					<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />
 				</div>
+
 				<span
-					className="lg:hidden"
+					className="px-3"
 					onClick={() => {
 						closeMobileSidebar();
 						router.push('/');
@@ -48,8 +48,8 @@ const Header = () => {
 					<SiteHeading text="Spreche Deutsch" />
 				</span>
 
-				<div id="theme-toggle-container" className="flex w-[65px] justify-end">
-					<ThemeToggle />
+				<div className="flex w-[50px] justify-end">
+					<SearchButton />
 				</div>
 			</div>
 		</section>

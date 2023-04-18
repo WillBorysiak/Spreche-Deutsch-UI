@@ -9,7 +9,7 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
 	return (
 		<button
 			type="button"
-			className="rounded-sm bg-yellow-600 py-2 px-3 text-lg font-semibold shadow-sm hover:bg-yellow-500"
+			className="rounded-sm bg-red-600 px-3 py-2 text-lg font-bold shadow-sm hover:bg-red-500"
 			onClick={onClick}
 		>
 			{text}

@@ -44,7 +44,7 @@ const NavigationItem = (props: { data: Category[] }) => {
 				<Transition
 					key={index}
 					show={isVisible}
-					className="overflow-hidden duration-500 ease-in-out"
+					className="overflow-hidden duration-1000 ease-in-out"
 					enterFrom="transform scale-95 opacity-0 max-h-32"
 					enterTo="transform scale-100 opacity-100 max-h-32"
 					leaveFrom="transform scale-100 opacity-100 max-h-32"

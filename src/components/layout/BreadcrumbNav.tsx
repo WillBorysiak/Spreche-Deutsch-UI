@@ -23,14 +23,16 @@ const BreadcrumbNav = () => {
 					<HomeIcon className="h-5 w-5 flex-shrink-0" />
 				</Link>
 
-				{breadcrumbs.map((breadcrumb, idx) => (
-					<li key={idx}>
+				{breadcrumbs.map((breadcrumb, index) => (
+					<li key={index}>
 						<div className="flex items-center">
 							<ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-zinc-200" />
 							<Link
 								href={breadcrumb.href}
-								className={`text-md ml-3 font-medium ${
-									breadcrumb.current ? 'text-zinc-200' : 'text-zinc-300 hover:text-zinc-200'
+								className={`text-md ml-3 font-medium capitalize  ${
+									breadcrumb.current
+										? 'text-zinc-200 underline underline-offset-4'
+										: 'capitalize text-zinc-300 hover:text-zinc-200'
 								}`}
 							>
 								{breadcrumb.name}

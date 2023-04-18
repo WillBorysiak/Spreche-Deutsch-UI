@@ -4,7 +4,7 @@ const DesktopSidebar = () => {
 	return (
 		<section
 			id="desktop-sidebar"
-			className="no-scrollbar light-background dark:dark-background hidden h-full w-[400px] overflow-y-auto lg:block"
+			className="no-scrollbar light-bg dark:dark-bg hidden h-full w-[400px] overflow-y-auto lg:block"
 		>
 			<Navigation />
 		</section>

@@ -1,4 +1,4 @@
-import { faBars, faX } from '@fortawesome/pro-thin-svg-icons';
+import { faBars, faX } from '@fortawesome/sharp-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Transition } from '@headlessui/react';
 

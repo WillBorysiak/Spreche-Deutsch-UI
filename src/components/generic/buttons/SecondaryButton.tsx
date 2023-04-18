@@ -9,7 +9,7 @@ const SecondaryButton = (props: SecondaryButtonProps) => {
 	return (
 		<button
 			type="button"
-			className="rounded-sm bg-green-400 py-2 px-3 text-lg font-semibold shadow-sm hover:bg-green-500"
+			className="rounded-sm bg-yellow-500 px-3 py-2 text-lg font-bold shadow-sm hover:bg-yellow-400"
 			onClick={onClick}
 		>
 			{text}
