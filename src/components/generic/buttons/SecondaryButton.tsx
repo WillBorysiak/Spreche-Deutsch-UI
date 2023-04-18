@@ -1,9 +1,4 @@
-interface SecondaryButtonProps {
-	text: string;
-	onClick: () => void;
-}
-
-const SecondaryButton = (props: SecondaryButtonProps) => {
+const SecondaryButton = (props: { text: string; onClick: () => void }) => {
 	const { text, onClick } = props;
 
 	return (
