@@ -2,13 +2,8 @@ import { faBars, faX } from '@fortawesome/sharp-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Transition } from '@headlessui/react';
 
-interface SidebarProps {
-	mobileSidebar: boolean;
-	toggleMobileSidebar: () => void;
-}
-
-const SidebarToggle = (props: { sidebarProps: SidebarProps }) => {
-	const { mobileSidebar, toggleMobileSidebar } = props.sidebarProps;
+const SidebarToggle = (props: { mobileSidebar: boolean; toggleMobileSidebar: () => void }) => {
+	const { mobileSidebar, toggleMobileSidebar } = props;
 
 	return (
 		<button id="sidebar-toggle" className="mr-7 flex items-center justify-start" onClick={toggleMobileSidebar}>

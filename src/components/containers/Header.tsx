@@ -1,19 +1,23 @@
-import { useSidebarStore } from '../../store/sidebarStore';
-import SearchButton from '../generic/buttons/SearchButton';
-import PageHeading from '../generic/typography/heading/PageHeading';
-import SiteHeading from '../generic/typography/heading/SiteHeading';
-import SearchModal from '../header/SearchModal';
-import SidebarToggle from '../header/SidebarToggle';
-import ThemeToggle from '../header/ThemeToggle';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useCategoriesStore } from '../../store/categoriesStore';
+
+import { useSidebarStore } from '../../store/sidebarStore';
+import PageHeading from '../generic/typography/heading/PageHeading';
+import SiteHeading from '../generic/typography/heading/SiteHeading';
+import SidebarToggle from '../header/SidebarToggle';
+import ThemeToggle from '../header/ThemeToggle';
+import SearchButton from '../search/SearchButton';
+import SearchModal from '../search/SearchModal';
 
 const Header = () => {
-	const { mobileSidebar, closeMobileSidebar, toggleMobileSidebar } = useSidebarStore();
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const { mobileSidebar, closeMobileSidebar, toggleMobileSidebar } = useSidebarStore();
+	const { getCategoriesAsArray } = useCategoriesStore();
 
 	const router = useRouter();
 
+	// desktop heading
 	const desktopHeadingParser = (routerPath: string) => {
 		const path = routerPath.split('/');
 		const routeStr = path.length > 2 ? path[2] : path[1];
@@ -22,13 +26,14 @@ const Header = () => {
 	};
 	const desktopHeading = desktopHeadingParser(router.asPath);
 
+	// search modal
 	const searchClick = () => {
 		setIsModalOpen(true);
 	};
-
 	const searchClose = () => {
 		setIsModalOpen(false);
 	};
+	const modalCategories = getCategoriesAsArray();
 
 	return (
 		<section id="header" className="light-bg dark:dark-bg flex w-full items-center px-3 py-1 lg:h-[5%] lg:py-0">
@@ -48,7 +53,7 @@ const Header = () => {
 			{/* mobile header */}
 			<div id="mobile-header" className="flex w-full items-center justify-between lg:hidden">
 				<div className="flex w-[50px] justify-start">
-					<SidebarToggle sidebarProps={{ mobileSidebar, toggleMobileSidebar }} />
+					<SidebarToggle mobileSidebar={mobileSidebar} toggleMobileSidebar={toggleMobileSidebar} />
 				</div>
 
 				<span
@@ -66,7 +71,7 @@ const Header = () => {
 				</div>
 			</div>
 
-			<SearchModal isOpen={isModalOpen} onClose={searchClose} />
+			<SearchModal isOpen={isModalOpen} onClose={searchClose} categories={modalCategories} />
 		</section>
 	);
 };

@@ -6,11 +6,9 @@ import { motionVariants } from '../../helpers/framerMotion';
 import { useSidebarStore } from '../../store/sidebarStore';
 import BreadcrumbNav from '../layout/BreadcrumbNav';
 
-interface ContentProps {
-	children: React.ReactNode;
-}
+const Content = (props: { children: React.ReactNode }) => {
+	const { children } = props;
 
-const Content = (props: ContentProps) => {
 	const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
 	const router = useRouter();
@@ -37,7 +35,7 @@ const Content = (props: ContentProps) => {
 					variants={motionVariants}
 				>
 					{router.asPath !== '/' && <BreadcrumbNav />}
-					{props.children}
+					{children}
 				</motion.div>
 			</section>
 		</AnimatePresence>

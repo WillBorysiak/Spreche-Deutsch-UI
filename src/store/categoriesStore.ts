@@ -1,15 +1,16 @@
 import { create } from 'zustand';
 
-import { Category } from '../interfaces/Category';
+import { CategoryModel } from '../models/Category';
 
 export interface CategoryStoreItem {
-	[type: string]: Category[];
+	[type: string]: CategoryModel[];
 }
 
 interface CategoriesStore {
 	categories: CategoryStoreItem;
 	setCategories: (wordsData: CategoryStoreItem) => void;
-	getCategoriesByType: (type: string) => Category[];
+	getCategoriesByType: (type: string) => CategoryModel[];
+	getCategoriesAsArray: () => CategoryModel[];
 }
 
 export const useCategoriesStore = create<CategoriesStore>((set, get) => ({
@@ -18,5 +19,9 @@ export const useCategoriesStore = create<CategoriesStore>((set, get) => ({
 	getCategoriesByType: (type: string) => {
 		const { categories } = get();
 		return categories[type] || [];
+	},
+	getCategoriesAsArray: () => {
+		const { categories } = get();
+		return Object.values(categories).flat();
 	},
 }));

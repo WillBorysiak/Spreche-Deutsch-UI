@@ -1,15 +1,15 @@
 import { create } from 'zustand';
 
-import { Word } from '../interfaces/Word';
+import { WordModel } from '../models/Word';
 
 interface WordsStore {
-	words: { [category: string]: Word[] };
-	setWords: (words: Word[]) => void;
+	words: { [category: string]: WordModel[] };
+	setWords: (words: WordModel[]) => void;
 }
 
 export const useWordsStore = create<WordsStore>(set => ({
 	words: {},
-	setWords: (words: Word[]) =>
+	setWords: (words: WordModel[]) =>
 		set(state => ({
 			words: {
 				...state.words,

@@ -8,12 +8,12 @@ import TranslationTable from '../../components/content/language-page/Translation
 import PageHeading from '../../components/generic/typography/heading/PageHeading';
 import { fetcher } from '../../helpers/fetcher';
 import { motionVariants } from '../../helpers/framerMotion';
-import { Category } from '../../interfaces/Category';
+import { CategoryModel } from '../../models/Category';
 import { useCategoriesStore } from '../../store/categoriesStore';
 import { useSentencesStore } from '../../store/sentencesStore';
 
 const SentencesCategory: NextPage = () => {
-	const [currentCategory, setCurrentCategory] = useState<Category>();
+	const [currentCategory, setCurrentCategory] = useState<CategoryModel>();
 	const { categories } = useCategoriesStore();
 	const { sentences, setSentences } = useSentencesStore();
 

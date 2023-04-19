@@ -1,8 +1,7 @@
 import { classNames } from '../../../../helpers/classNames';
 
 const PageHeading = (props: { text: string | undefined; mobile?: boolean }) => {
-	const text = props.text;
-	const mobile = props.mobile;
+	const { text, mobile } = props;
 
 	return (
 		<h2

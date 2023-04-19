@@ -1,9 +1,8 @@
-import * as i from '../../../interfaces/Category';
+import { CategoryModel } from '../../../models/Category';
 import Category from './Category';
 
-const CategoryLayout = (props: { data: i.Category[]; parentRoute: string }) => {
-	const data = props.data;
-	const parentRoute = props.parentRoute;
+const CategoryLayout = (props: { data: CategoryModel[]; parentRoute: string }) => {
+	const { data, parentRoute } = props;
 
 	return (
 		<div className="flex flex-col gap-5 md:grid md:grid-cols-2 3xl:grid-cols-3">

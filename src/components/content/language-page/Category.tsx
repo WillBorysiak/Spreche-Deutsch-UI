@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { Category } from '../../../interfaces/Category';
+import { CategoryModel } from '../../../models/Category';
 import SubHeading from '../../generic/typography/heading/SubHeading';
 
-const Category = (props: { key: number; data: Category; parentRoute: string }) => {
-	const { name, route } = props.data;
-	const parentRoute = props.parentRoute;
+const Category = (props: { key: number; data: CategoryModel; parentRoute: string }) => {
+	const {
+		data: { name, route },
+		parentRoute,
+	} = props;
 
 	const router = useRouter();
 

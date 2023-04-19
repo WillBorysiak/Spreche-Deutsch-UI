@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/sharp-solid-svg-icons';
 
 const SearchButton = (props: { searchClick: () => void }) => {
-	const searchClick = props.searchClick;
+	const { searchClick } = props;
 
 	return (
 		<button

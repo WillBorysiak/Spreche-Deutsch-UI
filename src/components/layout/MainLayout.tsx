@@ -1,11 +1,9 @@
-interface LayoutPropTypes {
-	children: React.ReactNode;
-}
+const MainLayout = (props: { children: React.ReactNode }) => {
+	const { children } = props;
 
-const MainLayout = (props: LayoutPropTypes) => {
 	return (
 		<div id="main-layout" className="light-bg dark:dark-bg w-full lg:h-full">
-			{props.children}
+			{children}
 		</div>
 	);
 };

@@ -1,16 +1,14 @@
-import { faMars, faVenus, faGenderless } from '@fortawesome/pro-solid-svg-icons';
-
+import { faGenderless, faMars, faVenus } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
-import { Sentence } from '../../../interfaces/Sentence';
-import { Word } from '../../../interfaces/Word';
+import { SentenceModel } from '../../../models/Sentence';
+import { WordModel } from '../../../models/Word';
 import TableHeading from '../../generic/typography/translation-table/TableHeading';
 import TableText from '../../generic/typography/translation-table/TableText';
 
-const TranslationTable = (props: { data: Word[] | Sentence[] | undefined; type: string | undefined }) => {
-	let data = props.data;
-	let type = props.type;
+const TranslationTable = (props: { data: WordModel[] | SentenceModel[] | undefined; type: string | undefined }) => {
+	let { data, type } = props;
 
 	if (!props.data) data = [];
 

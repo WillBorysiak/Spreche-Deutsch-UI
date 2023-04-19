@@ -7,6 +7,7 @@ import SubHeading from '../../generic/typography/heading/SubHeading';
 
 const HomeHero = () => {
 	const router = useRouter();
+
 	const learnClick = () => router.push('/words');
 	const infoClick = () => router.push('/introduction');
 

@@ -2,12 +2,12 @@ import { Transition } from '@headlessui/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { Category } from '../../interfaces/Category';
+import { CategoryModel } from '../../models/Category';
 import { useSidebarStore } from '../../store/sidebarStore';
 import NavHeading from '../generic/typography/nav/NavHeading';
 import NavText from '../generic/typography/nav/NavText';
 
-const NavigationItem = (props: { data: Category[] }) => {
+const NavigationItem = (props: { data: CategoryModel[] }) => {
 	const parentCategory = props.data[0].type;
 	const items = props.data;
 

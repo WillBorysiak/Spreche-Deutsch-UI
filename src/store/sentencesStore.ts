@@ -1,15 +1,15 @@
 import { create } from 'zustand';
 
-import { Sentence } from '../interfaces/Sentence';
+import { SentenceModel } from '../models/Sentence';
 
 interface SentencesStore {
-	sentences: { [category: string]: Sentence[] };
-	setSentences: (sentences: Sentence[]) => void;
+	sentences: { [category: string]: SentenceModel[] };
+	setSentences: (sentences: SentenceModel[]) => void;
 }
 
 export const useSentencesStore = create<SentencesStore>(set => ({
 	sentences: {},
-	setSentences: (sentences: Sentence[]) =>
+	setSentences: (sentences: SentenceModel[]) =>
 		set(state => ({
 			sentences: {
 				...state.sentences,

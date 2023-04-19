@@ -8,8 +8,8 @@ import SiteHeading from '../generic/typography/heading/SiteHeading';
 import NavigationItem from '../navigation/NavigationItem';
 
 const Navigation = () => {
-	const { categories } = useCategoriesStore();
 	const [loaded, setLoaded] = useState(false);
+	const { categories } = useCategoriesStore();
 
 	const router = useRouter();
 
