@@ -10,7 +10,7 @@ const SearchInput = (props: { onInputChange: (value: string) => void }) => {
 	};
 
 	return (
-		<form id="search-input" className="flex w-full items-center">
+		<form id="search-input" className="flex w-full items-center border-b border-zinc-100 border-opacity-40 pb-3">
 			<FontAwesomeIcon icon={faSearch} size="1x" className="mr-3" />
 			<input
 				type="text"

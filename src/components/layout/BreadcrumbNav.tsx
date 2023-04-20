@@ -29,7 +29,7 @@ const BreadcrumbNav = () => {
 							<ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-zinc-200" />
 							<Link
 								href={breadcrumb.href}
-								className={`text-md ml-3 font-medium capitalize  ${
+								className={`ml-3 text-lg font-medium capitalize sm:text-lg  ${
 									breadcrumb.current
 										? 'text-zinc-200 underline underline-offset-4'
 										: 'capitalize text-zinc-300 hover:text-zinc-200'

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import PrimaryButton from '../../generic/buttons/PrimaryButton';
 import SecondaryButton from '../../generic/buttons/SecondaryButton';
-import Paragraph from '../../generic/typography/Paragraph';
+import Paragraph from '../../generic/typography/general/Paragraph';
 import SubHeading from '../../generic/typography/heading/SubHeading';
 
 const HomeHero = () => {

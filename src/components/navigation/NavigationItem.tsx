@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 
 import { CategoryModel } from '../../models/Category';
 import { useSidebarStore } from '../../store/sidebarStore';
-import NavHeading from '../generic/typography/nav/NavHeading';
-import NavText from '../generic/typography/nav/NavText';
+import SubHeading from '../generic/typography/heading/SubHeading';
+import NavText from '../generic/typography/general/NavText';
 
 const NavigationItem = (props: { data: CategoryModel[] }) => {
 	const parentCategory = props.data[0].type;
@@ -38,7 +38,7 @@ const NavigationItem = (props: { data: CategoryModel[] }) => {
 					router.push(`/${parentCategory}`);
 				}}
 			>
-				<NavHeading text={parentCategory} />
+				<SubHeading text={parentCategory} className="underline decoration-2 underline-offset-4" />
 			</div>
 			{items.map((item, index) => (
 				<Transition

@@ -1,9 +1,9 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { debounce } from 'lodash';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { CategoryModel } from '../../models/Category';
 import SearchInput from './SearchInput';
+import SearchResults from './SearchResults';
 
 const SearchModal = (props: { isOpen: boolean; onClose: () => void; categories: CategoryModel[] }) => {
 	const { isOpen, onClose, categories } = props;
@@ -11,20 +11,20 @@ const SearchModal = (props: { isOpen: boolean; onClose: () => void; categories: 
 	const [inputValue, setInputValue] = useState('');
 	const [filteredCategories, setFilteredCategories] = useState<CategoryModel[]>([]);
 
-	const handleInputChange = (value: string) => {
-		setInputValue(value);
-	};
+	const handleInputChange = (value: string) => setInputValue(value);
 
+	// filters based on search
 	useEffect(() => {
+		if (!inputValue) return setFilteredCategories([]);
+
 		const filtered = categories.filter(category => {
 			const categoryTitle = category.name.toLowerCase();
 			const inputValueLower = inputValue.toLowerCase();
 			return categoryTitle.includes(inputValueLower);
 		});
+
 		setFilteredCategories(filtered);
 	}, [inputValue, categories]);
-
-	console.log(filteredCategories);
 
 	return (
 		<Transition appear show={isOpen} as={Fragment}>
@@ -54,6 +54,7 @@ const SearchModal = (props: { isOpen: boolean; onClose: () => void; categories: 
 						>
 							<Dialog.Panel className="no-scrollbar max-h-[400px] w-full max-w-md transform overflow-y-auto rounded-md bg-zinc-200 p-5 text-center align-middle shadow-xl transition-all dark:bg-zinc-700">
 								<SearchInput onInputChange={handleInputChange} />
+								<SearchResults searchResults={filteredCategories} onClose={onClose} />
 							</Dialog.Panel>
 						</Transition.Child>
 					</div>

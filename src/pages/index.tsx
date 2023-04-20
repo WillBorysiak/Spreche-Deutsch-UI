@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import HomeGallery from '../components/content/home-page/HomeGallery';
 import HomeHero from '../components/content/home-page/HomeHero';
 import ScrollingGreeting from '../components/content/home-page/ScrollingGreeting';
-import Greeting from '../components/generic/typography/Greeting';
+import Greeting from '../components/generic/typography/general/Greeting';
 
 const Home: NextPage = () => {
 	return (

@@ -27,12 +27,8 @@ const Header = () => {
 	const desktopHeading = desktopHeadingParser(router.asPath);
 
 	// search modal
-	const searchClick = () => {
-		setIsModalOpen(true);
-	};
-	const searchClose = () => {
-		setIsModalOpen(false);
-	};
+	const searchClick = () => setIsModalOpen(true);
+	const searchClose = () => setIsModalOpen(false);
 	const modalCategories = getCategoriesAsArray();
 
 	return (

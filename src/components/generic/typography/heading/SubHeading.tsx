@@ -1,7 +1,7 @@
-const SubHeading = (props: { text: string | undefined }) => {
-	const { text } = props;
+const SubHeading = (props: { text: string | undefined; className?: string }) => {
+	const { text, className } = props;
 
-	return <h3 className="text-center text-2xl font-bold capitalize sm:text-4xl">{text}</h3>;
+	return <h3 className={`text-2xl font-bold capitalize sm:text-4xl ${className}`}>{text}</h3>;
 };
 
 export default SubHeading;

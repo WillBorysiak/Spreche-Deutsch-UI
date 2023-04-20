@@ -26,11 +26,12 @@ const WordsCategory: NextPage = () => {
 		if (categories['words'])
 			category = categories['words'].find(category => `/words/${category.route}` === currentPath);
 		setCurrentCategory(category);
-	}, [router]);
+	}, [router, categories]);
 
 	const shouldFetch = () => {
-		if (!currentCategory?.index) return false;
-		return !words[currentCategory.index];
+		if (!currentCategory) return false;
+		const categoryKey = currentCategory.name.toLowerCase();
+		if (!words[categoryKey]) return true;
 	};
 
 	const { data, isLoading, error } = useSWR(
@@ -40,10 +41,10 @@ const WordsCategory: NextPage = () => {
 
 	useEffect(() => {
 		if (data) setWords(data);
-	}, [data]);
+	}, [data, setWords]);
 
 	const currentWords = () => {
-		if (currentCategory?.index) return words[currentCategory?.route] || [];
+		if (currentCategory) return words[currentCategory?.route] || [];
 	};
 
 	return (
