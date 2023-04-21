@@ -10,7 +10,7 @@ const SearchResults = (props: { searchResults: CategoryModel[]; onClose: () => v
 	return (
 		<div id="search-results" className="mt-5 w-full px-3">
 			{searchResults.map((result, index) => (
-				<div key={index} className="mt-3 flex justify-between">
+				<div key={index} className="mt-5 flex justify-between">
 					<span
 						className="hover:cursor-pointer"
 						onClick={() => {

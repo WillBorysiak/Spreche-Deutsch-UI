@@ -12,15 +12,19 @@ const NavigationItem = (props: { data: CategoryModel[] }) => {
 	const items = props.data;
 
 	const [isVisible, setIsVisible] = useState(false);
+	const [underlineClass, setUnderlineClass] = useState<string>();
 	const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
 	const router = useRouter();
 
-	// parent route opens navigation
+	// parent route opens navigation and underlines
 	useEffect(() => {
 		if (parentCategory) {
 			const baseUrl = router.asPath.split('/')[1];
-			if (baseUrl === parentCategory) setIsVisible(true);
+			if (baseUrl === parentCategory) {
+				setIsVisible(true);
+				setUnderlineClass('underline decoration-2 underline-offset-4');
+			} else if (baseUrl !== parentCategory) setUnderlineClass('');
 		}
 	}, [router.asPath, parentCategory]);
 
@@ -32,26 +36,26 @@ const NavigationItem = (props: { data: CategoryModel[] }) => {
 	return (
 		<div id="navigation-item" className="mb-10">
 			<div
-				className="w-fit cursor-pointer hover:scale-105"
+				className="mb-5 w-fit cursor-pointer hover:scale-105"
 				onClick={() => {
 					closeMobileSidebar();
 					router.push(`/${parentCategory}`);
 				}}
 			>
-				<SubHeading text={parentCategory} className="underline decoration-2 underline-offset-4" />
+				<SubHeading text={parentCategory} className={underlineClass} />
 			</div>
 			{items.map((item, index) => (
 				<Transition
 					key={index}
 					show={isVisible}
-					className="overflow-hidden duration-1000 ease-in-out"
+					className="mb-5 list-outside overflow-hidden duration-1000 ease-in-out"
 					enterFrom="transform scale-95 opacity-0 max-h-32"
 					enterTo="transform scale-100 opacity-100 max-h-32"
 					leaveFrom="transform scale-100 opacity-100 max-h-32"
 					leaveTo="transform scale-95 opacity-0 max-h-0"
 				>
 					<span
-						className="ml-3 w-fit cursor-pointer transition ease-linear hover:underline"
+						className="w-fit cursor-pointer transition ease-linear hover:underline"
 						onClick={() => {
 							closeMobileSidebar();
 							router.push(`/${parentCategory}/${item.route}`);

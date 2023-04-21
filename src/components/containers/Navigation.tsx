@@ -22,19 +22,19 @@ const Navigation = () => {
 	return (
 		<motion.nav
 			id="navigation"
-			className="flex flex-col p-10"
+			className="flex flex-col py-10 pl-10 pr-5"
 			initial="initialState"
 			animate="animateState"
 			exit="exitState"
 			transition={{ duration: 2 }}
 			variants={motionVariants}
 		>
-			<span className="hidden cursor-pointer lg:block" onClick={() => router.push('/')}>
+			<span className="mb-10 hidden cursor-pointer text-center lg:block" onClick={() => router.push('/')}>
 				<SiteHeading text="Spreche Deutsch" />
 			</span>
 
 			{loaded && (
-				<div id="navigation-container" className="lg:mt-10">
+				<div id="navigation-container">
 					<motion.div key={router.route}></motion.div>
 					<NavigationItem data={categories['introduction']} />
 					<NavigationItem data={categories['words']} />

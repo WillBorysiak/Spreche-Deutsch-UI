@@ -21,10 +21,9 @@ const SentencesCategory: NextPage = () => {
 
 	// set current category to local state
 	useEffect(() => {
-		const currentPath = router.asPath;
 		let category;
 		if (categories['sentences'])
-			category = categories['sentences'].find(category => `/sentences/${category.route}` === currentPath);
+			category = categories['sentences'].find(category => `/sentences/${category.route}` === router.asPath);
 		setCurrentCategory(category);
 	}, [router, categories]);
 
@@ -60,7 +59,6 @@ const SentencesCategory: NextPage = () => {
 				variants={motionVariants}
 			>
 				<PageHeading text={currentCategory?.name} mobile={true} />
-				<div className="mt-5" />
 				<TranslationTable data={currentSentences()} type={currentCategory?.type} />
 			</motion.section>
 		</AnimatePresence>

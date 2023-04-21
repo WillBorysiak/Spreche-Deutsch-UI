@@ -22,7 +22,7 @@ const TranslationTable = (props: { data: WordModel[] | SentenceModel[] | undefin
 							<tr>
 								<th className="w-1/2 border-r border-zinc-200 py-5">
 									<Image className="mx-auto" src="/images/svg/uk-icon.svg" alt="The UK flag" height={25} width={25} />
-									<div className="mt-3" />
+									<div className="mt-5" />
 									<TableHeading text="English" />
 								</th>
 								<th className="w-1/2  py-5">
@@ -33,7 +33,7 @@ const TranslationTable = (props: { data: WordModel[] | SentenceModel[] | undefin
 										height={25}
 										width={25}
 									/>
-									<div className="mt-3" />
+									<div className="mt-5" />
 									<TableHeading text="German" />
 								</th>
 							</tr>
@@ -68,7 +68,7 @@ const TranslationTable = (props: { data: WordModel[] | SentenceModel[] | undefin
 							<tr>
 								<th className="border-r border-zinc-200 py-5">
 									<Image className="mx-auto" src="/images/svg/uk-icon.svg" alt="The UK flag" height={25} width={25} />
-									<div className="mt-3" />
+									<div className="mt-5" />
 									<TableHeading text="English" />
 								</th>
 								<th className="py-5">
@@ -79,7 +79,7 @@ const TranslationTable = (props: { data: WordModel[] | SentenceModel[] | undefin
 										height={25}
 										width={25}
 									/>
-									<div className="mt-3" />
+									<div className="mt-5" />
 									<TableHeading text="German" />
 								</th>
 							</tr>

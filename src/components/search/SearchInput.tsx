@@ -14,7 +14,7 @@ const SearchInput = (props: { onInputChange: (value: string) => void }) => {
 			<FontAwesomeIcon icon={faSearch} size="1x" className="mr-3" />
 			<input
 				type="text"
-				placeholder="Search site"
+				placeholder="Search site..."
 				className="w-full bg-transparent focus:outline-none"
 				onChange={handleInputChange}
 			/>
