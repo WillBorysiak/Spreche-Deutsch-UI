@@ -19,7 +19,7 @@ const Content = (props: { children: React.ReactNode }) => {
 				id="content"
 				className={classNames(
 					mobileSidebar ? 'default-transition h-0 blur-sm sm:h-fit lg:blur-0' : '',
-					'no-scrollbar default-transition mx-auto flex w-full max-w-8xl flex-col items-center overflow-y-auto sm:px-6 lg:relative lg:h-[95%] lg:px-8',
+					'no-scrollbar default-transition mx-auto flex w-full max-w-8xl flex-col items-center overflow-y-auto px-2 md:px-5 lg:h-[95%]',
 				)}
 				onClick={() => {
 					if (mobileSidebar) closeMobileSidebar();

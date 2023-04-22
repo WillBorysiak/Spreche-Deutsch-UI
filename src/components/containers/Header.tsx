@@ -51,7 +51,6 @@ const Header = () => {
 				<div className="flex w-[50px] justify-start">
 					<SidebarToggle mobileSidebar={mobileSidebar} toggleMobileSidebar={toggleMobileSidebar} />
 				</div>
-
 				<span
 					className="px-3"
 					onClick={() => {
@@ -61,7 +60,6 @@ const Header = () => {
 				>
 					<SiteHeading text="Spreche Deutsch" />
 				</span>
-
 				<div className="flex w-[50px] justify-end">
 					<SearchButton searchClick={searchClick} />
 				</div>

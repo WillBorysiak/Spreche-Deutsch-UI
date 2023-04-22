@@ -14,7 +14,7 @@ const Sentences: NextPage = () => {
 		<section id="sentences-page" className="py-3">
 			<PageHeading text="Sentences" mobile={true} />
 			<div id="category-container" className="mt-5">
-				<CategoryLayout data={sentenceCategories} parentRoute={parentRoute} />
+				<CategoryLayout data={sentenceCategories} parentRoute={parentRoute} layout="grid" />
 			</div>
 		</section>
 	);

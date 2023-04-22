@@ -35,7 +35,6 @@ const Navigation = () => {
 
 			{loaded && (
 				<div id="navigation-container">
-					<motion.div key={router.route}></motion.div>
 					<NavigationItem data={categories['introduction']} />
 					<NavigationItem data={categories['words']} />
 					<NavigationItem data={categories['sentences']} />

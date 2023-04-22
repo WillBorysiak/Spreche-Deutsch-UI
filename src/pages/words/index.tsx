@@ -14,7 +14,7 @@ const Words: NextPage = () => {
 		<section id="words-page" className="py-3">
 			<PageHeading text="Words" mobile={true} />
 			<div id="category-container" className="mt-5">
-				<CategoryLayout data={wordCategories} parentRoute={parentRoute} />
+				<CategoryLayout data={wordCategories} parentRoute={parentRoute} layout="grid" />
 			</div>
 		</section>
 	);
