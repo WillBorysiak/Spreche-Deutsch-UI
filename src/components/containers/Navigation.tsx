@@ -35,11 +35,10 @@ const Navigation = () => {
 
 			{loaded && (
 				<div id="navigation-container">
-					<NavigationItem data={categories['introduction']} />
 					<NavigationItem data={categories['words']} />
 					<NavigationItem data={categories['sentences']} />
 					<NavigationItem data={categories['concepts']} />
-					<NavigationItem data={categories['help']} />
+					<NavigationItem data={categories['more-info']} />
 				</div>
 			)}
 		</motion.nav>

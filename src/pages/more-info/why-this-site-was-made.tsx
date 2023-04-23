@@ -4,7 +4,7 @@ import PageHeading from '../../components/generic/typography/heading/PageHeading
 
 const WhyThisSiteWasMade: NextPage = () => {
 	return (
-		<section id="why-page">
+		<section id="why-this-site-was-made-page">
 			<PageHeading text="Why This Site Was Made" mobile={true} />
 		</section>
 	);

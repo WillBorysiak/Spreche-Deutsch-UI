@@ -14,7 +14,7 @@ const Category = (props: { data: CategoryModel; parentRoute: string }) => {
 
 	return (
 		<div
-			className="default-transition mx-auto my-5 flex w-full max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg hover:scale-105"
+			className="default-transition mx-auto my-0 flex w-full max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg hover:scale-105 lg:my-5"
 			onClick={() => router.push(`/${parentRoute}/${route}`)}
 		>
 			<Image
@@ -23,8 +23,8 @@ const Category = (props: { data: CategoryModel; parentRoute: string }) => {
 				quality={100}
 				priority={false}
 				alt="gallery"
-				src="/images/categories/general.png"
-				className="h-40 w-40 md:h-60 md:w-60"
+				src={`/images/categories/${route}.png`}
+				className="h-32 w-32 md:h-60 md:w-60 "
 			/>
 			<div className="flex w-full justify-center text-center">
 				<SubHeading text={name} />

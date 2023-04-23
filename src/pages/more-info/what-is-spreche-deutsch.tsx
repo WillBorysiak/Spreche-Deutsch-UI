@@ -4,7 +4,7 @@ import PageHeading from '../../components/generic/typography/heading/PageHeading
 
 const WhatIsSprecheDeutsch: NextPage = () => {
 	return (
-		<section id="what-page">
+		<section id="what-is-spreche-deutsch-page">
 			<PageHeading text="What Is Spreche Deutsch" mobile={true} />
 		</section>
 	);

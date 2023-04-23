@@ -27,7 +27,7 @@ const Content = (props: { children: React.ReactNode }) => {
 			>
 				<motion.div
 					key={router.route}
-					className="w-full"
+					className="w-full lg:h-full"
 					initial="initialState"
 					animate="animateState"
 					exit="exitState"
