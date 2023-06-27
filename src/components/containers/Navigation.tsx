@@ -38,7 +38,7 @@ const Navigation = () => {
 					<NavigationItem data={categories['words']} />
 					<NavigationItem data={categories['sentences']} />
 					<NavigationItem data={categories['concepts']} />
-					<NavigationItem data={categories['more-info']} />
+					<NavigationItem data={categories['resources']} />
 				</div>
 			)}
 		</motion.nav>

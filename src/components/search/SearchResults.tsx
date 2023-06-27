@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { CategoryModel } from '../../models/Category';
+import { CategoryModel } from '../../models/Category.model';
 import TableText from '../generic/typography/translation-table/TableText';
 
 const SearchResults = (props: { searchResults: CategoryModel[]; onClose: () => void }) => {

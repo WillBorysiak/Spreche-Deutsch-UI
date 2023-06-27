@@ -2,8 +2,8 @@ import { faGenderless, faMars, faVenus } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
-import { SentenceModel } from '../../../models/Sentence';
-import { WordModel } from '../../../models/Word';
+import { SentenceModel } from '../../../models/Sentence.model';
+import { WordModel } from '../../../models/Word.model';
 import TableHeading from '../../generic/typography/translation-table/TableHeading';
 import TableText from '../../generic/typography/translation-table/TableText';
 

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { CategoryModel } from '../models/Category';
+import { CategoryModel } from '../models/Category.model';
 
 export interface CategoryStoreItem {
 	[type: string]: CategoryModel[];

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { SentenceModel } from '../models/Sentence';
+import { SentenceModel } from '../models/Sentence.model';
 
 interface SentencesStore {
 	sentences: { [category: string]: SentenceModel[] };

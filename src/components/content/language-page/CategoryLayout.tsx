@@ -1,5 +1,5 @@
 import { classNames } from '../../../helpers/classNames';
-import { CategoryModel } from '../../../models/Category';
+import { CategoryModel } from '../../../models/Category.model';
 import Category from './Category';
 
 const CategoryLayout = (props: { data: CategoryModel[]; parentRoute: string; layout: string }) => {

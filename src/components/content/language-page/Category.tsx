@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { CategoryModel } from '../../../models/Category';
+import { CategoryModel } from '../../../models/Category.model';
 import SubHeading from '../../generic/typography/heading/SubHeading';
 
 const Category = (props: { data: CategoryModel; parentRoute: string }) => {
@@ -24,7 +24,7 @@ const Category = (props: { data: CategoryModel; parentRoute: string }) => {
 				priority={false}
 				alt="gallery"
 				src={`/images/categories/${route}.png`}
-				className="h-32 w-32 md:h-60 md:w-60 "
+				className="h-32 w-32 md:h-60 md:w-60"
 			/>
 			<div className="flex w-full justify-center text-center">
 				<SubHeading text={name} />

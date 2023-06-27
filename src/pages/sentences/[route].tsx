@@ -8,7 +8,7 @@ import TranslationTable from '../../components/content/language-page/Translation
 import PageHeading from '../../components/generic/typography/heading/PageHeading';
 import { fetcher } from '../../helpers/fetcher';
 import { motionVariants } from '../../helpers/framerMotion';
-import { CategoryModel } from '../../models/Category';
+import { CategoryModel } from '../../models/Category.model';
 import { useCategoriesStore } from '../../store/categoriesStore';
 import { useSentencesStore } from '../../store/sentencesStore';
 

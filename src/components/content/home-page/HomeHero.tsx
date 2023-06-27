@@ -9,10 +9,10 @@ const HomeHero = () => {
 	const router = useRouter();
 
 	const learnClick = () => router.push('/words');
-	const infoClick = () => router.push('/introduction');
+	const infoClick = () => router.push('/resources');
 
 	return (
-		<section id="home-hero" className="px-6 sm:px-6 lg:px-8">
+		<section id="home-hero" className="my-10 px-6 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-3xl text-center">
 				<SubHeading text="Welcome to your German learning resource!" />
 				<div className="mb-5 mt-5">
@@ -22,7 +22,7 @@ const HomeHero = () => {
 				</div>
 				<div className="flex justify-evenly">
 					<PrimaryButton text="Start learning" onClick={learnClick} />
-					<SecondaryButton text="More info" onClick={infoClick} />
+					<SecondaryButton text="Resources" onClick={infoClick} />
 				</div>
 			</div>
 		</section>

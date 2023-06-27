@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useSWR from 'swr';
 
 import { fetcher } from '../../helpers/fetcher';
-import { CategoryModel } from '../../models/Category';
+import { CategoryModel } from '../../models/Category.model';
 import { CategoryStoreItem, useCategoriesStore } from '../../store/categoriesStore';
 
 const PageLayout = (props: { children: React.ReactNode }) => {

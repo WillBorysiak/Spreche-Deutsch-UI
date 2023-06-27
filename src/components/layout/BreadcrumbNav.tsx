@@ -8,9 +8,11 @@ const BreadcrumbNav = () => {
 	const path = router.asPath.replace(/^\/+/g, '');
 	const segments = path.split('/');
 	const breadcrumbs = segments.map((segment, idx) => {
+		const segmentName = segment.replace(/-/g, ' ');
 		const href = `/${segments.slice(0, idx + 1).join('/')}`;
+
 		return {
-			name: segment,
+			name: segmentName,
 			href: href,
 			current: idx === segments.length - 1,
 		};

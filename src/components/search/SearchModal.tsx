@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
 
-import { CategoryModel } from '../../models/Category';
+import { CategoryModel } from '../../models/Category.model';
 import SearchInput from './SearchInput';
 import SearchResults from './SearchResults';
 

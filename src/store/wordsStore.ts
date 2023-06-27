@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { WordModel } from '../models/Word';
+import { WordModel } from '../models/Word.model';
 
 interface WordsStore {
 	words: { [category: string]: WordModel[] };
