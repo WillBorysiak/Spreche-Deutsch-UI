@@ -18,7 +18,7 @@ const ScrollingGreeting = (props: { greetingData: GreetingModel }) => {
 	useEffect(() => {
 		const interval = setInterval(() => setCount(count => (count + 1) % 3), animationSpeed);
 		return () => clearInterval(interval);
-	}, []);
+	}, [animationSpeed]);
 
 	// changes greeting
 	useEffect(() => {

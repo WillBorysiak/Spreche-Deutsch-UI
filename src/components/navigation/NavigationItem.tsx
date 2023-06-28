@@ -13,12 +13,11 @@ const NavigationItem = (props: { data: CategoryModel[] }) => {
 
 	const [isVisible, setIsVisible] = useState(false);
 	const [underlineheading, setUnderlineheading] = useState<string>();
-	const [underlineItem, setUnderlineItem] = useState<string>();
 	const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
 	const router = useRouter();
 
-	// parent route opens navigation and underlines
+	// parent route opens navigation and underlines when active
 	useEffect(() => {
 		const parentUrl = router.asPath.split('/')[1];
 
