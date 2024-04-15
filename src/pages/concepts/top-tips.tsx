@@ -1,13 +1,15 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
-import PageHeading from '../../components/generic/typography/heading/PageHeading';
+import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
 const TopTips: NextPage = () => {
-	return (
-		<section id="top-tips-page">
-			<PageHeading text="Top Tips" mobile={true} />
-		</section>
-	);
+  return (
+    <section id="top-tips-page" className="flex flex-col items-center">
+      <div className="mt-10">
+        <SubHeading text="Coming Soon..." />
+      </div>
+    </section>
+  );
 };
 
 export default TopTips;

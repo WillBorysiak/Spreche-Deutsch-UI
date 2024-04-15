@@ -1,18 +1,15 @@
-import type { NextPage } from 'next';
+import { NextPage } from "next";
 
-import PageHeading from '../../components/generic/typography/heading/PageHeading';
-import SubHeading from '../../components/generic/typography/heading/SubHeading';
+import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
 const OnlineTools: NextPage = () => {
-	return (
-		<section id="online-tools-page" className="flex justify-center">
-			<PageHeading text="Online Tools" mobile={true} />
-
-			<div className="mt-10">
-				<SubHeading text="Work in progress..." />
-			</div>
-		</section>
-	);
+  return (
+    <section id="online-tools-page" className="flex flex-col items-center">
+      <div className="mt-10">
+        <SubHeading text="Coming Soon..." />
+      </div>
+    </section>
+  );
 };
 
 export default OnlineTools;

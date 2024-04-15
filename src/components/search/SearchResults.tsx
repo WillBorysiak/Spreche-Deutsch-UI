@@ -1,30 +1,36 @@
-import { useRouter } from 'next/router';
-import { CategoryModel } from '../../models/Category.model';
-import TableText from '../generic/typography/translation-table/TableText';
+import { useRouter } from "next/router";
 
-const SearchResults = (props: { searchResults: CategoryModel[]; onClose: () => void }) => {
-	const { searchResults, onClose } = props;
+import { Category } from "../../models/Category.model";
+import TableText from "../generic/typography/translation-table/TableText";
 
-	const router = useRouter();
+interface SearchResultsProps {
+  searchResults: Category[];
+  onClose: () => void;
+}
 
-	return (
-		<div id="search-results" className="mt-5 w-full px-3">
-			{searchResults.map((result, index) => (
-				<div key={index} className="mt-5 flex justify-between">
-					<span
-						className="hover:cursor-pointer"
-						onClick={() => {
-							onClose();
-							router.push(`/${result.type}/${result.route}`);
-						}}
-					>
-						<TableText text={result.name} />
-					</span>
-					<TableText text={result.type} className="opacity-50" />
-				</div>
-			))}
-		</div>
-	);
+const SearchResults = (props: SearchResultsProps) => {
+  const { searchResults, onClose } = props;
+
+  const router = useRouter();
+
+  return (
+    <div id="search-results" className="mt-5 w-full px-3">
+      {searchResults.map((result, index) => (
+        <div key={index} className="mt-5 flex justify-between">
+          <span
+            className="hover:cursor-pointer hover:underline hover:decoration-2 hover:underline-offset-4"
+            onClick={() => {
+              onClose();
+              router.push(`/${result.type}/${result.route}`);
+            }}
+          >
+            <TableText text={result.name} />
+          </span>
+          <TableText text={result.type} className="opacity-50" />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default SearchResults;

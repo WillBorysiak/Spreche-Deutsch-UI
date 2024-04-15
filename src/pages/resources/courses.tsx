@@ -1,18 +1,15 @@
-import type { NextPage } from 'next';
+import { NextPage } from "next";
 
-import PageHeading from '../../components/generic/typography/heading/PageHeading';
-import SubHeading from '../../components/generic/typography/heading/SubHeading';
+import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
 const Courses: NextPage = () => {
-	return (
-		<section id="courses-page" className="flex justify-center">
-			<PageHeading text="Courses" mobile={true} />
-
-			<div className="mt-10">
-				<SubHeading text="Work in progress..." />
-			</div>
-		</section>
-	);
+  return (
+    <section id="courses-page" className="flex flex-col items-center">
+      <div className="mt-10">
+        <SubHeading text="Coming Soon..." />
+      </div>
+    </section>
+  );
 };
 
 export default Courses;

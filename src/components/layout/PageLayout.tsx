@@ -1,35 +1,39 @@
-import { useEffect } from 'react';
-import useSWR from 'swr';
+import { useEffect } from "react";
 
-import { fetcher } from '../../helpers/fetcher';
-import { CategoryModel } from '../../models/Category.model';
-import { CategoryStoreItem, useCategoriesStore } from '../../store/categoriesStore';
+import useSWR from "swr";
 
-const PageLayout = (props: { children: React.ReactNode }) => {
-	const { children } = props;
+import { fetcher } from "../../helpers/fetcher";
+import { ICategory } from "../../interfaces/ICategory";
+import { useCategoriesStore } from "../../store/categoriesStore";
 
-	const { setCategories } = useCategoriesStore();
+interface PageLayoutProps {
+  children: React.ReactNode;
+}
 
-	const { data } = useSWR('http://localhost:8000/categories', fetcher);
+const PageLayout = (props: PageLayoutProps) => {
+  const { children } = props;
 
-	// pushes categories into the store
-	useEffect(() => {
-		if (data) {
-			const categories: CategoryStoreItem = data.reduce((acc: CategoryStoreItem, item: CategoryModel) => {
-				const type = item.type;
-				if (!acc[type]) acc[type] = [];
-				acc[type].push(item);
-				return acc;
-			}, {});
-			setCategories(categories);
-		}
-	}, [data, setCategories]);
+  const { setCategories } = useCategoriesStore();
 
-	return (
-		<div id="page-layout" className="flex w-screen flex-col lg:h-screen lg:flex-row">
-			{children}
-		</div>
-	);
+  const { data } = useSWR("http://localhost:8000/categories", fetcher);
+
+  // categories added to store
+  useEffect(() => {
+    if (data) {
+      const categoryData: ICategory[] = data;
+
+      setCategories(categoryData);
+    }
+  }, [data, setCategories]);
+
+  return (
+    <div
+      id="page-layout"
+      className="flex w-screen flex-col lg:h-screen lg:flex-row"
+    >
+      {children}
+    </div>
+  );
 };
 
 export default PageLayout;

@@ -1,7 +1,11 @@
-const Paragraph = (props: { text: string }) => {
-	const { text } = props;
+interface ParagraphProps {
+  text: string;
+}
 
-	return <p className="text-lg sm:text-xl">{text}</p>;
+const Paragraph = (props: ParagraphProps) => {
+  const { text } = props;
+
+  return <p className="text-lg sm:text-xl">{text}</p>;
 };
 
 export default Paragraph;

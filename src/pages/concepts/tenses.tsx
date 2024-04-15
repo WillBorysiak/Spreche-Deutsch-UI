@@ -1,13 +1,15 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
-import PageHeading from '../../components/generic/typography/heading/PageHeading';
+import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
 const Tenses: NextPage = () => {
-	return (
-		<section id="tenses-page">
-			<PageHeading text="Tenses" mobile={true} />
-		</section>
-	);
+  return (
+    <section id="tenses-page" className="flex flex-col items-center">
+      <div className="mt-10">
+        <SubHeading text="Coming Soon..." />
+      </div>
+    </section>
+  );
 };
 
 export default Tenses;
