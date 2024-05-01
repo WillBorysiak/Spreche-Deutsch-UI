@@ -15,7 +15,10 @@ const PageLayout = (props: PageLayoutProps) => {
 
   const { setCategories } = useCategoriesStore();
 
-  const { data } = useSWR("http://localhost:8000/categories", fetcher);
+  const { data } = useSWR<ICategory[]>(
+    `${process.env.NEXT_PUBLIC_API_URL}/categories`,
+    fetcher,
+  );
 
   // categories added to store
   useEffect(() => {

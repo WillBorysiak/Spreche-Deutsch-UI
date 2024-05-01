@@ -40,7 +40,7 @@ const NavigationItem = (props: NavigationItemProps) => {
   return (
     <div id="navigation-item" className="mb-10">
       <div
-        className="default-transition mb-5 w-fit cursor-pointer hover:underline hover:decoration-2 hover:underline-offset-4"
+        className="mb-5 w-fit cursor-pointer hover:underline hover:decoration-2 hover:underline-offset-4"
         onClick={() => {
           closeMobileSidebar();
           router.push(`/${parentCategory}`);
@@ -60,7 +60,7 @@ const NavigationItem = (props: NavigationItemProps) => {
           leaveTo="transform scale-95 opacity-0 max-h-0"
         >
           <span
-            className="default-transition w-fit cursor-pointer hover:underline"
+            className="w-fit cursor-pointer"
             onClick={() => {
               closeMobileSidebar();
               router.push(`/${parentCategory}/${item.route}`);

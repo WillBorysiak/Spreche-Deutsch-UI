@@ -1,5 +1,5 @@
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/sharp-solid-svg-icons";
 
 interface SearchButtonProps {
   searchClick: () => void;

@@ -49,7 +49,7 @@ const WordsCategory: NextPage = () => {
   // words API request
   const { data } = useSWR<IWord[]>(
     shouldFetchData()
-      ? `http://localhost:8000/words/category/${currentCategory?.route}`
+      ? `${process.env.NEXT_PUBLIC_API_URL}/words/category/${currentCategory?.route}`
       : null,
     fetcher,
   );

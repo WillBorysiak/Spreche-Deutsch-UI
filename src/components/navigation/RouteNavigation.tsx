@@ -22,20 +22,20 @@ const RouteNavigation = () => {
   return (
     <nav className="mt-1 flex justify-center">
       <ol role="list" className="flex items-center space-x-4">
-        <Link href="/" className="text-zinc-200 hover:text-zinc-300">
+        <Link href="/" className="text-zinc-900  dark:text-zinc-200">
           <HomeIcon className="h-5 w-5 flex-shrink-0" />
         </Link>
 
         {breadcrumbs.map((breadcrumb, index) => (
           <li key={index}>
             <div className="flex items-center">
-              <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-zinc-200" />
+              <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-zinc-900 dark:text-zinc-200" />
               <Link
                 href={breadcrumb.href}
                 className={`ml-3 text-lg font-medium capitalize sm:text-lg  ${
                   breadcrumb.current
-                    ? "text-zinc-200 underline underline-offset-4"
-                    : "capitalize text-zinc-300 hover:text-zinc-200"
+                    ? "text-zinc-900 underline decoration-2 underline-offset-4 dark:text-zinc-200"
+                    : "capitalize text-zinc-900 decoration-2 hover:underline hover:underline-offset-4 dark:text-zinc-200"
                 }`}
               >
                 {breadcrumb.name}

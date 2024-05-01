@@ -5,7 +5,7 @@ import {
   faGenderless,
   faMars,
   faVenus,
-} from "@fortawesome/sharp-solid-svg-icons";
+} from "@fortawesome/pro-solid-svg-icons";
 
 import { Word } from "../../../models/Word.model";
 import TableHeading from "../../generic/typography/translation-table/TableHeading";
@@ -21,11 +21,11 @@ const WordTranslationTable = (props: WordTranslationTableProps) => {
   return (
     <table
       id="words-table"
-      className="mx-auto w-full divide-y divide-zinc-200 "
+      className="mx-auto w-full divide-y divide-zinc-900 dark:divide-zinc-200"
     >
       <thead>
         <tr>
-          <th className="w-1/2 border-r border-zinc-200 py-5">
+          <th className="w-1/2 border-r border-zinc-900 py-5 dark:border-zinc-200">
             <Image
               className="mx-auto"
               src="/images/svg/uk-icon.svg"
@@ -49,11 +49,11 @@ const WordTranslationTable = (props: WordTranslationTableProps) => {
           </th>
         </tr>
       </thead>
-      <tbody className="divide-y divide-zinc-200">
+      <tbody className="divide-y divide-zinc-900 dark:divide-zinc-200">
         {words &&
           words.map((item, index) => (
             <tr key={index}>
-              <td className="border-r border-zinc-200 px-3 py-5">
+              <td className="border-r border-zinc-900 px-3 py-5 dark:border-zinc-200">
                 <TableText text={item.english} />
               </td>
               <td className="flex items-center justify-center px-3 py-5">

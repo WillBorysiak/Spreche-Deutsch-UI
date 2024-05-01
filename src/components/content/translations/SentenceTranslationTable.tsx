@@ -14,11 +14,11 @@ const SentenceTranslationTable = (props: SentenceTranslationTableProps) => {
   return (
     <table
       id="sentences-table"
-      className="mx-auto w-full divide-y divide-zinc-200"
+      className="mx-auto w-full divide-y divide-zinc-900 dark:divide-zinc-200"
     >
       <thead>
         <tr>
-          <th className="border-r border-zinc-200 py-5">
+          <th className="border-r border-zinc-900 py-5 dark:border-zinc-200">
             <Image
               className="mx-auto"
               src="/images/svg/uk-icon.svg"
@@ -42,11 +42,11 @@ const SentenceTranslationTable = (props: SentenceTranslationTableProps) => {
           </th>
         </tr>
       </thead>
-      <tbody className="divide-y divide-zinc-200">
+      <tbody className="divide-y divide-zinc-900 dark:divide-zinc-200">
         {sentences &&
           sentences.map((item, index) => (
             <tr key={index}>
-              <td className="border-r border-zinc-200 px-3 py-5">
+              <td className="border-r border-zinc-900 px-3 py-5 dark:divide-zinc-200">
                 <TableText text={item.english} />
               </td>
               <td className="px-3 py-5">

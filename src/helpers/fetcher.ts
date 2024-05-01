@@ -1,8 +1,8 @@
 import axios from "axios";
 
-import { IWord } from "../interfaces/IWord";
+type Fetcher<Data> = (url: string) => Promise<Data>;
 
-export async function fetcher(url: string): Promise<IWord[]> {
-  const response = await axios.get(url);
+export async function fetcher<T>(url: string): Promise<T> {
+  const response = await axios.get<T>(url);
   return response.data;
 }

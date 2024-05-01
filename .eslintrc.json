@@ -18,7 +18,7 @@
             "position": "before"
           },
           {
-            "pattern": "{framer-motion,swr,zustand,@/*}",
+            "pattern": "{framer-motion,swr,zustand,@*}",
             "group": "external",
             "position": "after"
           },

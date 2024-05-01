@@ -31,7 +31,7 @@ const NavigationText = (props: NavigationTextProps) => {
 
   return (
     <li
-      className={`text-lg sm:text-xl ${underline ? "underline decoration-2 underline-offset-4" : ""}`}
+      className={`text-lg decoration-2 hover:underline hover:underline-offset-4 sm:text-xl ${underline ? "underline underline-offset-4" : ""}`}
     >
       {text}
     </li>

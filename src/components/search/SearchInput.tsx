@@ -1,5 +1,5 @@
+import { faSearch } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/sharp-solid-svg-icons";
 
 interface SearchInputProps {
   onInputChange: (value: string) => void;
@@ -21,7 +21,6 @@ const SearchInput = (props: SearchInputProps) => {
       <FontAwesomeIcon icon={faSearch} size="1x" className="mr-3" />
       <input
         type="text"
-        placeholder="Search..."
         className="w-full bg-transparent focus:outline-none"
         onChange={handleInputChange}
       />

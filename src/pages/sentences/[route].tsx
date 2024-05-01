@@ -32,7 +32,7 @@ const SentencesCategory: NextPage = () => {
     const routerPath = router.asPath;
 
     const category = sentenceCategories?.find(
-      ({ route }) => `/words/${route}` === routerPath,
+      ({ route }) => `/sentences/${route}` === routerPath,
     );
 
     if (category) setCurrentCategory(category);
@@ -50,7 +50,7 @@ const SentencesCategory: NextPage = () => {
   // sentence API request
   const { data } = useSWR<ISentence[]>(
     shouldFetchData()
-      ? `http://localhost:8000/sentences/category/${currentCategory?.route}`
+      ? `${process.env.NEXT_PUBLIC_API_URL}/sentences/category/${currentCategory?.route}`
       : null,
     fetcher,
   );

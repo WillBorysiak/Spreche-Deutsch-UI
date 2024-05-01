@@ -18,7 +18,7 @@ const CategoryLayout = (props: CategoryLayoutProps) => {
         layout === "column"
           ? "flex flex-col"
           : "flex flex-col 2xl:grid 2xl:grid-cols-2",
-        "gap-3",
+        "gap-10",
       )}
     >
       {data &&
