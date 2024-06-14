@@ -7,7 +7,7 @@ import useSWR from "swr";
 
 import TranslationTable from "../../components/content/translations/TranslationTable";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
-import { CategoryEnum } from "../../enums/CategoryEnum";
+import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
 import { fetcher } from "../../helpers/fetcher";
 import { motionVariants } from "../../helpers/framerMotion";
 import { ISentence } from "../../interfaces/ISentence";
@@ -28,7 +28,8 @@ const SentencesCategory: NextPage = () => {
 
   // current category added to store
   useEffect(() => {
-    const sentenceCategories = getCategoriesByType(CategoryEnum.Sentences);
+    const sentenceCategories = getCategoriesByType(ContentTypeEnum.Sentences);
+
     const routerPath = router.asPath;
 
     const category = sentenceCategories?.find(
@@ -60,7 +61,6 @@ const SentencesCategory: NextPage = () => {
     if (data) setSentences(data);
   }, [data, setSentences]);
 
-  // sentences fetched from store
   const sentenceData = () =>
     currentCategory ? getSentencesByCategory(currentCategory.route) : [];
 

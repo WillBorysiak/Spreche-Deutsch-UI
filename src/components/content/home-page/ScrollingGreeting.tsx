@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import { Transition } from "@headlessui/react";
 
+import { Greetings } from "../../../types/Greetings.type";
 import Greeting from "../../generic/typography/general/Greeting";
-import { Greetings } from "../../../models/Greetings.model";
 
 interface ScrollingGreetingProps {
   greetings: Greetings;
@@ -11,11 +11,8 @@ interface ScrollingGreetingProps {
 
 const ScrollingGreeting = (props: ScrollingGreetingProps) => {
   const {
-    greetings: { greetings, animationSpeed },
+    greetings: { staticText, dynamicText, animationSpeed },
   } = props;
-
-  const staticText = greetings[0];
-  const dynamicText = greetings.slice(1);
 
   const [greeting, setGreeting] = useState(dynamicText[0]);
   const [count, setCount] = useState(0);

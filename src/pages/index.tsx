@@ -2,11 +2,12 @@ import type { NextPage } from "next";
 
 import HomeHero from "../components/content/home-page/HomeHero";
 import ScrollingGreeting from "../components/content/home-page/ScrollingGreeting";
-import { Greetings } from "../models/Greetings.model";
+import { Greetings } from "../types/Greetings.type";
 
 const Home: NextPage = () => {
   const dailyGreetings: Greetings = {
-    greetings: ["Guten", "Morgen", "Tag", "Abend"],
+    staticText: "Guten",
+    dynamicText: ["Morgen", "Tag", "Abend"],
     animationSpeed: 2000,
   };
 

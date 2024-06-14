@@ -46,7 +46,7 @@ const SentenceTranslationTable = (props: SentenceTranslationTableProps) => {
         {sentences &&
           sentences.map((item, index) => (
             <tr key={index}>
-              <td className="border-r border-zinc-900 px-3 py-5 dark:divide-zinc-200">
+              <td className="border-r border-zinc-900 px-3 py-5 dark:border-zinc-200">
                 <TableText text={item.english} />
               </td>
               <td className="px-3 py-5">

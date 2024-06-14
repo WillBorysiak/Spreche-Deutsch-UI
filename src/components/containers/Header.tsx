@@ -1,82 +1,31 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
 
 import { useCategoriesStore } from "../../store/categoriesStore";
-import { useSidebarStore } from "../../store/sidebarStore";
-import PageHeading from "../generic/typography/heading/PageHeading";
-import SiteHeading from "../generic/typography/heading/SiteHeading";
-import SidebarToggle from "../header/SidebarToggle";
-import ThemeToggle from "../header/ThemeToggle";
-import SearchButton from "../search/SearchButton";
+import DesktopHeader from "../header/DesktopHeader";
+import MobileHeader from "../header/MobileHeader";
 import SearchModal from "../search/SearchModal";
-import { desktopHeadingParser } from "../../helpers/desktopHeading";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { mobileSidebar, closeMobileSidebar, toggleMobileSidebar } =
-    useSidebarStore();
-  const { getCategoriesAsArray } = useCategoriesStore();
 
-  const router = useRouter();
+  const { getCategoriesAsArray } = useCategoriesStore();
 
   // search modal
   const searchClick = () => setIsModalOpen(true);
   const searchClose = () => setIsModalOpen(false);
-  const modalCategories = getCategoriesAsArray();
+  const searchCategories = getCategoriesAsArray();
 
   return (
     <section
       id="header"
       className="light-bg dark:dark-bg flex w-full items-center px-3 py-1 lg:h-[5%] lg:py-0"
     >
-      {/* desktop header */}
-      <div
-        id="desktop-header"
-        className="hidden w-full flex-row items-center justify-between lg:flex"
-      >
-        <div className="flex w-[125px] justify-start">
-          <SearchButton searchClick={searchClick} />
-        </div>
-
-        <PageHeading
-          text={desktopHeadingParser(router.asPath)}
-          mobile={false}
-        />
-
-        <div className="flex w-[125px] justify-end">
-          <ThemeToggle />
-        </div>
-      </div>
-
-      {/* mobile header */}
-      <div
-        id="mobile-header"
-        className="flex w-full items-center justify-between lg:hidden"
-      >
-        <div className="flex w-[50px] justify-start">
-          <SidebarToggle
-            mobileSidebar={mobileSidebar}
-            toggleMobileSidebar={toggleMobileSidebar}
-          />
-        </div>
-        <span
-          className="px-3"
-          onClick={() => {
-            closeMobileSidebar();
-            router.push("/");
-          }}
-        >
-          <SiteHeading text="Spreche Deutsch" />
-        </span>
-        <div className="flex w-[50px] justify-end">
-          <SearchButton searchClick={searchClick} />
-        </div>
-      </div>
-
+      <DesktopHeader searchClick={searchClick} />
+      <MobileHeader searchClick={searchClick} />
       <SearchModal
         isOpen={isModalOpen}
         onClose={searchClose}
-        categories={modalCategories}
+        categories={searchCategories}
       />
     </section>
   );

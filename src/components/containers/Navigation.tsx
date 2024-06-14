@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import { motion } from "framer-motion";
 
-import { CategoryEnum } from "../../enums/CategoryEnum";
+import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
 import { motionVariants } from "../../helpers/framerMotion";
 import { useCategoriesStore } from "../../store/categoriesStore";
 import SiteHeading from "../generic/typography/heading/SiteHeading";
@@ -16,7 +16,7 @@ const Navigation = () => {
   return (
     <motion.nav
       id="navigation"
-      className="flex flex-col py-10 pl-10 pr-5"
+      className="flex h-full flex-col py-10 pl-10 pr-5"
       initial="initialState"
       animate="animateState"
       exit="exitState"
@@ -31,18 +31,21 @@ const Navigation = () => {
       </span>
 
       {hasCategories() && (
-        <div id="navigation-container">
+        <div
+          id="navigation-container"
+          className="no-scrollbar h-full overflow-y-auto"
+        >
           <NavigationItem
-            navigationItems={getCategoriesByType(CategoryEnum.Words)}
+            navigationItems={getCategoriesByType(ContentTypeEnum.Words)}
           />
           <NavigationItem
-            navigationItems={getCategoriesByType(CategoryEnum.Sentences)}
+            navigationItems={getCategoriesByType(ContentTypeEnum.Sentences)}
           />
           <NavigationItem
-            navigationItems={getCategoriesByType(CategoryEnum.Concepts)}
+            navigationItems={getCategoriesByType(ContentTypeEnum.Concepts)}
           />
           <NavigationItem
-            navigationItems={getCategoriesByType(CategoryEnum.Resources)}
+            navigationItems={getCategoriesByType(ContentTypeEnum.Resources)}
           />
         </div>
       )}

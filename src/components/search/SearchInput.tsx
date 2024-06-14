@@ -9,8 +9,9 @@ const SearchInput = (props: SearchInputProps) => {
   const { onInputChange } = props;
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    onInputChange(value);
+    const searchValue = event.target.value;
+
+    onInputChange(searchValue);
   };
 
   return (

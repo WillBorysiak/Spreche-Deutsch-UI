@@ -22,7 +22,7 @@ const SearchModal = (props: SearchModalProps) => {
 
   // filters based on search
   useEffect(() => {
-    if (!inputValue) return setFilteredCategories([]);
+    if (!inputValue) return setFilteredCategories(categories);
 
     const filtered = categories.filter((category) => {
       const categoryTitle = category.name.toLowerCase();
@@ -60,7 +60,7 @@ const SearchModal = (props: SearchModalProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="no-scrollbar dark:dark-bg max-h-[400px] w-full max-w-md transform overflow-y-auto rounded-sm bg-zinc-200 p-5 text-center align-middle shadow-xl transition-all">
+              <Dialog.Panel className="no-scrollbar dark:dark-bg max-h-[400px] w-full max-w-md transform rounded-sm bg-zinc-200 p-5 text-center align-middle shadow-xl transition-all">
                 <SearchInput onInputChange={handleInputChange} />
                 <SearchResults
                   searchResults={filteredCategories}

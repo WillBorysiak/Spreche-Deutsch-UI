@@ -14,7 +14,10 @@ const SearchResults = (props: SearchResultsProps) => {
   const router = useRouter();
 
   return (
-    <div id="search-results" className="mt-5 w-full px-3">
+    <div
+      id="search-results"
+      className="no-scrollbar mt-5 max-h-[300px] w-full overflow-y-auto px-3"
+    >
       {searchResults.map((result, index) => (
         <div key={index} className="mt-5 flex justify-between">
           <span

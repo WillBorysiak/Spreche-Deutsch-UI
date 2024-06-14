@@ -1,4 +1,4 @@
-export enum CategoryEnum {
+export enum ContentTypeEnum {
   Sentences = "sentences",
   Words = "words",
   Concepts = "concepts",

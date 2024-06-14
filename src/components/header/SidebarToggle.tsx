@@ -30,7 +30,7 @@ const SidebarToggle = (props: SidebarToggleProps) => {
       </Transition>
 
       <Transition
-        className="absolute duration-1000 "
+        className="absolute"
         show={mobileSidebar}
         enter="default-transition"
         enterFrom="opacity-0"

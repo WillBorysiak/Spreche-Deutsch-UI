@@ -5,8 +5,9 @@ import { faMoon, faSun } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ThemeToggle = () => {
-  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  const { resolvedTheme, setTheme } = useTheme();
 
   // hydration fix
   useEffect(() => {

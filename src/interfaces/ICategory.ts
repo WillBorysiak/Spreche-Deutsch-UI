@@ -1,8 +1,8 @@
-import { CategoryEnum } from "../enums/CategoryEnum";
+import { ContentTypeEnum } from "../enums/ContentTypeEnum";
 
 export interface ICategory {
   index: number;
   name: string;
-  type: CategoryEnum;
+  type: ContentTypeEnum;
   route: string;
 }

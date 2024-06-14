@@ -2,14 +2,15 @@ import type { NextPage } from "next";
 
 import CategoryLayout from "../../components/content/language-page/CategoryLayout";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
+import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
 import { useCategoriesStore } from "../../store/categoriesStore";
-import { CategoryEnum } from "../../enums/CategoryEnum";
 
 const Words: NextPage = () => {
   const { getCategoriesByType } = useCategoriesStore();
 
   const wordCategories = getCategoriesByType("words");
-  const parentRoute = CategoryEnum.Words;
+
+  const parentRoute = ContentTypeEnum.Words;
 
   return (
     <section id="words-page" className="py-3">

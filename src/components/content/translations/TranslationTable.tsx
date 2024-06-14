@@ -1,4 +1,4 @@
-import { CategoryEnum } from "../../../enums/CategoryEnum";
+import { ContentTypeEnum } from "../../../enums/ContentTypeEnum";
 import { Sentence } from "../../../models/Sentence.model";
 import { Word } from "../../../models/Word.model";
 import SentenceTranslationTable from "./SentenceTranslationTable";
@@ -18,11 +18,11 @@ const TranslationTable = (props: TranslationTableProps) => {
         id="table-container"
         className="flex-col items-center justify-center"
       >
-        {type === CategoryEnum.Words && (
+        {type === ContentTypeEnum.Words && (
           <WordTranslationTable words={data as Word[]} />
         )}
 
-        {type === CategoryEnum.Sentences && (
+        {type === ContentTypeEnum.Sentences && (
           <SentenceTranslationTable sentences={data as Sentence[]} />
         )}
       </div>

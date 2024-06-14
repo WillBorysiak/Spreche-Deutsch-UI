@@ -24,7 +24,7 @@ const Content = (props: ContentProps) => {
         id="content"
         className={classNames(
           mobileSidebar
-            ? "default-transition h-0 blur-sm sm:h-fit lg:blur-0"
+            ? "default-transition h-0 blur-sm lg:h-fit lg:blur-0"
             : "",
           "no-scrollbar default-transition mx-auto flex w-full max-w-8xl flex-col items-center overflow-y-auto px-2 md:px-5 lg:h-[95%]",
         )}

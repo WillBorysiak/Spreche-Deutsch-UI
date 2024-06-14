@@ -1,10 +1,10 @@
-import { CategoryEnum } from "../enums/CategoryEnum";
+import { ContentTypeEnum } from "../enums/ContentTypeEnum";
 import { ICategory } from "../interfaces/ICategory";
 
 export class Category {
   index: number;
   name: string;
-  type: CategoryEnum;
+  type: ContentTypeEnum;
   route: string;
 
   constructor(data: ICategory) {
