@@ -31,41 +31,32 @@ const ScrollingGreeting = (props: ScrollingGreetingProps) => {
     setGreeting(dynamicText[count]);
   }, [count, dynamicText]);
 
+  const colours = ["#34D399", "#60A5FA", "#FB923C"];
+
   return (
     <div id="greeting" className="mr-28 flex flex-row sm:mr-44">
       <Greeting text={staticText} />
 
       <div id="scrolling-greeting" className="relative ml-3">
-        <Transition
-          show={greeting === dynamicText[0]}
-          className="absolute text-green-400 duration-1000 ease-in-out"
-          enterFrom="opacity-0 -translate-y-10"
-          enterTo="opacity-100 translate-y-0"
-          leaveFrom="opacity-100 translate-y-0"
-          leaveTo="opacity-0 translate-y-10"
-        >
-          <Greeting text={dynamicText[0]} />
-        </Transition>
-        <Transition
-          show={greeting === dynamicText[1]}
-          className="absolute text-blue-400 duration-1000 ease-in-out"
-          enterFrom="opacity-0 -translate-y-10"
-          enterTo="opacity-100 translate-y-0"
-          leaveFrom="opacity-100 translate-y-0"
-          leaveTo="opacity-0 translate-y-10"
-        >
-          <Greeting text={dynamicText[1]} />
-        </Transition>
-        <Transition
-          show={greeting === dynamicText[2]}
-          className="absolute text-orange-400 duration-1000 ease-in-out"
-          enterFrom="opacity-0 -translate-y-10"
-          enterTo="opacity-100 translate-y-0"
-          leaveFrom="opacity-100 translate-y-0"
-          leaveTo="opacity-0 translate-y-10"
-        >
-          <Greeting text={dynamicText[2]} />
-        </Transition>
+        {dynamicText.map((text, index) => (
+          <Transition
+            key={index}
+            show={greeting === text}
+            enterFrom="opacity-0 -translate-y-10"
+            enterTo="opacity-100 translate-y-0"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 translate-y-10"
+          >
+            <span className="absolute duration-1000 ease-in-out">
+              <h3
+                className="text-5xl sm:text-7xl"
+                style={{ color: colours[index] }}
+              >
+                {text}
+              </h3>
+            </span>
+          </Transition>
+        ))}
       </div>
     </div>
   );

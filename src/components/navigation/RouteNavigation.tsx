@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { ChevronRightIcon, HomeIcon } from "@heroicons/react/20/solid";
+import { faChevronRight, faHome } from "@fortawesome/pro-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RouteNavigation = () => {
   const router = useRouter();
@@ -22,17 +23,21 @@ const RouteNavigation = () => {
   return (
     <nav className="mt-1 flex justify-center">
       <ol role="list" className="flex items-center space-x-4">
-        <Link href="/" className="text-zinc-900  dark:text-zinc-200">
-          <HomeIcon className="h-5 w-5 flex-shrink-0" />
+        <Link href="/" className="">
+          <FontAwesomeIcon icon={faHome} size="1x" />
         </Link>
 
         {breadcrumbs.map((breadcrumb, index) => (
           <li key={index}>
             <div className="flex items-center">
-              <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-zinc-900 dark:text-zinc-200" />
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                size="1x"
+                className="text-zinc-900 dark:text-zinc-200"
+              />
               <Link
                 href={breadcrumb.href}
-                className={`ml-3 text-lg font-medium capitalize sm:text-lg  ${
+                className={`ml-3 text-lg font-medium capitalize sm:text-lg ${
                   breadcrumb.current
                     ? "text-zinc-900 underline decoration-2 underline-offset-4 dark:text-zinc-200"
                     : "capitalize text-zinc-900 decoration-2 hover:underline hover:underline-offset-4 dark:text-zinc-200"

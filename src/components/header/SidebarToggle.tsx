@@ -17,7 +17,6 @@ const SidebarToggle = (props: SidebarToggleProps) => {
       onClick={toggleMobileSidebar}
     >
       <Transition
-        className="absolute"
         show={!mobileSidebar}
         enter="default-transition"
         enterFrom="opacity-0"
@@ -26,11 +25,12 @@ const SidebarToggle = (props: SidebarToggleProps) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <FontAwesomeIcon icon={faBars} size="2x" />
+        <span className="absolute">
+          <FontAwesomeIcon icon={faBars} size="2x" />
+        </span>
       </Transition>
 
       <Transition
-        className="absolute"
         show={mobileSidebar}
         enter="default-transition"
         enterFrom="opacity-0"
@@ -39,7 +39,9 @@ const SidebarToggle = (props: SidebarToggleProps) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <FontAwesomeIcon icon={faX} size="2x" />
+        <span className="absolute">
+          <FontAwesomeIcon icon={faX} size="2x" />
+        </span>
       </Transition>
     </button>
   );

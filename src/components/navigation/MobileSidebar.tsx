@@ -8,8 +8,6 @@ const MobileSidebar = () => {
 
   return (
     <Transition
-      id="mobile-sidebar"
-      className="no-scrollbar light-bg dark:dark-bg absolute z-10 w-screen overflow-y-auto lg:hidden"
       show={mobileSidebar}
       enter="default-transition transform"
       enterFrom="-translate-x-full"
@@ -18,7 +16,12 @@ const MobileSidebar = () => {
       leaveFrom="translate-x-0"
       leaveTo="-translate-x-full"
     >
-      <Navigation />
+      <section
+        id="mobile-sidebar"
+        className="no-scrollbar light-bg dark:dark-bg absolute z-10 w-screen overflow-y-auto lg:hidden"
+      >
+        <Navigation />
+      </section>
     </Transition>
   );
 };
