@@ -13,7 +13,10 @@ const ThemeToggle = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-  if (!mounted) return null;
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div id="theme-toggle" className="cursor-pointer">

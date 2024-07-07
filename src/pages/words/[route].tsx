@@ -44,8 +44,16 @@ const WordsCategory: NextPage = () => {
     getCategoriesByType,
   ]);
 
-  const shouldFetchData = () =>
-    currentCategory && !hasWordsCategory(currentCategory.route);
+  const shouldFetchData = () => {
+    if (!currentCategory) {
+      return false;
+    }
+
+    const categoryTypeIsWords = currentCategory?.type === ContentTypeEnum.Words;
+    const categoryNotInStore = !hasWordsCategory(currentCategory.route);
+
+    return categoryTypeIsWords && categoryNotInStore;
+  };
 
   // words API request
   const { data } = useSWR<IWord[]>(

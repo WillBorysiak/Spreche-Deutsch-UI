@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { Word } from "../models/Word.model";
 import { IWord } from "../interfaces/IWord";
 
-interface WordEntities {
+interface WordCategoryMap {
   [category: string]: Word[];
 }
 
@@ -31,21 +31,23 @@ export const useWordsStore = create<WordsStore>((set, get) => ({
   },
 
   setWords: (words: IWord[]) => {
-    const wordsEntities: WordEntities = {};
+    const wordsCategoryMap: WordCategoryMap = {};
 
     words.forEach((item: IWord) => {
       const category = item.category;
 
-      if (!wordsEntities[category]) {
-        wordsEntities[category] = [];
+      if (!wordsCategoryMap[category]) {
+        wordsCategoryMap[category] = [];
       }
 
       const word = new Word(item);
 
-      wordsEntities[category].push(word);
+      wordsCategoryMap[category].push(word);
     });
 
-    set({ words: wordsEntities });
+    set((state) => ({
+      words: { ...state.words, ...wordsCategoryMap },
+    }));
   },
 
   getWordsByCategory: (category: string) => {

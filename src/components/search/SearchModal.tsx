@@ -27,7 +27,9 @@ const SearchModal = (props: SearchModalProps) => {
 
   // filters based on search
   useEffect(() => {
-    if (!inputValue) return setFilteredCategories(categories);
+    if (!inputValue) {
+      return setFilteredCategories(categories);
+    }
 
     const filtered = categories.filter((category) => {
       const categoryTitle = category.name.toLowerCase();

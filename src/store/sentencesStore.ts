@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { Sentence } from "../models/Sentence.model";
 import { ISentence } from "../interfaces/ISentence";
 
-interface SentencesEntities {
+interface SentencesCategoryMap {
   [category: string]: Sentence[];
 }
 
@@ -31,21 +31,23 @@ export const useSentencesStore = create<SentencesStore>((set, get) => ({
   },
 
   setSentences: (sentences: ISentence[]) => {
-    const sentencesEntities: SentencesEntities = {};
+    const sentencesCategoryMap: SentencesCategoryMap = {};
 
     sentences.forEach((item: ISentence) => {
       const category = item.category;
 
-      if (!sentencesEntities[category]) {
-        sentencesEntities[category] = [];
+      if (!sentencesCategoryMap[category]) {
+        sentencesCategoryMap[category] = [];
       }
 
       const sentence = new Sentence(item);
 
-      sentencesEntities[category].push(sentence);
+      sentencesCategoryMap[category].push(sentence);
     });
 
-    set({ sentences: sentencesEntities });
+    set((state) => ({
+      sentences: { ...state.sentences, ...sentencesCategoryMap },
+    }));
   },
 
   getSentencesByCategory: (category: string) => {

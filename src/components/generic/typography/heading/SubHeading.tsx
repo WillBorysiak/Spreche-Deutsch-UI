@@ -7,7 +7,10 @@ const SubHeading = (props: SubHeadingProps) => {
   const { text, className } = props;
 
   let headingText = text;
-  if (headingText?.includes("-")) headingText = headingText.replace(/-/g, " ");
+
+  if (headingText?.includes("-")) {
+    headingText = headingText.replace(/-/g, " ");
+  }
 
   return (
     <h3 className={`text-2xl font-bold capitalize sm:text-3xl ${className}`}>

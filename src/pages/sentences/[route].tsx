@@ -45,8 +45,17 @@ const SentencesCategory: NextPage = () => {
     getCategoriesByType,
   ]);
 
-  const shouldFetchData = () =>
-    currentCategory && !hasSentencesCategory(currentCategory.route);
+  const shouldFetchData = () => {
+    if (!currentCategory) {
+      return false;
+    }
+
+    const categoryTypeIsSentences =
+      currentCategory?.type === ContentTypeEnum.Sentences;
+    const categoryNotInStore = !hasSentencesCategory(currentCategory.route);
+
+    return categoryTypeIsSentences && categoryNotInStore;
+  };
 
   // sentence API request
   const { data } = useSWR<ISentence[]>(
