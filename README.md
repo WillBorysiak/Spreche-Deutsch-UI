@@ -22,13 +22,7 @@
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/python.svg" alt="HTML" height="50"/>
-  <p align="center">Python</p>
-</div>
-
-<div align="center">
-  <img align="center" src="/docs/readme-icons/postgresql.svg" alt="HTML" height="50"/>
-  <p align="center">Postgresql</p>
+  <h3><a href="https://github.com/WillBorysiak/Spreche-Deutsch-API">Spreche Deutsch API</a></h3>
 </div>
 
 <h2 align="center">How The Application Works</h2>
