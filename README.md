@@ -1,28 +1,28 @@
 <h1 align="center">Spreche Deutsch UI</h1>
  
-<h2 align="center">Purpose of the Website/App:</h2>
+<h2 align="center">Purpose of the App:</h2>
  
-<h3 align="center">To serve as the UI for my Spreche Deutsch application.</h3>
+<h3 align="center"><i>To serve as the UI for my Spreche Deutsch application.</i></h3>
  
 <h2 align="center">Technology used</h2>
  
 <div align="center">
-  <img align="center" src="/docs/readme-icons/react.svg" alt="HTML" height="50"/>
-  <p align="center">React</p>
+  <img align="center" src="/docs/readme/icons/react.svg" alt="HTML" height="50"/>
+  <p align="center"><i>React</i></p>
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/nextjs.svg" alt="HTML" height="50"/>
-  <p align="center">NextJS</p>
+  <img align="center" src="/docs/readme/icons/nextjs.svg" alt="HTML" height="50"/>
+  <p align="center"><i>NextJS</i></p>
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/tailwindcss.svg" alt="HTML" height="50"/>
-  <p align="center">Tailwind CSS</p>
+  <img align="center" src="/docs/readme/icons/tailwindcss.svg" alt="HTML" height="50"/>
+  <p align="center"><i>Tailwind CSS</i></p>
 </div>
 
 <div align="center">
-  <h3><a href="https://github.com/WillBorysiak/Spreche-Deutsch-API">Spreche Deutsch API</a></h3>
+  <h3><i><a href="https://github.com/WillBorysiak/Spreche-Deutsch-API">Spreche Deutsch API</a></i></h3>
 </div>
 
 <h2 align="center">How The Application Works</h2>
