@@ -1,10 +1,10 @@
 interface SubHeadingProps {
   text: string | undefined;
-  className?: string;
+  underlineHeading?: boolean;
 }
 
 const SubHeading = (props: SubHeadingProps) => {
-  const { text, className } = props;
+  const { text, underlineHeading } = props;
 
   let headingText = text;
 
@@ -13,7 +13,9 @@ const SubHeading = (props: SubHeadingProps) => {
   }
 
   return (
-    <h3 className={`text-2xl font-bold capitalize sm:text-3xl ${className}`}>
+    <h3
+      className={`text-2xl font-bold capitalize sm:text-3xl ${underlineHeading ? "underline decoration-2 underline-offset-4" : ""}`}
+    >
       {headingText}
     </h3>
   );

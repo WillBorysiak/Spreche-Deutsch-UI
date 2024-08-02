@@ -18,6 +18,8 @@ const Content = (props: ContentProps) => {
 
   const router = useRouter();
 
+  // const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+
   return (
     <AnimatePresence mode="wait">
       <section
@@ -33,17 +35,25 @@ const Content = (props: ContentProps) => {
         }}
       >
         <motion.div
-          key={router.route}
+          key={router.asPath}
           className="default-transition w-full lg:h-full"
           initial="initialState"
           animate="animateState"
           exit="exitState"
-          transition={{ duration: 1 }}
+          transition={{ duration: 2 }}
           variants={motionVariants}
         >
           {router.asPath !== "/" && <BreadcrumbNav />}
           {children}
         </motion.div>
+
+        {/* mobile */}
+        {/* {!isDesktop && (
+          <div className="default-transition w-full lg:h-full">
+            {router.asPath !== "/" && <BreadcrumbNav />}
+            {children}
+          </div>
+        )} */}
       </section>
     </AnimatePresence>
   );

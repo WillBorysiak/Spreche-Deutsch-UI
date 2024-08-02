@@ -72,21 +72,10 @@ const WordsCategory: NextPage = () => {
     currentCategory ? getWordsByCategory(currentCategory.route) : [];
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.section
-        key={router.asPath}
-        id="words-category-page"
-        className="py-3"
-        initial="initialState"
-        animate="animateState"
-        exit="exitState"
-        transition={{ duration: 0.5 }}
-        variants={motionVariants}
-      >
-        <PageHeading text={currentCategory?.name} mobile={true} />
-        <TranslationTable data={wordsData()} type={currentCategory?.type} />
-      </motion.section>
-    </AnimatePresence>
+    <section id="words-category-page" className="py-3">
+      <PageHeading text={currentCategory?.name} mobile={true} />
+      <TranslationTable data={wordsData()} type={currentCategory?.type} />
+    </section>
   );
 };
 

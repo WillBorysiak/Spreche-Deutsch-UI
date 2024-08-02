@@ -16,7 +16,7 @@ const NavigationItem = (props: NavigationItemProps) => {
   const { navigationItems } = props;
 
   const [isVisible, setIsVisible] = useState(false);
-  const [underlineheading, setUnderlineheading] = useState<string>();
+  const [underlineHeading, setUnderlineHeading] = useState<boolean>();
 
   const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
@@ -29,25 +29,27 @@ const NavigationItem = (props: NavigationItemProps) => {
   useEffect(() => {
     if (parentRoute === parentCategory) {
       setIsVisible(true);
-      setUnderlineheading("underline decoration-2 underline-offset-4");
+      setUnderlineHeading(true);
     } else if (parentRoute !== parentCategory) {
-      setUnderlineheading("");
+      setUnderlineHeading(false);
     }
 
     // always open for mobile
     if (mobileSidebar) setIsVisible(true);
   }, [router.asPath, parentCategory, parentRoute, mobileSidebar]);
 
+  const parentNavigationClick = () => {
+    closeMobileSidebar();
+    router.push(`/${parentCategory}`);
+  };
+
   return (
     <div id="navigation-item" className="mb-10">
       <div
         className="mb-5 w-fit cursor-pointer hover:underline hover:decoration-2 hover:underline-offset-4"
-        onClick={() => {
-          closeMobileSidebar();
-          router.push(`/${parentCategory}`);
-        }}
+        onClick={() => parentNavigationClick()}
       >
-        <SubHeading text={parentCategory} className={underlineheading} />
+        <SubHeading text={parentCategory} underlineHeading={underlineHeading} />
       </div>
 
       {navigationItems.map((item, index) => (
@@ -59,17 +61,12 @@ const NavigationItem = (props: NavigationItemProps) => {
           leaveFrom="transform scale-100 opacity-100 max-h-32"
           leaveTo="transform scale-95 opacity-0 max-h-0"
         >
-          <span
-            className="default-transition w-fit cursor-pointer list-outside overflow-hidden"
-            onClick={() => {
-              closeMobileSidebar();
-              router.push(`/${parentCategory}/${item.route}`);
-            }}
-          >
+          <span className="default-transition">
             <NavigationText
               text={item.name}
               parentCategory={parentCategory}
               parentRoute={parentRoute}
+              childRoute={item.route}
             />
           </span>
         </Transition>

@@ -74,21 +74,10 @@ const SentencesCategory: NextPage = () => {
     currentCategory ? getSentencesByCategory(currentCategory.route) : [];
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.section
-        id="sentences-category-page"
-        className="py-3"
-        key={router.asPath}
-        initial="initialState"
-        animate="animateState"
-        exit="exitState"
-        transition={{ duration: 0.5 }}
-        variants={motionVariants}
-      >
-        <PageHeading text={currentCategory?.name} mobile={true} />
-        <TranslationTable data={sentenceData()} type={currentCategory?.type} />
-      </motion.section>
-    </AnimatePresence>
+    <section id="sentences-category-page" className="py-3">
+      <PageHeading text={currentCategory?.name} mobile={true} />
+      <TranslationTable data={sentenceData()} type={currentCategory?.type} />
+    </section>
   );
 };
 
