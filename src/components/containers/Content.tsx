@@ -34,11 +34,11 @@ const Content = (props: ContentProps) => {
       >
         <motion.div
           key={router.route}
-          className="w-full lg:h-full"
+          className="default-transition w-full lg:h-full"
           initial="initialState"
           animate="animateState"
           exit="exitState"
-          transition={{ duration: 2 }}
+          transition={{ duration: 1 }}
           variants={motionVariants}
         >
           {router.asPath !== "/" && <BreadcrumbNav />}
