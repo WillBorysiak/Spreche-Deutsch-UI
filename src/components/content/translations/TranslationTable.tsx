@@ -11,7 +11,7 @@ import WordTranslationTable from "./WordTranslationTable";
 
 interface TranslationTableProps {
   data: Word[] | Sentence[] | [];
-  type: string | undefined;
+  type: ContentTypeEnum | undefined;
 }
 
 const TranslationTable = (props: TranslationTableProps) => {

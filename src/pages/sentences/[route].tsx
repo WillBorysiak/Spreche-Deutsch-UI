@@ -2,15 +2,14 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
 import useSWR from "swr";
 
 import TranslationTable from "../../components/content/translations/TranslationTable";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
 import { fetcher } from "../../helpers/fetcher";
-import { motionVariants } from "../../helpers/framerMotion";
 import { ISentence } from "../../interfaces/ISentence";
+import { CategoryService } from "../../services/categoryService";
 import { useCategoriesStore } from "../../store/categoriesStore";
 import { useSentencesStore } from "../../store/sentencesStore";
 
@@ -28,12 +27,13 @@ const SentencesCategory: NextPage = () => {
 
   // current category added to store
   useEffect(() => {
-    const sentenceCategories = getCategoriesByType(ContentTypeEnum.Sentences);
+    const route = router.asPath;
+    const contentType = ContentTypeEnum.Sentences;
 
-    const routerPath = router.asPath;
-
-    const category = sentenceCategories?.find(
-      ({ route }) => `/sentences/${route}` === routerPath,
+    const category = CategoryService.getCategoryFromRoute(
+      route,
+      contentType,
+      getCategoriesByType,
     );
 
     if (category) setCurrentCategory(category);
@@ -45,21 +45,15 @@ const SentencesCategory: NextPage = () => {
     getCategoriesByType,
   ]);
 
-  const shouldFetchData = () => {
-    if (!currentCategory) {
-      return false;
-    }
-
-    const categoryTypeIsSentences =
-      currentCategory?.type === ContentTypeEnum.Sentences;
-    const categoryNotInStore = !hasSentencesCategory(currentCategory.route);
-
-    return categoryTypeIsSentences && categoryNotInStore;
-  };
+  const shouldFetchCategory = CategoryService.shouldFetchCategory(
+    currentCategory,
+    ContentTypeEnum.Sentences,
+    hasSentencesCategory,
+  );
 
   // sentence API request
   const { data } = useSWR<ISentence[]>(
-    shouldFetchData()
+    shouldFetchCategory
       ? `${process.env.NEXT_PUBLIC_API_URL}/sentences/category/${currentCategory?.route}`
       : null,
     fetcher,

@@ -2,15 +2,14 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
 import useSWR from "swr";
 
 import TranslationTable from "../../components/content/translations/TranslationTable";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
 import { fetcher } from "../../helpers/fetcher";
-import { motionVariants } from "../../helpers/framerMotion";
 import { IWord } from "../../interfaces/IWord";
+import { CategoryService } from "../../services/categoryService";
 import { useCategoriesStore } from "../../store/categoriesStore";
 import { useWordsStore } from "../../store/wordsStore";
 
@@ -27,12 +26,13 @@ const WordsCategory: NextPage = () => {
 
   // current category added to store
   useEffect(() => {
-    const wordCategories = getCategoriesByType(ContentTypeEnum.Words);
+    const route = router.asPath;
+    const contentType = ContentTypeEnum.Words;
 
-    const routerPath = router.asPath;
-
-    const category = wordCategories?.find(
-      ({ route }) => `/words/${route}` === routerPath,
+    const category = CategoryService.getCategoryFromRoute(
+      route,
+      contentType,
+      getCategoriesByType,
     );
 
     if (category) setCurrentCategory(category);
@@ -44,20 +44,15 @@ const WordsCategory: NextPage = () => {
     getCategoriesByType,
   ]);
 
-  const shouldFetchData = () => {
-    if (!currentCategory) {
-      return false;
-    }
-
-    const categoryTypeIsWords = currentCategory?.type === ContentTypeEnum.Words;
-    const categoryNotInStore = !hasWordsCategory(currentCategory.route);
-
-    return categoryTypeIsWords && categoryNotInStore;
-  };
+  const shouldFetchCategory = CategoryService.shouldFetchCategory(
+    currentCategory,
+    ContentTypeEnum.Words,
+    hasWordsCategory,
+  );
 
   // words API request
   const { data } = useSWR<IWord[]>(
-    shouldFetchData()
+    shouldFetchCategory
       ? `${process.env.NEXT_PUBLIC_API_URL}/words/category/${currentCategory?.route}`
       : null,
     fetcher,
