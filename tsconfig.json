@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "src/components/containers",
-    "src/helpers"
+    "src/helpers",
+    "src/hooks"
   ],
   "exclude": ["node_modules"]
 }

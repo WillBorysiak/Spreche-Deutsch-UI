@@ -2,13 +2,10 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import useSWR from "swr";
-
 import TranslationTable from "../../components/content/translations/TranslationTable";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
-import { fetcher } from "../../helpers/fetcher";
-import { IWord } from "../../interfaces/IWord";
+import { useCategoryRequest } from "../../hooks/requestHooks";
 import { CategoryService } from "../../services/categoryService";
 import { useCategoriesStore } from "../../store/categoriesStore";
 import { useWordsStore } from "../../store/wordsStore";
@@ -50,13 +47,7 @@ const WordsCategory: NextPage = () => {
     hasWordsCategory,
   );
 
-  // words API request
-  const { data } = useSWR<IWord[]>(
-    shouldFetchCategory
-      ? `${process.env.NEXT_PUBLIC_API_URL}/words/category/${currentCategory?.route}`
-      : null,
-    fetcher,
-  );
+  const { data } = useCategoryRequest(currentCategory, shouldFetchCategory);
 
   // words added to store
   useEffect(() => {

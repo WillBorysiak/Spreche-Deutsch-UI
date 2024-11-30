@@ -2,13 +2,10 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import useSWR from "swr";
-
 import TranslationTable from "../../components/content/translations/TranslationTable";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
-import { fetcher } from "../../helpers/fetcher";
-import { ISentence } from "../../interfaces/ISentence";
+import { useCategoryRequest } from "../../hooks/requestHooks";
 import { CategoryService } from "../../services/categoryService";
 import { useCategoriesStore } from "../../store/categoriesStore";
 import { useSentencesStore } from "../../store/sentencesStore";
@@ -51,13 +48,7 @@ const SentencesCategory: NextPage = () => {
     hasSentencesCategory,
   );
 
-  // sentence API request
-  const { data } = useSWR<ISentence[]>(
-    shouldFetchCategory
-      ? `${process.env.NEXT_PUBLIC_API_URL}/sentences/category/${currentCategory?.route}`
-      : null,
-    fetcher,
-  );
+  const { data } = useCategoryRequest(currentCategory, shouldFetchCategory);
 
   // sentences added to store
   useEffect(() => {
