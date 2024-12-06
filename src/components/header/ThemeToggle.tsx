@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-import { faMoon, faSun } from "@fortawesome/pro-solid-svg-icons";
+import { faMoon, faSunBright } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ThemeToggle = () => {
@@ -22,7 +22,7 @@ const ThemeToggle = () => {
     <div id="theme-toggle" className="cursor-pointer">
       {resolvedTheme === "dark" && (
         <FontAwesomeIcon
-          icon={faSun}
+          icon={faSunBright}
           size="2x"
           className="text-yellow-600"
           onClick={() => setTheme("light")}

@@ -61,7 +61,10 @@ const SentencesCategory: NextPage = () => {
   return (
     <section id="sentences-category-page" className="py-3">
       <PageHeading text={currentCategory?.name} mobile={true} />
-      <TranslationTable data={sentenceData()} type={currentCategory?.type} />
+      <TranslationTable
+        translations={sentenceData()}
+        type={currentCategory?.type}
+      />
     </section>
   );
 };

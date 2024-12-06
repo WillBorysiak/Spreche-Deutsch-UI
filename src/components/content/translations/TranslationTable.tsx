@@ -10,48 +10,47 @@ import TranslationSort from "./TranslationSort";
 import WordTranslationTable from "./WordTranslationTable";
 
 interface TranslationTableProps {
-  data: Word[] | Sentence[] | [];
+  translations: Word[] | Sentence[] | [];
   type: ContentTypeEnum | undefined;
 }
 
 const TranslationTable = (props: TranslationTableProps) => {
-  let { data, type } = props;
+  let { translations, type } = props;
 
   const [sortType, setSortType] = useState<string>(SortOptionsEnum.default);
-  const [searchSelection, setSearchSelection] = useState<string>("");
-  const [sortedData, setSortedData] = useState<Word[] | Sentence[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [sortedTranslations, setSortedTranslations] = useState<
+    Word[] | Sentence[]
+  >([]);
 
   useEffect(() => {
-    if (data?.length) {
-      const dataClone = [...data];
+    const hasTranslations = translations?.length;
+
+    if (hasTranslations) {
+      const clonedTranslations = [...translations];
 
       // search
-
-      const filteredData = dataClone.filter((item) =>
-        item.english.toLowerCase().includes(searchSelection.toLowerCase()),
+      const filteredTranslations = clonedTranslations.filter((item) =>
+        item.english.toLowerCase().includes(searchTerm.toLowerCase()),
       );
 
       // sort
-
-      const sortedData = filteredData.sort((a, b) => {
-        if (sortType === SortOptionsEnum.default) {
-          return 0;
+      const sortedTranslations = filteredTranslations.sort((a, b) => {
+        switch (sortType) {
+          case SortOptionsEnum.default:
+            return 0;
+          case SortOptionsEnum.aToZ:
+            return a.english.localeCompare(b.english);
+          case SortOptionsEnum.zToA:
+            return b.english.localeCompare(a.english);
+          default:
+            return 0;
         }
-
-        if (sortType === SortOptionsEnum.aToZ) {
-          return a.english.localeCompare(b.english);
-        }
-
-        if (sortType === SortOptionsEnum.zToA) {
-          return b.english.localeCompare(a.english);
-        }
-
-        return 0;
       });
 
-      setSortedData(sortedData);
+      setSortedTranslations(sortedTranslations);
     }
-  }, [data, sortType, searchSelection]);
+  }, [translations, sortType, searchTerm]);
 
   return (
     <article id="translation-table" className="mx-3 mt-5 sm:mx-0">
@@ -59,8 +58,8 @@ const TranslationTable = (props: TranslationTableProps) => {
         id="translation-table-toolbar"
         className="mb-10 hidden flex-row justify-between lg:flex"
       >
-        <TranslationSort sortSelection={setSortType} />
-        <TranslationSearch searchSelection={setSearchSelection} />
+        <TranslationSort setSortType={setSortType} />
+        <TranslationSearch setSearchTerm={setSearchTerm} />
       </div>
 
       <div
@@ -68,11 +67,13 @@ const TranslationTable = (props: TranslationTableProps) => {
         className="flex-col items-center justify-center"
       >
         {type === ContentTypeEnum.Words && (
-          <WordTranslationTable words={sortedData as Word[]} />
+          <WordTranslationTable words={sortedTranslations as Word[]} />
         )}
 
         {type === ContentTypeEnum.Sentences && (
-          <SentenceTranslationTable sentences={sortedData as Sentence[]} />
+          <SentenceTranslationTable
+            sentences={sortedTranslations as Sentence[]}
+          />
         )}
       </div>
     </article>

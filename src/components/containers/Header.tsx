@@ -10,9 +10,9 @@ const Header = () => {
 
   const { getCategoriesAsArray } = useCategoriesStore();
 
-  // search modal
   const searchClick = () => setIsModalOpen(true);
   const searchClose = () => setIsModalOpen(false);
+
   const searchCategories = getCategoriesAsArray();
 
   return (
