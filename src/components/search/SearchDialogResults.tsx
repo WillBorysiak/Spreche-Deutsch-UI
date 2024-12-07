@@ -3,28 +3,28 @@ import { useRouter } from "next/router";
 import { Category } from "../../models/Category.model";
 import TableText from "../generic/typography/translation-table/TableText";
 
-interface SearchResultsProps {
+interface SearchDialogResultsProps {
   searchResults: Category[];
-  onClose: () => void;
+  selectSearchResult: () => void;
 }
 
-const SearchResults = (props: SearchResultsProps) => {
-  const { searchResults, onClose } = props;
+const SearchDialogResults = (props: SearchDialogResultsProps) => {
+  const { searchResults, selectSearchResult } = props;
 
   const router = useRouter();
 
   return (
     <div
-      id="search-results"
-      className="no-scrollbar mt-5 max-h-[300px] w-full overflow-y-auto px-3"
+      id="search-dialog-results"
+      className="no-scrollbar h-36 w-full overflow-y-auto px-3"
     >
       {searchResults.map((result, index) => (
         <div key={index} className="mt-5 flex justify-between">
           <span
             className="hover:cursor-pointer hover:underline hover:decoration-2 hover:underline-offset-4"
             onClick={() => {
-              onClose();
               router.push(`/${result.type}/${result.route}`);
+              selectSearchResult();
             }}
           >
             <TableText text={result.name} />
@@ -36,4 +36,4 @@ const SearchResults = (props: SearchResultsProps) => {
   );
 };
 
-export default SearchResults;
+export default SearchDialogResults;

@@ -11,8 +11,10 @@ const PageHeading = (props: PageHeadingProps) => {
   return (
     <h2
       className={classNames(
-        mobile ? "block lg:hidden" : "hidden lg:block",
-        "text-center text-2xl font-bold capitalize tracking-wide underline decoration-2 underline-offset-4 sm:text-4xl",
+        mobile
+          ? "block underline decoration-2 underline-offset-4 lg:hidden"
+          : "hidden lg:block",
+        "text-center text-2xl font-bold capitalize tracking-wide sm:text-4xl",
       )}
     >
       {text}

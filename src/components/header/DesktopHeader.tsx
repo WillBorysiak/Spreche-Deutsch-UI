@@ -1,29 +1,31 @@
 import { useRouter } from "next/router";
 
-import { desktopHeadingParser } from "../../helpers/desktopHeading";
+import { HeadingHelper } from "../../helpers/headingHelper";
+import { Category } from "../../models/Category.model";
 import PageHeading from "../generic/typography/heading/PageHeading";
-import SearchButton from "../search/SearchButton";
 import ThemeToggle from "./ThemeToggle";
+import SearchDialog from "../search/SearchDialog";
 
 interface DesktopHeaderProps {
-  searchClick: () => void;
+  categories: Category[];
 }
 
 const DesktopHeader = (props: DesktopHeaderProps) => {
-  const { searchClick } = props;
+  const { categories } = props;
 
   const router = useRouter();
+  const routerPath = router.asPath;
+
+  const desktopHeading = HeadingHelper.getDesktopHeading(routerPath);
 
   return (
     <div
       id="desktop-header"
       className="hidden w-full flex-row items-center justify-between lg:flex"
     >
-      <div className="flex w-[125px] justify-start">
-        <SearchButton searchClick={searchClick} />
-      </div>
+      <SearchDialog categories={categories} display="desktop" />
 
-      <PageHeading text={desktopHeadingParser(router.asPath)} mobile={false} />
+      <PageHeading text={desktopHeading} mobile={false} />
 
       <div className="flex w-[125px] justify-end">
         <ThemeToggle />

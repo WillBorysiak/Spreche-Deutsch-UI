@@ -1,21 +1,27 @@
 import { useRouter } from "next/router";
 
-import SiteHeading from "../generic/typography/heading/SiteHeading";
-import SearchButton from "../search/SearchButton";
-import SidebarToggle from "./SidebarToggle";
+import { Category } from "../../models/Category.model";
 import { useSidebarStore } from "../../store/sidebarStore";
+import SiteHeading from "../generic/typography/heading/SiteHeading";
+import SearchDialog from "../search/SearchDialog";
+import SidebarToggle from "./SidebarToggle";
 
 interface MobileHeaderProps {
-  searchClick: () => void;
+  categories: Category[];
 }
 
 const MobileHeader = (props: MobileHeaderProps) => {
-  const { searchClick } = props;
+  const { categories } = props;
 
   const { mobileSidebar, closeMobileSidebar, toggleMobileSidebar } =
     useSidebarStore();
 
   const router = useRouter();
+
+  const clickSiteHeading = () => {
+    closeMobileSidebar();
+    router.push("/");
+  };
 
   return (
     <div
@@ -29,18 +35,12 @@ const MobileHeader = (props: MobileHeaderProps) => {
         />
       </div>
 
-      <span
-        className="px-3"
-        onClick={() => {
-          closeMobileSidebar();
-          router.push("/");
-        }}
-      >
+      <span onClick={() => clickSiteHeading()}>
         <SiteHeading text="Spreche Deutsch" />
       </span>
 
       <div className="flex w-[50px] justify-end">
-        <SearchButton searchClick={searchClick} />
+        <SearchDialog categories={categories} display="mobile" />
       </div>
     </div>
   );
