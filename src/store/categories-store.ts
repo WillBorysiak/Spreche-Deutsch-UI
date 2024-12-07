@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
+import { ICategory } from "../interfaces/ICategory.interface";
 import { Category } from "../models/Category.model";
-import { ICategory } from "../interfaces/ICategory";
 
 interface CategoryEntities {
   [type: string]: Category[];

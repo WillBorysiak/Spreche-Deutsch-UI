@@ -1,4 +1,4 @@
-import { ISentence } from "../interfaces/ISentence";
+import { ISentence } from "../interfaces/ISentence.interface";
 
 export class Sentence {
   index: number;

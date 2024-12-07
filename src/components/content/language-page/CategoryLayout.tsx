@@ -1,4 +1,4 @@
-import { classNames } from "../../../helpers/classNames";
+import { classNames } from "../../../helpers/class-names";
 import { Category as CategoryModel } from "../../../models/Category.model";
 import Category from "./Category";
 

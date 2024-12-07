@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import { Word } from "../models/Word.model";
-import { IWord } from "../interfaces/IWord";
+import { IWord } from "../interfaces/IWord.interface";
 
 interface WordCategoryMap {
   [category: string]: Word[];

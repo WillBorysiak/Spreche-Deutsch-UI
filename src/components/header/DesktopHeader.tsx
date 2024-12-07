@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 
-import { HeadingHelper } from "../../helpers/headingHelper";
+import { HeadingHelper } from "../../helpers/heading-helper";
 import { Category } from "../../models/Category.model";
 import PageHeading from "../generic/typography/heading/PageHeading";
-import ThemeToggle from "./ThemeToggle";
 import SearchDialog from "../search/SearchDialog";
+import ThemeToggle from "./ThemeToggle";
 
 interface DesktopHeaderProps {
   categories: Category[];

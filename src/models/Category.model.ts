@@ -1,5 +1,5 @@
 import { ContentTypeEnum } from "../enums/ContentTypeEnum";
-import { ICategory } from "../interfaces/ICategory";
+import { ICategory } from "../interfaces/ICategory.interface";
 
 export class Category {
   index: number;

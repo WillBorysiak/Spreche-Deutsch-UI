@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
-import { classNames } from "../../helpers/classNames";
-import { useSidebarStore } from "../../store/sidebarStore";
+import { classNames } from "../../helpers/class-names";
+import { useSidebarStore } from "../../store/sidebar-store";
 import BreadcrumbNav from "../navigation/RouteNavigation";
 
 interface MobileLayoutProps {

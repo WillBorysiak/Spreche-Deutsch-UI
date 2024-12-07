@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { motionVariants } from "../../helpers/framerMotion";
+import { motionVariants } from "../../helpers/framer-motion";
 import BreadcrumbNav from "../navigation/RouteNavigation";
 
 interface DesktopLayoutProps {

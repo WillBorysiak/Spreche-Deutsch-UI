@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import TranslationTable from "../../components/content/translations/TranslationTable";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
-import { useCategoryRequest } from "../../hooks/requestHooks";
-import { CategoryService } from "../../services/categoryService";
-import { useCategoriesStore } from "../../store/categoriesStore";
-import { useSentencesStore } from "../../store/sentencesStore";
+import { useCategoryRequest } from "../../hooks/request-hooks";
+import { CategoryService } from "../../services/category-service";
+import { useCategoriesStore } from "../../store/categories-store";
+import { useSentencesStore } from "../../store/sentences-store";
 
 const SentencesCategory: NextPage = () => {
   const {

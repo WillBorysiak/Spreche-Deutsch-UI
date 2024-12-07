@@ -1,9 +1,9 @@
 import useSWR from "swr";
 
 import { fetcher } from "../helpers/fetcher";
-import { IWord } from "../interfaces/IWord";
+import { ICategory } from "../interfaces/ICategory.interface";
+import { IWord } from "../interfaces/IWord.interface";
 import { Category } from "../models/Category.model";
-import { ICategory } from "../interfaces/ICategory";
 
 export function useCategoriesRequest() {
   const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/categories`;

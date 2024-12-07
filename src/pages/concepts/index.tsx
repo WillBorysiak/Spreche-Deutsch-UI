@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import CategoryLayout from "../../components/content/language-page/CategoryLayout";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
-import { useCategoriesStore } from "../../store/categoriesStore";
+import { useCategoriesStore } from "../../store/categories-store";
 
 const Concepts: NextPage = () => {
   const { getCategoriesByType } = useCategoriesStore();

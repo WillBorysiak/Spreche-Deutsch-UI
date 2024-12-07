@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-import { useCategoriesRequest } from "../../hooks/requestHooks";
-import { useCategoriesStore } from "../../store/categoriesStore";
+import { useCategoriesRequest } from "../../hooks/request-hooks";
+import { useCategoriesStore } from "../../store/categories-store";
 
 interface PageLayoutProps {
   children: React.ReactNode;

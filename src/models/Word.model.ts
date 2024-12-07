@@ -1,4 +1,4 @@
-import { IWord } from "../interfaces/IWord";
+import { IWord } from "../interfaces/IWord.interface";
 
 export class Word {
   index: number;

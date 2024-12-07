@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 
 import { Category } from "../../models/Category.model";
-import { useSidebarStore } from "../../store/sidebarStore";
+import { useSidebarStore } from "../../store/sidebar-store";
 import SubHeading from "../generic/typography/heading/SubHeading";
 import NavigationText from "./NavigationText";
 

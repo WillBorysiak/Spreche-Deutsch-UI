@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import { Sentence } from "../models/Sentence.model";
-import { ISentence } from "../interfaces/ISentence";
+import { ISentence } from "../interfaces/ISentence.interface";
 
 interface SentencesCategoryMap {
   [category: string]: Sentence[];

@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
-import { motionVariants } from "../../helpers/framerMotion";
-import { useCategoriesStore } from "../../store/categoriesStore";
+import { motionVariants } from "../../helpers/framer-motion";
+import { useCategoriesStore } from "../../store/categories-store";
 import SiteHeading from "../generic/typography/heading/SiteHeading";
 import NavigationItem from "../navigation/NavigationItem";
 
