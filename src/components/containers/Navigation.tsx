@@ -44,9 +44,6 @@ const Navigation = () => {
           <NavigationItem
             navigationItems={getCategoriesByType(ContentTypeEnum.Concepts)}
           />
-          <NavigationItem
-            navigationItems={getCategoriesByType(ContentTypeEnum.Resources)}
-          />
         </div>
       )}
     </motion.nav>

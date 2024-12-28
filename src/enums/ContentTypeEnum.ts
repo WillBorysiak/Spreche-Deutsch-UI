@@ -2,5 +2,4 @@ export enum ContentTypeEnum {
   Sentences = "sentences",
   Words = "words",
   Concepts = "concepts",
-  Resources = "resources",
 }
