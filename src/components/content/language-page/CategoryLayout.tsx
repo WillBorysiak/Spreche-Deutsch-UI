@@ -3,13 +3,13 @@ import { Category as CategoryModel } from "../../../models/Category.model";
 import Category from "./Category";
 
 interface CategoryLayoutProps {
-  data: CategoryModel[];
+  categories: CategoryModel[];
   parentRoute: string;
   layout: string;
 }
 
 const CategoryLayout = (props: CategoryLayoutProps) => {
-  const { data, parentRoute, layout } = props;
+  const { categories, parentRoute, layout } = props;
 
   return (
     <div
@@ -21,9 +21,9 @@ const CategoryLayout = (props: CategoryLayoutProps) => {
         "gap-10",
       )}
     >
-      {data &&
-        data.map((item, index) => (
-          <Category key={index} data={item} parentRoute={parentRoute} />
+      {categories &&
+        categories.map((item, index) => (
+          <Category key={index} category={item} parentRoute={parentRoute} />
         ))}
     </div>
   );

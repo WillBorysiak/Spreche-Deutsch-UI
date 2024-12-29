@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { useMediaQuery } from "react-responsive";
 
 import DesktopLayout from "../layout/DesktopLayout";
@@ -10,15 +12,18 @@ interface ContentProps {
 const Content = (props: ContentProps) => {
   const { children } = props;
 
+  const [desktopView, setDesktopView] = useState<boolean>(false);
+
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+
+  useEffect(() => {
+    setDesktopView(isDesktop);
+  }, [isDesktop]);
 
   return (
     <>
-      {isDesktop ? (
-        <DesktopLayout>{children}</DesktopLayout>
-      ) : (
-        <MobileLayout>{children}</MobileLayout>
-      )}
+      {desktopView && <DesktopLayout>{children}</DesktopLayout>}
+      {!desktopView && <MobileLayout>{children}</MobileLayout>}
     </>
   );
 };

@@ -17,7 +17,7 @@ const Concepts: NextPage = () => {
       <PageHeading text="Concepts" mobile={true} />
       <div id="category-container" className="mt-5">
         <CategoryLayout
-          data={conceptCategories}
+          categories={conceptCategories}
           parentRoute={parentRoute}
           layout="column"
         />

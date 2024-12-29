@@ -17,7 +17,7 @@ const Sentences: NextPage = () => {
       <PageHeading text="Sentences" mobile={true} />
       <div className="mt-5">
         <CategoryLayout
-          data={sentenceCategories}
+          categories={sentenceCategories}
           parentRoute={parentRoute}
           layout="grid"
         />
