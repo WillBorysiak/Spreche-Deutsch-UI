@@ -1,4 +1,4 @@
-export enum SortOptionsEnum {
+export enum SortTypeEnum {
   default = "default",
   aToZ = "aToZ",
   zToA = "zToA",

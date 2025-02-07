@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 
 import CategoryLayout from "../../components/content/language-page/CategoryLayout";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
-import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
-import { useCategoriesStore } from "../../store/categories-store";
+import { ContentTypeEnum } from "../../enums/ContentTypeEnum.enum";
+import { useCategoriesStore } from "../../store/categories-store.store";
 
-const Words: NextPage = () => {
+const WordsPage: NextPage = () => {
   const { getCategoriesByType } = useCategoriesStore();
 
   const wordCategories = getCategoriesByType("words");
@@ -26,4 +26,4 @@ const Words: NextPage = () => {
   );
 };
 
-export default Words;
+export default WordsPage;

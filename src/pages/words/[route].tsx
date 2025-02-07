@@ -1,22 +1,24 @@
+import { useEffect } from "react";
+
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 import TranslationTable from "../../components/content/translations/TranslationTable";
 import PageHeading from "../../components/generic/typography/heading/PageHeading";
-import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
+import { ContentTypeEnum } from "../../enums/ContentTypeEnum.enum";
 import { useCategoryRequest } from "../../hooks/request-hooks";
-import { CategoryService } from "../../services/category-service";
-import { useCategoriesStore } from "../../store/categories-store";
-import { useWordsStore } from "../../store/words-store";
+import { CategoryService } from "../../services/category-service.service";
+import { useCategoriesStore } from "../../store/categories-store.store";
+import { useWordsStore } from "../../store/words-store.store";
 
-const WordsCategory: NextPage = () => {
+const WordCategoryPage: NextPage = () => {
   const {
     categories,
     currentCategory,
     setCurrentCategory,
     getCategoriesByType,
   } = useCategoriesStore();
+
   const { setWords, hasWordsCategory, getWordsByCategory } = useWordsStore();
 
   const router = useRouter();
@@ -68,4 +70,4 @@ const WordsCategory: NextPage = () => {
   );
 };
 
-export default WordsCategory;
+export default WordCategoryPage;

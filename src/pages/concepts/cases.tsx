@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
-const Cases: NextPage = () => {
+const CasesPage: NextPage = () => {
   return (
     <section id="cases-page" className="flex justify-center">
       <div className="mt-10">
@@ -12,4 +12,4 @@ const Cases: NextPage = () => {
   );
 };
 
-export default Cases;
+export default CasesPage;

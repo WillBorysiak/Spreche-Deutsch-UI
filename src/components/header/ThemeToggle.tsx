@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
+
 import { useTheme } from "next-themes";
 
 import { faMoon, faSunBright } from "@fortawesome/pro-solid-svg-icons";
@@ -10,13 +11,9 @@ const ThemeToggle = () => {
   const { resolvedTheme, setTheme } = useTheme();
 
   // hydration fix
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useLayoutEffect(() => setMounted(true), []);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
     <div id="theme-toggle" className="cursor-pointer">
@@ -28,6 +25,7 @@ const ThemeToggle = () => {
           onClick={() => setTheme("light")}
         />
       )}
+
       {resolvedTheme === "light" && (
         <FontAwesomeIcon
           icon={faMoon}

@@ -22,6 +22,10 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        "white-glow": "0px 4px 20px rgba(255, 255, 255, 0.8)",
+        "black-glow": "0px 4px 20px rgba(0, 0, 0, 0.6)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

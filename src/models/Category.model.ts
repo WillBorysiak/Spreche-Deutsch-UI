@@ -1,4 +1,4 @@
-import { ContentTypeEnum } from "../enums/ContentTypeEnum";
+import { ContentTypeEnum } from "../enums/ContentTypeEnum.enum";
 import { ICategory } from "../interfaces/ICategory.interface";
 
 export class Category {

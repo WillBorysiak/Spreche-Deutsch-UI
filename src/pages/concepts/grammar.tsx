@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
-const Grammar: NextPage = () => {
+const GrammarPage: NextPage = () => {
   return (
     <section id="grammar-page" className="flex flex-col items-center">
       <div className="mt-10">
@@ -12,4 +12,4 @@ const Grammar: NextPage = () => {
   );
 };
 
-export default Grammar;
+export default GrammarPage;

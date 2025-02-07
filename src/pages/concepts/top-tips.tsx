@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
-const TopTips: NextPage = () => {
+const TopTipsPage: NextPage = () => {
   return (
     <section id="top-tips-page" className="flex flex-col items-center">
       <div className="mt-10">
@@ -12,4 +12,4 @@ const TopTips: NextPage = () => {
   );
 };
 
-export default TopTips;
+export default TopTipsPage;

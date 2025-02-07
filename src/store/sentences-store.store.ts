@@ -10,25 +10,16 @@ interface SentencesCategoryMap {
 interface SentencesStore {
   sentences: { [category: string]: Sentence[] };
 
+  setSentences: (sentences: ISentence[]) => void;
+
   hasSentences: () => boolean;
   hasSentencesCategory: (category: string) => boolean;
-
-  setSentences: (sentences: ISentence[]) => void;
 
   getSentencesByCategory: (category: string) => Sentence[];
 }
 
 export const useSentencesStore = create<SentencesStore>((set, get) => ({
   sentences: {},
-
-  hasSentences: () => {
-    const { sentences } = get();
-    return Object.keys(sentences).length > 0;
-  },
-  hasSentencesCategory: (category: string) => {
-    const { sentences } = get();
-    return Object.keys(sentences).includes(category);
-  },
 
   setSentences: (sentences: ISentence[]) => {
     const sentencesCategoryMap: SentencesCategoryMap = {};
@@ -50,8 +41,23 @@ export const useSentencesStore = create<SentencesStore>((set, get) => ({
     }));
   },
 
-  getSentencesByCategory: (category: string) => {
+  hasSentences: (): boolean => {
     const { sentences } = get();
-    return sentences[category];
+    const hasSentences = Object.keys(sentences).length > 0;
+
+    return hasSentences;
+  },
+  hasSentencesCategory: (category: string): boolean => {
+    const { sentences } = get();
+    const hasSentencesCategory = Object.keys(sentences).includes(category);
+
+    return hasSentencesCategory;
+  },
+
+  getSentencesByCategory: (category: string): Sentence[] => {
+    const { sentences } = get();
+    const sentencesByCategory = sentences[category];
+
+    return sentencesByCategory;
   },
 }));

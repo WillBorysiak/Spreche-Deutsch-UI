@@ -1,7 +1,8 @@
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import { useSidebarStore } from "../../store/sidebar-store";
+import { useRouter } from "next/router";
+
+import { useSidebarStore } from "../../store/sidebar-store.store";
 
 interface NavigationTextProps {
   text: string;

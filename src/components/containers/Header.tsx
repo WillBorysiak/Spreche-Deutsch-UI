@@ -1,4 +1,4 @@
-import { useCategoriesStore } from "../../store/categories-store";
+import { useCategoriesStore } from "../../store/categories-store.store";
 import DesktopHeader from "../header/DesktopHeader";
 import MobileHeader from "../header/MobileHeader";
 

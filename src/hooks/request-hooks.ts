@@ -23,9 +23,9 @@ export function useCategoryRequest(
   const hasCategoryToFetch = category && shouldFetch;
 
   const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/${category?.type}/category/${category?.route}`;
-  const conditionalApiurl = hasCategoryToFetch ? apiUrl : null;
+  const conditionalUrl = hasCategoryToFetch ? apiUrl : null;
 
-  const { data, error } = useSWR<IWord[]>(conditionalApiurl, fetcher);
+  const { data, error } = useSWR<IWord[]>(conditionalUrl, fetcher);
 
   return {
     data,

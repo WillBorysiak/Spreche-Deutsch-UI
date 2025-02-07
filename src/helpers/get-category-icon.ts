@@ -5,7 +5,7 @@ import {
   faCalculator,
   faClockRotateLeft,
   faFamily,
-  faForkKnife,
+  faFrenchFries,
   faHiking,
   faLocationDot,
   faMessageDots,
@@ -34,7 +34,7 @@ export const getCategoryIcon = (category: string): IconProp => {
       categoryIcon = faFamily;
       break;
     case "Food":
-      categoryIcon = faForkKnife;
+      categoryIcon = faFrenchFries;
       break;
     case "Places":
       categoryIcon = faLocationDot;

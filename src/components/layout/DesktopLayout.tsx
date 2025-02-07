@@ -18,11 +18,11 @@ const DesktopLayout = (props: DesktopLayoutProps) => {
     <AnimatePresence mode="wait">
       <section
         id="desktop-layout"
-        className="no-scrollbar default-transition mx-auto flex h-[95%] w-full max-w-8xl flex-col items-center overflow-y-auto px-5"
+        className="no-scrollbar mx-auto flex h-[95%] w-full max-w-8xl flex-col items-center overflow-y-auto px-5"
       >
         <motion.div
           key={router.asPath}
-          className="default-transition h-full w-full"
+          className="h-full w-full"
           initial="initialState"
           animate="animateState"
           exit="exitState"

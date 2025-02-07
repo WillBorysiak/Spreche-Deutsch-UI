@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { ContentTypeEnum } from "../../../enums/ContentTypeEnum";
-import { SortOptionsEnum } from "../../../enums/SortOptionsEnum";
+import { ContentTypeEnum } from "../../../enums/ContentTypeEnum.enum";
+import { SortTypeEnum } from "../../../enums/SortTypeEnum.enum";
+import { TranslationService } from "../../../services/translation-service.service";
 import { Sentence } from "../../../models/Sentence.model";
 import { Word } from "../../../models/Word.model";
 import SentenceTranslationTable from "./SentenceTranslationTable";
@@ -17,7 +18,7 @@ interface TranslationTableProps {
 const TranslationTable = (props: TranslationTableProps) => {
   let { translations, type } = props;
 
-  const [sortType, setSortType] = useState<string>(SortOptionsEnum.default);
+  const [sortType, setSortType] = useState<SortTypeEnum>(SortTypeEnum.default);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortedTranslations, setSortedTranslations] = useState<
     Word[] | Sentence[]
@@ -29,24 +30,11 @@ const TranslationTable = (props: TranslationTableProps) => {
     if (hasTranslations) {
       const clonedTranslations = [...translations];
 
-      // search
-      const filteredTranslations = clonedTranslations.filter((item) =>
-        item.english.toLowerCase().includes(searchTerm.toLowerCase()),
+      const sortedTranslations = TranslationService.searchAndSortTranslations(
+        clonedTranslations,
+        sortType,
+        searchTerm,
       );
-
-      // sort
-      const sortedTranslations = filteredTranslations.sort((a, b) => {
-        switch (sortType) {
-          case SortOptionsEnum.default:
-            return 0;
-          case SortOptionsEnum.aToZ:
-            return a.english.localeCompare(b.english);
-          case SortOptionsEnum.zToA:
-            return b.english.localeCompare(a.english);
-          default:
-            return 0;
-        }
-      });
 
       setSortedTranslations(sortedTranslations);
     }

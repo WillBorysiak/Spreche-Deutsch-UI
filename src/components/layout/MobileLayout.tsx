@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import { classNames } from "../../helpers/class-names";
-import { useSidebarStore } from "../../store/sidebar-store";
+import { useSidebarStore } from "../../store/sidebar-store.store";
 import BreadcrumbNav from "../navigation/RouteNavigation";
 
 interface MobileLayoutProps {
@@ -19,16 +19,14 @@ const MobileLayout = (props: MobileLayoutProps) => {
     <section
       id="mobile-layout"
       className={classNames(
-        mobileSidebar
-          ? "default-transition h-0 blur-sm lg:h-fit lg:blur-0"
-          : "",
+        mobileSidebar ? "h-0 blur-sm lg:h-fit lg:blur-0" : "",
         "no-scrollbar default-transition mx-auto flex w-full max-w-8xl flex-col items-center overflow-y-auto px-2 md:px-5 lg:h-[95%]",
       )}
       onClick={() => {
         if (mobileSidebar) closeMobileSidebar();
       }}
     >
-      <div className="default-transition h-full w-full">
+      <div className="h-full w-full">
         {router.asPath !== "/" && <BreadcrumbNav />}
         {children}
       </div>

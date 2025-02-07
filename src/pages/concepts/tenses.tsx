@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 import SubHeading from "../../components/generic/typography/heading/SubHeading";
 
-const Tenses: NextPage = () => {
+const TensesPage: NextPage = () => {
   return (
     <section id="tenses-page" className="flex flex-col items-center">
       <div className="mt-10">
@@ -12,4 +12,4 @@ const Tenses: NextPage = () => {
   );
 };
 
-export default Tenses;
+export default TensesPage;

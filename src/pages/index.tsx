@@ -4,7 +4,7 @@ import HomeHero from "../components/content/home-page/HomeHero";
 import ScrollingGreeting from "../components/content/home-page/ScrollingGreeting";
 import { Greetings } from "../types/Greetings.type";
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   const dailyGreetings: Greetings = {
     staticText: "Guten",
     dynamicText: ["Morgen", "Tag", "Abend"],
@@ -27,4 +27,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default HomePage;

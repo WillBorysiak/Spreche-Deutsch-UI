@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 
 import { motion } from "framer-motion";
 
-import { ContentTypeEnum } from "../../enums/ContentTypeEnum";
+import { ContentTypeEnum } from "../../enums/ContentTypeEnum.enum";
 import { motionVariants } from "../../helpers/framer-motion";
-import { useCategoriesStore } from "../../store/categories-store";
+import { useCategoriesStore } from "../../store/categories-store.store";
 import SiteHeading from "../generic/typography/heading/SiteHeading";
 import NavigationItem from "../navigation/NavigationItem";
 

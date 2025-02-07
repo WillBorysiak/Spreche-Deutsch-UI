@@ -1,4 +1,4 @@
-import { ContentTypeEnum } from "../enums/ContentTypeEnum";
+import { ContentTypeEnum } from "../enums/ContentTypeEnum.enum";
 
 export interface ICategory {
   index: number;

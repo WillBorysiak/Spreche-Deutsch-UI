@@ -3,18 +3,18 @@ import { create } from "zustand";
 import { ICategory } from "../interfaces/ICategory.interface";
 import { Category } from "../models/Category.model";
 
-interface CategoryEntities {
+interface CategoryMap {
   [type: string]: Category[];
 }
 
 interface CategoriesStore {
-  categories: CategoryEntities;
+  categories: CategoryMap;
   currentCategory: Category | null;
-
-  hasCategories: () => boolean;
 
   setCategories: (categories: ICategory[]) => void;
   setCurrentCategory: (category: Category) => void;
+
+  hasCategories: () => boolean;
 
   getCategoriesByType: (type: string) => Category[];
   getCategoriesAsArray: () => Category[];
@@ -24,40 +24,45 @@ export const useCategoriesStore = create<CategoriesStore>((set, get) => ({
   categories: {},
   currentCategory: null,
 
-  hasCategories: () => {
-    const { categories } = get();
-    return Object.keys(categories).length > 0;
-  },
-
   setCategories: (categories: ICategory[]) => {
-    const categoriesEntities: CategoryEntities = {};
+    const categoriesMap: CategoryMap = {};
 
     categories.forEach((item: ICategory) => {
       const type = item.type;
 
-      if (!categoriesEntities[type]) {
-        categoriesEntities[type] = [];
+      if (!categoriesMap[type]) {
+        categoriesMap[type] = [];
       }
 
       const category = new Category(item);
 
-      categoriesEntities[type].push(category);
+      categoriesMap[type].push(category);
     });
 
-    set({ categories: categoriesEntities });
+    set({ categories: categoriesMap });
   },
-
   setCurrentCategory: (category: Category) => {
     set({ currentCategory: category });
   },
 
-  getCategoriesByType: (type: string) => {
+  hasCategories: (): boolean => {
     const { categories } = get();
-    return categories[type];
+    const hasCategories = Object.keys(categories).length > 0;
+
+    return hasCategories;
   },
 
-  getCategoriesAsArray: () => {
+  getCategoriesByType: (type: string): Category[] => {
     const { categories } = get();
-    return Object.values(categories).flat();
+    const categoriesByType = categories[type];
+
+    return categoriesByType;
+  },
+
+  getCategoriesAsArray: (): Category[] => {
+    const { categories } = get();
+    const categoriesAsArray = Object.values(categories).flat();
+
+    return categoriesAsArray;
   },
 }));

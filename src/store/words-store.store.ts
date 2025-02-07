@@ -10,25 +10,16 @@ interface WordCategoryMap {
 interface WordsStore {
   words: { [category: string]: Word[] };
 
+  setWords: (words: IWord[]) => void;
+
   hasWords: () => boolean;
   hasWordsCategory: (category: string) => boolean;
-
-  setWords: (words: IWord[]) => void;
 
   getWordsByCategory: (category: string) => Word[];
 }
 
 export const useWordsStore = create<WordsStore>((set, get) => ({
   words: {},
-
-  hasWords: () => {
-    const { words } = get();
-    return Object.keys(words).length > 0;
-  },
-  hasWordsCategory: (category: string) => {
-    const { words } = get();
-    return Object.keys(words).includes(category);
-  },
 
   setWords: (words: IWord[]) => {
     const wordsCategoryMap: WordCategoryMap = {};
@@ -50,8 +41,23 @@ export const useWordsStore = create<WordsStore>((set, get) => ({
     }));
   },
 
-  getWordsByCategory: (category: string) => {
+  hasWords: (): boolean => {
     const { words } = get();
-    return words[category];
+    const hasWords = Object.keys(words).length > 0;
+
+    return hasWords;
+  },
+  hasWordsCategory: (category: string): boolean => {
+    const { words } = get();
+    const hasWordsCategory = Object.keys(words).includes(category);
+
+    return hasWordsCategory;
+  },
+
+  getWordsByCategory: (category: string): Word[] => {
+    const { words } = get();
+    const wordsByCategory = words[category];
+
+    return wordsByCategory;
   },
 }));

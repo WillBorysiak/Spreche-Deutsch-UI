@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/lib/shadcn/ui/select";
 
-import { SortOptionsEnum } from "../../../enums/SortOptionsEnum";
+import { SortTypeEnum } from "../../../enums/SortTypeEnum.enum";
 
 interface SortOptions {
   label: string;
@@ -17,23 +17,23 @@ interface SortOptions {
 }
 
 interface TranslationSortProps {
-  setSortType: Dispatch<string>;
+  setSortType: Dispatch<SortTypeEnum>;
 }
 
 const TranslationSort = (props: TranslationSortProps) => {
   const { setSortType } = props;
 
   const sortOptions: SortOptions[] = [
-    { label: "Default", value: SortOptionsEnum.default },
-    { label: "A - Z", value: SortOptionsEnum.aToZ },
-    { label: "Z - A", value: SortOptionsEnum.zToA },
+    { label: "Default", value: SortTypeEnum.default },
+    { label: "A - Z", value: SortTypeEnum.aToZ },
+    { label: "Z - A", value: SortTypeEnum.zToA },
   ];
 
   return (
     <div id="translation-sort" className="flex flex-row items-center">
       <p className="mr-2 text-lg font-bold sm:text-xl"> Sort by:</p>
 
-      <Select onValueChange={(value) => setSortType(value)}>
+      <Select onValueChange={(value: SortTypeEnum) => setSortType(value)}>
         <SelectTrigger className="w-[120px]" aria-controls="radix-:R1mcq:">
           <SelectValue placeholder="Default" />
         </SelectTrigger>

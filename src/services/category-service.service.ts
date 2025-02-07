@@ -1,4 +1,4 @@
-import { ContentTypeEnum } from "../enums/ContentTypeEnum";
+import { ContentTypeEnum } from "../enums/ContentTypeEnum.enum";
 import { Category } from "../models/Category.model";
 
 export class CategoryService {

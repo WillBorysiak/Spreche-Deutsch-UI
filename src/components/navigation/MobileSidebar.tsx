@@ -1,6 +1,6 @@
 import { Transition } from "@headlessui/react";
 
-import { useSidebarStore } from "../../store/sidebar-store";
+import { useSidebarStore } from "../../store/sidebar-store.store";
 import Navigation from "../containers/Navigation";
 
 const MobileSidebar = () => {

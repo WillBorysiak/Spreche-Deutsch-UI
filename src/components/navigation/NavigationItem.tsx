@@ -1,10 +1,11 @@
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+
+import { useRouter } from "next/router";
 
 import { Transition } from "@headlessui/react";
 
 import { Category } from "../../models/Category.model";
-import { useSidebarStore } from "../../store/sidebar-store";
+import { useSidebarStore } from "../../store/sidebar-store.store";
 import SubHeading from "../generic/typography/heading/SubHeading";
 import NavigationText from "./NavigationText";
 

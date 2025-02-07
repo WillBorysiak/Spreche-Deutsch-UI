@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
 
-import PrimaryButton from "../../generic/buttons/PrimaryButton";
+import HomeButton, { ButtonTypesEnum } from "../../generic/buttons/HomeButton";
 import Paragraph from "../../generic/typography/general/Paragraph";
 import SubHeading from "../../generic/typography/heading/SubHeading";
-import SecondaryButton from "../../generic/buttons/SecondaryButton";
 
 const HomeHero = () => {
   const router = useRouter();
@@ -21,8 +20,16 @@ const HomeHero = () => {
           <Paragraph text="Ranging from words, sentences, grammar and more!" />
         </div>
         <div className="flex justify-evenly">
-          <PrimaryButton text="Learn words" onClick={primaryClick} />
-          <SecondaryButton text="Grasp concepts" onClick={secondaryClick} />
+          <HomeButton
+            text="Learn words"
+            buttonType={ButtonTypesEnum.Primary}
+            onClick={primaryClick}
+          />
+          <HomeButton
+            text="Grasp concepts"
+            buttonType={ButtonTypesEnum.Secondary}
+            onClick={secondaryClick}
+          />
         </div>
       </div>
     </section>

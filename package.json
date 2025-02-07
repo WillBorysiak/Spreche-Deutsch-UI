@@ -1,12 +1,14 @@
 {
   "name": "sprech-deutsch-ui",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "version-minor": "npm version patch --no-git-tag-version && npm install",
+    "version-major": "npm version minor --no-git-tag-version && npm install"
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^6.7.2",

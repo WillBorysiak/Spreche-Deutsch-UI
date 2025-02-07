@@ -19,7 +19,7 @@ const Category = (props: CategoryProps) => {
   return (
     <div
       id="category"
-      className="default-transition mx-auto my-0 flex h-28 w-full max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg hover:scale-105 lg:my-5"
+      className="default-transition dark:hover:shadow-white-glow hover:shadow-black-glow mx-auto my-0 flex h-28 w-full max-w-7xl cursor-pointer flex-row items-center rounded-sm bg-transparentBg lg:my-5"
       onClick={() => router.push(`/${parentRoute}/${route}`)}
     >
       <CategoryIconFactory category={name} />

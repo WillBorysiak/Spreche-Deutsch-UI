@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import { Category } from "../../models/Category.model";
-import { useSidebarStore } from "../../store/sidebar-store";
+import { useSidebarStore } from "../../store/sidebar-store.store";
 import SiteHeading from "../generic/typography/heading/SiteHeading";
 import SearchDialog from "../search/SearchDialog";
 import SidebarToggle from "./SidebarToggle";
