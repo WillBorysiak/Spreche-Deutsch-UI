@@ -1,4 +1,6 @@
-import { useLayoutEffect, useState } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 
 import { useTheme } from "next-themes";
 
@@ -11,7 +13,7 @@ const ThemeToggle = () => {
   const { resolvedTheme, setTheme } = useTheme();
 
   // hydration fix
-  useLayoutEffect(() => setMounted(true), []);
+  useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
 

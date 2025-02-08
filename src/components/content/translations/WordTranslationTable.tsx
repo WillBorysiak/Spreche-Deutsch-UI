@@ -28,7 +28,7 @@ const WordTranslationTable = (props: WordTranslationTableProps) => {
           <th className="w-1/2 border-r border-zinc-900 py-5 dark:border-zinc-200">
             <Image
               className="mx-auto"
-              src="/images/svg/uk-icon.svg"
+              src="/images/svg/flags/uk-flag.svg"
               alt="The UK flag"
               height={25}
               width={25}
@@ -36,10 +36,10 @@ const WordTranslationTable = (props: WordTranslationTableProps) => {
             <div className="mt-5" />
             <TableHeading text="English" />
           </th>
-          <th className="w-1/2  py-5">
+          <th className="w-1/2 py-5">
             <Image
               className="mx-auto"
-              src="/images/svg/germany-icon.svg"
+              src="/images/svg/flags/germany-flag.svg"
               alt="The German flag"
               height={25}
               width={25}

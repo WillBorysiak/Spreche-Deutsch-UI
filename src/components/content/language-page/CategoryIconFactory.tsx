@@ -1,6 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { getCategoryIcon } from "../../../helpers/get-category-icon";
+import Image from "next/image";
 
 interface CategoryIconFactoryProps {
   category: string;
@@ -9,14 +7,17 @@ interface CategoryIconFactoryProps {
 const CategoryIconFactory = (props: CategoryIconFactoryProps) => {
   const { category } = props;
 
-  const categoryIcon = getCategoryIcon(category);
+  const categoryLowerCase = category.toLowerCase();
+  const categoryFormatted = categoryLowerCase.replace(/ /g, "-");
+  const categoryIcon = categoryFormatted;
 
   return (
-    <FontAwesomeIcon
-      icon={categoryIcon}
-      size="5x"
-      color="white"
+    <Image
       className="ml-5"
+      src={`/images/svg/category/${categoryIcon}.svg`}
+      alt={category}
+      height={90}
+      width={90}
     />
   );
 };
