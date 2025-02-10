@@ -21,7 +21,7 @@ const SentenceTranslationTable = (props: SentenceTranslationTableProps) => {
           <th className="border-r border-zinc-900 py-5 dark:border-zinc-200">
             <Image
               className="mx-auto"
-              src="/images/svg/uk-icon.svg"
+              src="/images/svg/flags/uk-flag.svg"
               alt="The UK flag"
               height={25}
               width={25}
@@ -32,7 +32,7 @@ const SentenceTranslationTable = (props: SentenceTranslationTableProps) => {
           <th className="py-5">
             <Image
               className="mx-auto"
-              src="/images/svg/germany-icon.svg"
+              src="/images/svg/flags/germany-flag.svg"
               alt="The German flag"
               height={25}
               width={25}

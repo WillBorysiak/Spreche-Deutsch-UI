@@ -41,12 +41,13 @@ const SearchDialog = (props: SearchDialogProps) => {
       return setFilteredCategories(categories);
     }
 
-    const searchTermLower = searchTerm.toLowerCase();
-
     const filteredCategories = categories.filter((category) => {
-      const categoryTitleLower = category.name.toLowerCase();
+      const searchTermLowerCase = searchTerm.toLowerCase();
+      const categoryName = category.name.toLowerCase();
 
-      return categoryTitleLower.includes(searchTermLower);
+      const categoryMatchesSearch = categoryName.includes(searchTermLowerCase);
+
+      return categoryMatchesSearch;
     });
 
     setFilteredCategories(filteredCategories);
@@ -62,7 +63,7 @@ const SearchDialog = (props: SearchDialogProps) => {
       </DialogTrigger>
 
       <DialogContent
-        className="[&>button]:hidden"
+        className="top-1/4 w-[90vw] md:top-1/2 md:w-full [&>button]:hidden"
         onInteractOutside={() => closeDialog()}
       >
         <DialogHeader>
