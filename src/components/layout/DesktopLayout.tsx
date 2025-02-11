@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import { useRouter } from "next/router";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -6,7 +8,7 @@ import { motionVariants } from "../../helpers/framer-motion";
 import BreadcrumbNav from "../navigation/RouteNavigation";
 
 interface DesktopLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const DesktopLayout = (props: DesktopLayoutProps) => {

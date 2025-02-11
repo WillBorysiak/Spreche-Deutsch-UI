@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 
 import { useCategoriesRequest } from "../../hooks/request-hooks";
 import { useCategoriesStore } from "../../store/categories-store.store";
 
 interface PageLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const PageLayout = (props: PageLayoutProps) => {

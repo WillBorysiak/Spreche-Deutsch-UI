@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import { useRouter } from "next/router";
 
 import { classNames } from "../../helpers/class-names";
@@ -5,7 +7,7 @@ import { useSidebarStore } from "../../store/sidebar-store.store";
 import BreadcrumbNav from "../navigation/RouteNavigation";
 
 interface MobileLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const MobileLayout = (props: MobileLayoutProps) => {

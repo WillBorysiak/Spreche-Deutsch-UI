@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 import { useMediaQuery } from "react-responsive";
 
@@ -6,7 +6,7 @@ import DesktopLayout from "../layout/DesktopLayout";
 import MobileLayout from "../layout/MobileLayout";
 
 interface ContentProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const Content = (props: ContentProps) => {
