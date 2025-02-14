@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
+import { useRouter, usePathname } from "next/navigation";
 
 import { Transition } from "@headlessui/react";
 
@@ -22,9 +22,10 @@ const NavigationItem = (props: NavigationItemProps) => {
   const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
   const router = useRouter();
+  const routerPath = usePathname();
 
   const parentCategory = navigationItems?.[0]?.type;
-  const parentRoute = router.asPath.split("/")[1];
+  const parentRoute = routerPath.split("/")[1];
 
   // active parent route opens navigation and underlines
   useEffect(() => {
@@ -37,7 +38,7 @@ const NavigationItem = (props: NavigationItemProps) => {
 
     // always open for mobile
     if (mobileSidebar) setIsVisible(true);
-  }, [router.asPath, parentCategory, parentRoute, mobileSidebar]);
+  }, [parentCategory, parentRoute, mobileSidebar]);
 
   const parentNavigationClick = () => {
     closeMobileSidebar();

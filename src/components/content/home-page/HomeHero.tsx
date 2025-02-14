@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import HomeButton, { ButtonTypesEnum } from "../../generic/buttons/HomeButton";
 import Paragraph from "../../generic/typography/general/Paragraph";

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -14,7 +14,9 @@ interface DesktopLayoutProps {
 const DesktopLayout = (props: DesktopLayoutProps) => {
   const { children } = props;
 
-  const router = useRouter();
+  const routerPath = usePathname();
+
+  const notHomeRoute = routerPath !== "/";
 
   return (
     <AnimatePresence mode="wait">
@@ -23,7 +25,7 @@ const DesktopLayout = (props: DesktopLayoutProps) => {
         className="no-scrollbar mx-auto flex h-[95%] w-full max-w-8xl flex-col items-center overflow-y-auto px-5"
       >
         <motion.div
-          key={router.asPath}
+          key={routerPath}
           className="h-full w-full"
           initial="initialState"
           animate="animateState"
@@ -31,7 +33,7 @@ const DesktopLayout = (props: DesktopLayoutProps) => {
           transition={{ duration: 2 }}
           variants={motionVariants}
         >
-          {router.asPath !== "/" && <BreadcrumbNav />}
+          {notHomeRoute && <BreadcrumbNav />}
           {children}
         </motion.div>
       </section>

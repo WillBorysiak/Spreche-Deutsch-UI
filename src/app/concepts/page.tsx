@@ -1,3 +1,5 @@
+"use client";
+
 import type { NextPage } from "next";
 
 import CategoryLayout from "../../components/content/language-page/CategoryLayout";
@@ -5,25 +7,26 @@ import PageHeading from "../../components/generic/typography/heading/PageHeading
 import { ContentTypeEnum } from "../../enums/ContentTypeEnum.enum";
 import { useCategoriesStore } from "../../store/categories-store.store";
 
-const SentencesPage: NextPage = () => {
+const ConceptsPage: NextPage = () => {
   const { getCategoriesByType } = useCategoriesStore();
 
-  const sentenceCategories = getCategoriesByType("sentences");
+  const conceptCategories = getCategoriesByType("concepts");
 
-  const parentRoute = ContentTypeEnum.Sentences;
+  const parentRoute = ContentTypeEnum.Concepts;
 
   return (
-    <section id="sentences-page" className="py-3">
-      <PageHeading text="Sentences" mobile={true} />
-      <div className="mt-5">
+    <section id="concepts-page" className="py-3">
+      <PageHeading text="Concepts" mobile={true} />
+
+      <div id="category-container" className="mt-5">
         <CategoryLayout
-          categories={sentenceCategories}
+          categories={conceptCategories}
           parentRoute={parentRoute}
-          layout="grid"
+          layout="column"
         />
       </div>
     </section>
   );
 };
 
-export default SentencesPage;
+export default ConceptsPage;

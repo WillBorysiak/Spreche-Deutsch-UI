@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import { classNames } from "../../helpers/class-names";
 import { useSidebarStore } from "../../store/sidebar-store.store";
@@ -15,7 +15,9 @@ const MobileLayout = (props: MobileLayoutProps) => {
 
   const { mobileSidebar, closeMobileSidebar } = useSidebarStore();
 
-  const router = useRouter();
+  const routerPath = usePathname();
+
+  const notHomeRoute = routerPath !== "/";
 
   return (
     <section
@@ -29,7 +31,7 @@ const MobileLayout = (props: MobileLayoutProps) => {
       }}
     >
       <div className="h-full w-full">
-        {router.asPath !== "/" && <BreadcrumbNav />}
+        {notHomeRoute && <BreadcrumbNav />}
         {children}
       </div>
     </section>

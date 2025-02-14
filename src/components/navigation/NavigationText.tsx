@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
+import { useRouter, usePathname } from "next/navigation";
 
 import { useSidebarStore } from "../../store/sidebar-store.store";
 
@@ -19,10 +19,11 @@ const NavigationText = (props: NavigationTextProps) => {
   const { closeMobileSidebar } = useSidebarStore();
 
   const router = useRouter();
+  const routerPath = usePathname();
 
   // active child route underlines
   useEffect(() => {
-    const childRoute = router.asPath.split("/")[2];
+    const childRoute = routerPath.split("/")[2];
     const childText = text.toLowerCase();
 
     const isParentActive = parentCategory === parentRoute;
@@ -33,7 +34,7 @@ const NavigationText = (props: NavigationTextProps) => {
     } else {
       setUnderline(false);
     }
-  }, [router, text, parentCategory, parentRoute]);
+  }, [router, routerPath, text, parentCategory, parentRoute]);
 
   const childNavigationClick = () => {
     closeMobileSidebar();

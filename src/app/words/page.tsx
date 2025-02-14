@@ -1,3 +1,5 @@
+"use client";
+
 import type { NextPage } from "next";
 
 import CategoryLayout from "../../components/content/language-page/CategoryLayout";
@@ -15,6 +17,7 @@ const WordsPage: NextPage = () => {
   return (
     <section id="words-page" className="py-3">
       <PageHeading text="Words" mobile={true} />
+
       <div className="mt-5">
         <CategoryLayout
           categories={wordCategories}

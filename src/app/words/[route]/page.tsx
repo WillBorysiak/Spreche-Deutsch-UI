@@ -1,15 +1,17 @@
+"use client";
+
 import { useEffect } from "react";
 
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
-import TranslationTable from "../../components/content/translations/TranslationTable";
-import PageHeading from "../../components/generic/typography/heading/PageHeading";
-import { ContentTypeEnum } from "../../enums/ContentTypeEnum.enum";
-import { useCategoryRequest } from "../../hooks/request-hooks";
-import { CategoryService } from "../../services/category-service.service";
-import { useCategoriesStore } from "../../store/categories-store.store";
-import { useWordsStore } from "../../store/words-store.store";
+import TranslationTable from "../../../components/content/translations/TranslationTable";
+import PageHeading from "../../../components/generic/typography/heading/PageHeading";
+import { ContentTypeEnum } from "../../../enums/ContentTypeEnum.enum";
+import { useCategoryRequest } from "../../../hooks/request-hooks";
+import { CategoryService } from "../../../services/category-service.service";
+import { useCategoriesStore } from "../../../store/categories-store.store";
+import { useWordsStore } from "../../../store/words-store.store";
 
 const WordCategoryPage: NextPage = () => {
   const {
@@ -21,22 +23,21 @@ const WordCategoryPage: NextPage = () => {
 
   const { setWords, hasWordsCategory, getWordsByCategory } = useWordsStore();
 
-  const router = useRouter();
+  const routerPath = usePathname();
 
   // current category added to store
   useEffect(() => {
-    const route = router.asPath;
     const contentType = ContentTypeEnum.Words;
 
     const category = CategoryService.getCategoryFromRoute(
-      route,
+      routerPath,
       contentType,
       getCategoriesByType,
     );
 
     if (category) setCurrentCategory(category);
   }, [
-    router,
+    routerPath,
     categories,
     currentCategory,
     setCurrentCategory,

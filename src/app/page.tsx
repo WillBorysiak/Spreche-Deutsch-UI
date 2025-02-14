@@ -1,3 +1,5 @@
+"use client";
+
 import type { NextPage } from "next";
 
 import HomeHero from "../components/content/home-page/HomeHero";

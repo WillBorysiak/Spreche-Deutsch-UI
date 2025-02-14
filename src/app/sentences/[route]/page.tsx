@@ -1,15 +1,17 @@
+"use client";
+
 import { useEffect } from "react";
 
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
-import TranslationTable from "../../components/content/translations/TranslationTable";
-import PageHeading from "../../components/generic/typography/heading/PageHeading";
-import { ContentTypeEnum } from "../../enums/ContentTypeEnum.enum";
-import { useCategoryRequest } from "../../hooks/request-hooks";
-import { CategoryService } from "../../services/category-service.service";
-import { useCategoriesStore } from "../../store/categories-store.store";
-import { useSentencesStore } from "../../store/sentences-store.store";
+import TranslationTable from "../../../components/content/translations/TranslationTable";
+import PageHeading from "../../../components/generic/typography/heading/PageHeading";
+import { ContentTypeEnum } from "../../../enums/ContentTypeEnum.enum";
+import { useCategoryRequest } from "../../../hooks/request-hooks";
+import { CategoryService } from "../../../services/category-service.service";
+import { useCategoriesStore } from "../../../store/categories-store.store";
+import { useSentencesStore } from "../../../store/sentences-store.store";
 
 const SentenceCategoryPage: NextPage = () => {
   const {
@@ -22,22 +24,21 @@ const SentenceCategoryPage: NextPage = () => {
   const { setSentences, hasSentencesCategory, getSentencesByCategory } =
     useSentencesStore();
 
-  const router = useRouter();
+  const routerPath = usePathname();
 
   // current category added to store
   useEffect(() => {
-    const route = router.asPath;
     const contentType = ContentTypeEnum.Sentences;
 
     const category = CategoryService.getCategoryFromRoute(
-      route,
+      routerPath,
       contentType,
       getCategoriesByType,
     );
 
     if (category) setCurrentCategory(category);
   }, [
-    router,
+    routerPath,
     categories,
     currentCategory,
     setCurrentCategory,

@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import { HeadingHelper } from "../../helpers/heading-helper";
 import { Category } from "../../models/Category.model";
@@ -13,8 +13,7 @@ interface DesktopHeaderProps {
 const DesktopHeader = (props: DesktopHeaderProps) => {
   const { categories } = props;
 
-  const router = useRouter();
-  const routerPath = router.asPath;
+  const routerPath = usePathname();
 
   const desktopHeading = HeadingHelper.getDesktopHeading(routerPath);
 

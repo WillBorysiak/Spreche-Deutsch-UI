@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import { Category } from "../../models/Category.model";
 import { useSidebarStore } from "../../store/sidebar-store.store";

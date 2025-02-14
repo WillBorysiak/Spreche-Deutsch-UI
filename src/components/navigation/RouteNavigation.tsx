@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import { faChevronRight, faHome } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RouteNavigation = () => {
-  const router = useRouter();
+  const routerPath = usePathname();
 
-  const path = router.asPath.replace(/^\/+/g, "");
+  const path = routerPath.replace(/^\/+/g, "");
   const segments = path.split("/");
   const breadcrumbs = segments.map((segment, idx) => {
     const segmentName = segment.replace(/-/g, " ");

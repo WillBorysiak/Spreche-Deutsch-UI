@@ -1,13 +1,16 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface SidebarStore {
-	mobileSidebar: boolean;
-	closeMobileSidebar: () => void;
-	toggleMobileSidebar: () => void;
+  mobileSidebar: boolean;
+
+  closeMobileSidebar: () => void;
+  toggleMobileSidebar: () => void;
 }
 
-export const useSidebarStore = create<SidebarStore>(set => ({
-	mobileSidebar: false,
-	closeMobileSidebar: () => set({ mobileSidebar: false }),
-	toggleMobileSidebar: () => set(state => ({ mobileSidebar: !state.mobileSidebar })),
+export const useSidebarStore = create<SidebarStore>((set) => ({
+  mobileSidebar: false,
+
+  closeMobileSidebar: () => set({ mobileSidebar: false }),
+  toggleMobileSidebar: () =>
+    set((state) => ({ mobileSidebar: !state.mobileSidebar })),
 }));
