@@ -6,4 +6,14 @@ export class HeadingHelper {
 
     return routeStrSpaces.charAt(0).toUpperCase() + routeStrSpaces.slice(1);
   }
+
+  static getNavigationSubHeading(text: string | undefined) {
+    let headingText = text;
+
+    if (headingText?.includes("-")) {
+      headingText = headingText.replace(/-/g, " ");
+    }
+
+    return headingText;
+  }
 }

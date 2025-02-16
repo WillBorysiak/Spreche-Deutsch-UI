@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { Transition } from "@headlessui/react";
 
+import { ContentTypeEnum } from "../../enums/ContentTypeEnum.enum";
 import { Category } from "../../models/Category.model";
 import { useSidebarStore } from "../../store/sidebar-store.store";
-import SubHeading from "../generic/typography/heading/SubHeading";
+import NavigationHeading from "./NavigationHeading";
 import NavigationText from "./NavigationText";
 
 interface NavigationItemProps {
   navigationItems: Category[];
+  parentCategory: ContentTypeEnum;
 }
 
 const NavigationItem = (props: NavigationItemProps) => {
-  const { navigationItems } = props;
+  const { navigationItems, parentCategory } = props;
 
   const [isVisible, setIsVisible] = useState(false);
   const [underlineHeading, setUnderlineHeading] = useState<boolean>();
@@ -24,15 +26,16 @@ const NavigationItem = (props: NavigationItemProps) => {
   const router = useRouter();
   const routerPath = usePathname();
 
-  const parentCategory = navigationItems?.[0]?.type;
-  const parentRoute = routerPath.split("/")[1];
+  const parentRoute = routerPath.split("/").at(1)!;
 
   // active parent route opens navigation and underlines
   useEffect(() => {
-    if (parentRoute === parentCategory) {
+    const routeMatchesCategory = parentRoute === parentCategory;
+
+    if (routeMatchesCategory) {
       setIsVisible(true);
       setUnderlineHeading(true);
-    } else if (parentRoute !== parentCategory) {
+    } else if (!routeMatchesCategory) {
       setUnderlineHeading(false);
     }
 
@@ -40,7 +43,7 @@ const NavigationItem = (props: NavigationItemProps) => {
     if (mobileSidebar) setIsVisible(true);
   }, [parentCategory, parentRoute, mobileSidebar]);
 
-  const parentNavigationClick = () => {
+  const clickParentNavigation = () => {
     closeMobileSidebar();
     router.push(`/${parentCategory}`);
   };
@@ -49,9 +52,12 @@ const NavigationItem = (props: NavigationItemProps) => {
     <div id="navigation-item" className="mb-10">
       <div
         className="mb-5 w-fit cursor-pointer hover:underline hover:decoration-2 hover:underline-offset-4"
-        onClick={() => parentNavigationClick()}
+        onClick={() => clickParentNavigation()}
       >
-        <SubHeading text={parentCategory} underlineHeading={underlineHeading} />
+        <NavigationHeading
+          heading={parentCategory}
+          underlineHeading={underlineHeading}
+        />
       </div>
 
       {navigationItems.map((item, index) => (

@@ -26,6 +26,7 @@ const Navigation = () => {
       variants={motionVariants}
     >
       <span
+        id="desktop-site-heading"
         className="mb-10 hidden cursor-pointer text-center lg:block"
         onClick={() => router.push("/")}
       >
@@ -39,12 +40,15 @@ const Navigation = () => {
         >
           <NavigationItem
             navigationItems={getCategoriesByType(ContentTypeEnum.Words)}
+            parentCategory={ContentTypeEnum.Words}
           />
           <NavigationItem
             navigationItems={getCategoriesByType(ContentTypeEnum.Sentences)}
+            parentCategory={ContentTypeEnum.Sentences}
           />
           <NavigationItem
             navigationItems={getCategoriesByType(ContentTypeEnum.Concepts)}
+            parentCategory={ContentTypeEnum.Concepts}
           />
         </div>
       )}

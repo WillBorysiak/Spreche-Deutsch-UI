@@ -23,20 +23,21 @@ const NavigationText = (props: NavigationTextProps) => {
 
   // active child route underlines
   useEffect(() => {
-    const childRoute = routerPath.split("/")[2];
+    const childRoute = routerPath.split("/").at(2);
     const childText = text.toLowerCase();
 
     const isParentActive = parentCategory === parentRoute;
     const isChildActive = childRoute === childText;
+    const isChildAndParentActive = isParentActive && isChildActive;
 
-    if (isParentActive && isChildActive) {
+    if (isChildAndParentActive) {
       setUnderline(true);
     } else {
       setUnderline(false);
     }
-  }, [router, routerPath, text, parentCategory, parentRoute]);
+  }, [routerPath, text, parentCategory, parentRoute]);
 
-  const childNavigationClick = () => {
+  const clickChildNavigation = () => {
     closeMobileSidebar();
     router.push(`/${parentCategory}/${childRoute}`);
   };
@@ -44,8 +45,8 @@ const NavigationText = (props: NavigationTextProps) => {
   return (
     <li className="mb-3 text-lg sm:text-xl">
       <span
-        className={`cursor-pointer decoration-2 hover:underline hover:underline-offset-4 ${underline ? "underline underline-offset-4" : ""}`}
-        onClick={() => childNavigationClick()}
+        className={`cursor-pointer decoration-2 hover:underline hover:underline-offset-4 ${underline && "underline underline-offset-4"}`}
+        onClick={() => clickChildNavigation()}
       >
         {text}
       </span>

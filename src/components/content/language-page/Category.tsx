@@ -27,7 +27,7 @@ const Category = (props: CategoryProps) => {
       <CategoryIconFactory category={name} />
 
       <div className="flex w-full justify-center text-center">
-        <SubHeading text={name} />
+        <SubHeading heading={name} />
       </div>
     </div>
   );
