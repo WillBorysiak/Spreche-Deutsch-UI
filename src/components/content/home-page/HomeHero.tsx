@@ -13,7 +13,7 @@ const HomeHero = () => {
   return (
     <section id="home-hero" className="my-10 px-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
-        <SubHeading text="Welcome to your German learning resource!" />
+        <SubHeading heading="Welcome to your German learning resource!" />
         <div className="mb-5 mt-5">
           <Paragraph text="Spreche Deutsch is designed to help you learn the German language." />
           <div className="mb-5" />

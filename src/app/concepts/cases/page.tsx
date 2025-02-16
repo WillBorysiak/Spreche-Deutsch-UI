@@ -6,7 +6,7 @@ const CasesPage: NextPage = () => {
   return (
     <section id="cases-page" className="flex justify-center">
       <div className="mt-10">
-        <SubHeading text="Coming Soon..." />
+        <SubHeading heading="Coming Soon..." />
       </div>
     </section>
   );

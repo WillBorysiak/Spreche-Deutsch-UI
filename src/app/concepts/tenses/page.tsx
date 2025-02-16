@@ -6,7 +6,7 @@ const TensesPage: NextPage = () => {
   return (
     <section id="tenses-page" className="flex flex-col items-center">
       <div className="mt-10">
-        <SubHeading text="Coming Soon..." />
+        <SubHeading heading="Coming Soon..." />
       </div>
     </section>
   );

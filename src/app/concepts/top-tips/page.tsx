@@ -6,7 +6,7 @@ const TopTipsPage: NextPage = () => {
   return (
     <section id="top-tips-page" className="flex flex-col items-center">
       <div className="mt-10">
-        <SubHeading text="Coming Soon..." />
+        <SubHeading heading="Coming Soon..." />
       </div>
     </section>
   );
