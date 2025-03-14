@@ -29,7 +29,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={rosario.className}>
-        <ThemeProvider enableSystem={true} attribute="class">
+        <ThemeProvider
+          enableSystem={true}
+          attribute="class"
+          defaultTheme="dark"
+        >
           <PageLayout>
             <DesktopSidebar />
             <MainLayout>
