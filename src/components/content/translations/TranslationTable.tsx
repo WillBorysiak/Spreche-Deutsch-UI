@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 
 import { ContentTypeEnum } from "../../../enums/ContentTypeEnum.enum";
 import { SortTypeEnum } from "../../../enums/SortTypeEnum.enum";
-import { TranslationService } from "../../../services/translation-service.service";
+import { AbstractTranslation } from "../../../models/AbstractTranslation.model";
 import { Sentence } from "../../../models/Sentence.model";
 import { Word } from "../../../models/Word.model";
+import { TranslationService } from "../../../services/translation-service.service";
 import SentenceTranslationTable from "./SentenceTranslationTable";
 import TranslationSearch from "./TranslationSearch";
 import TranslationSort from "./TranslationSort";
 import WordTranslationTable from "./WordTranslationTable";
 
 interface TranslationTableProps {
-  translations: Word[] | Sentence[] | [];
+  translations: AbstractTranslation[] | [];
   type: ContentTypeEnum | undefined;
 }
 
@@ -21,7 +22,7 @@ const TranslationTable = (props: TranslationTableProps) => {
   const [sortType, setSortType] = useState<SortTypeEnum>(SortTypeEnum.default);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortedTranslations, setSortedTranslations] = useState<
-    Word[] | Sentence[]
+    AbstractTranslation[]
   >([]);
 
   useEffect(() => {

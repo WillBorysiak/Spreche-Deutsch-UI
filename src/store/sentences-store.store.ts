@@ -1,7 +1,8 @@
 import { create } from "zustand";
 
-import { Sentence } from "../models/Sentence.model";
+import { IAbstractTranslation } from "../interfaces/IAbstractTranslation.interface";
 import { ISentence } from "../interfaces/ISentence.interface";
+import { Sentence } from "../models/Sentence.model";
 
 interface SentencesCategoryMap {
   [category: string]: Sentence[];
@@ -10,7 +11,7 @@ interface SentencesCategoryMap {
 interface SentencesStore {
   sentences: { [category: string]: Sentence[] };
 
-  setSentences: (sentences: ISentence[]) => void;
+  setSentences: (translations: IAbstractTranslation[]) => void;
 
   hasSentences: () => boolean;
   hasSentencesCategory: (category: string) => boolean;
@@ -21,8 +22,10 @@ interface SentencesStore {
 export const useSentencesStore = create<SentencesStore>((set, get) => ({
   sentences: {},
 
-  setSentences: (sentences: ISentence[]) => {
+  setSentences: (translations: IAbstractTranslation[]) => {
     const sentencesCategoryMap: SentencesCategoryMap = {};
+
+    const sentences = translations as ISentence[];
 
     sentences.forEach((item: ISentence) => {
       const category = item.category;

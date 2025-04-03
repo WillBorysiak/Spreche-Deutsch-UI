@@ -30,7 +30,8 @@
     "src/components/containers",
     "src/helpers",
     "src/hooks",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/interfaces"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,13 +1,12 @@
 import { SortTypeEnum } from "../enums/SortTypeEnum.enum";
-import { Sentence } from "../models/Sentence.model";
-import { Word } from "../models/Word.model";
+import { AbstractTranslation } from "../models/AbstractTranslation.model";
 
 export class TranslationService {
   static searchAndSortTranslations(
-    translations: Word[] | Sentence[],
+    translations: AbstractTranslation[],
     sortType: SortTypeEnum,
     searchTerm: string,
-  ): Word[] | Sentence[] {
+  ): AbstractTranslation[] {
     const clonedTranslations = [...translations];
 
     // search

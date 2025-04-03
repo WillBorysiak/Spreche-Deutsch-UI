@@ -1,17 +1,16 @@
+import { ContentTypeEnum } from "../enums/ContentTypeEnum.enum";
 import { IWord } from "../interfaces/IWord.interface";
+import { AbstractTranslation } from "./AbstractTranslation.model";
 
-export class Word {
-  index: number;
-  german: string;
-  english: string;
-  category: string;
+export class Word extends AbstractTranslation {
   gender: string;
 
-  constructor(data: IWord) {
-    this.index = data.index;
-    this.german = data.german;
-    this.english = data.english;
-    this.category = data.category;
-    this.gender = data.gender;
+  constructor(translation: IWord) {
+    super(translation);
+    this.gender = translation.gender;
+  }
+
+  getType(): ContentTypeEnum {
+    return ContentTypeEnum.Words;
   }
 }

@@ -1,6 +1,3 @@
-export interface ISentence {
-  index: number;
-  german: string;
-  english: string;
-  category: string;
-}
+import { IAbstractTranslation } from "./IAbstractTranslation.interface";
+
+export interface ISentence extends IAbstractTranslation {}

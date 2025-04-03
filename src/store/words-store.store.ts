@@ -1,7 +1,8 @@
 import { create } from "zustand";
 
-import { Word } from "../models/Word.model";
+import { IAbstractTranslation } from "../interfaces/IAbstractTranslation.interface";
 import { IWord } from "../interfaces/IWord.interface";
+import { Word } from "../models/Word.model";
 
 interface WordCategoryMap {
   [category: string]: Word[];
@@ -10,7 +11,7 @@ interface WordCategoryMap {
 interface WordsStore {
   words: { [category: string]: Word[] };
 
-  setWords: (words: IWord[]) => void;
+  setWords: (translations: IAbstractTranslation[]) => void;
 
   hasWords: () => boolean;
   hasWordsCategory: (category: string) => boolean;
@@ -21,10 +22,12 @@ interface WordsStore {
 export const useWordsStore = create<WordsStore>((set, get) => ({
   words: {},
 
-  setWords: (words: IWord[]) => {
+  setWords: (translations: IAbstractTranslation[]) => {
     const wordsCategoryMap: WordCategoryMap = {};
 
-    words.forEach((item: IWord) => {
+    const words = translations as IWord[];
+
+    words.forEach((item) => {
       const category = item.category;
 
       if (!wordsCategoryMap[category]) {

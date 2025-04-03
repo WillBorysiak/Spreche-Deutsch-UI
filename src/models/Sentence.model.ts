@@ -1,15 +1,13 @@
+import { ContentTypeEnum } from "../enums/ContentTypeEnum.enum";
 import { ISentence } from "../interfaces/ISentence.interface";
+import { AbstractTranslation } from "./AbstractTranslation.model";
 
-export class Sentence {
-  index: number;
-  german: string;
-  english: string;
-  category: string;
+export class Sentence extends AbstractTranslation {
+  constructor(translation: ISentence) {
+    super(translation);
+  }
 
-  constructor(data: ISentence) {
-    this.index = data.index;
-    this.german = data.german;
-    this.english = data.english;
-    this.category = data.category;
+  getType(): ContentTypeEnum {
+    return ContentTypeEnum.Sentences;
   }
 }
